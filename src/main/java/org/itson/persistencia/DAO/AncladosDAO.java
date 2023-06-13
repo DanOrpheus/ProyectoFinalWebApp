@@ -7,41 +7,49 @@ package org.itson.persistencia.DAO;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.util.List;
-import org.itson.dominio.Admin;
+import org.bson.Document;
+import org.bson.types.ObjectId;
+import org.itson.dominio.Anclado;
 import org.itson.persistencia.ConexionMongoDB;
-import org.itson.persistencia.Interfaces.IAdminsDAO;
+import org.itson.persistencia.Interfaces.IAncladosDAO;
 /**
  *
- * @author Victor, Victoria, Daniel y Nadia
- * @version IDE 18
+ * @author Dan Gutiérrez
  */
-public class AdminsDAO implements IAdminsDAO{
-    //ATRIBUTOS
+public class AncladosDAO implements IAncladosDAO { 
     private ConexionMongoDB conexion;
     private MongoDatabase baseDatos;
-   
-    // CONSTRUCTORES
-    /**
-     * Constructor que inicializa una conexión a la base de datos
-     */
-    public AdminsDAO() {
+    
+    public AncladosDAO(){
         ConexionMongoDB conexion = ConexionMongoDB.instance();
         baseDatos = conexion.getBaseDatos();
     }
 
+    // MÉTODOS
+    /**
+     * Método que agrega un objeto de tipo Post
+     * @param post Objeto a agregar
+     * @return El objeto Post agregado
+     */
     @Override
-    public Admin agregar(Admin admin) {
+    public Anclado agregar(Anclado anclado) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Admin eliminar(Admin admin) {
+    public Anclado modificar(Anclado anclado) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public List<Admin> consultarAdmins() {
+    public Anclado eliminar(Anclado anclado) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public List<Anclado> consultarPosts() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     
 }

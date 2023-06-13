@@ -43,10 +43,10 @@ public class Municipio {
         this.nombre = nombre;
     }
 
+    // GETTERS Y SETTERS
     public ObjectId getId() {
         return id;
     }
-    // GETTERS Y SETTERS
     public void setId(ObjectId id) {
         this.id = id;
     }

@@ -3,27 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package org.itson.dominio;
-
+import org.bson.types.ObjectId;
 /**
  * @author Victor, Victoria, Daniel y Nadia
  * @version IDE 17
  */
 public class Municipio {
-    private int id;
+    private ObjectId id;
     private String nombre;
 
     // Constructor
-    public Municipio(int id, String nombre) {
+    public Municipio(ObjectId id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
     // Métodos getters y setters
-    public int getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 

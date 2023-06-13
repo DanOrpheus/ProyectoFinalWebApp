@@ -28,5 +28,5 @@ public interface IAdminsDAO {
      * Método que crea una lista con todos los objetos Admin creados
      * @return La lista de objetos Admin
      */
-    public List<Admin> consultarAdmors();
+    public List<Admin> consultarAdmins();
 }

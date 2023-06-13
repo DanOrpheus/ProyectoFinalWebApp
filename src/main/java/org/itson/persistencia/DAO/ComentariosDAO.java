@@ -7,6 +7,8 @@ package org.itson.persistencia.DAO;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -48,12 +50,31 @@ public class ComentariosDAO implements IComentariosDAO {
     
     @Override
     public Comentario eliminar(Comentario comentario) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+        MongoCollection<Document> collection
+                = baseDatos.getCollection("comentarios");
+        Document query = new Document("_id", comentario.getId());
+        collection.deleteOne(query);
+        return comentario;
+         }
 
     @Override
     public List<Comentario> consultarComentarios() {
-        throw new UnsupportedOperationException("Not supported yet.");
+           MongoCollection<Document> collection
+                = baseDatos.getCollection("comentarios");
+        List<Comentario> comentarios = new ArrayList<>();
+
+        for (Document doc : collection.find()) {
+            ObjectId id = doc.getObjectId("_id");
+            String contenido = doc.getString("contenido");
+            Object fechaHoraObj = doc.get("fechaHora");
+            // Suponiendo que el campo "fechaHora" se almacena como un Date en MongoDB
+            Date fechaHora = (Date) fechaHoraObj;
+
+            Comentario comentario = new Comentario(id, fechaHora, contenido);
+            comentarios.add(comentario);
+        }
+
+        return comentarios;
     }
 }
 

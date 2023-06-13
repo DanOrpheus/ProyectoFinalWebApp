@@ -39,7 +39,7 @@ public class PostsDAO implements IPostsDAO {
      */
     @Override
     public Post agregar(Post post) {
-                // Obtener la colección "posts" de la base de datos
+        // Obtener la colección "posts" de la base de datos
         MongoCollection<Document> collection = 
                 baseDatos.getCollection("posts");
         // Crear un nuevo documento para el post

@@ -9,28 +9,28 @@ import com.mongodb.client.MongoDatabase;
 import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-import org.itson.dominio.Post;
+import org.itson.dominio.Estado;
 import org.itson.persistencia.ConexionMongoDB;
-import org.itson.persistencia.Interfaces.IPostsDAO;
+import org.itson.persistencia.Interfaces.IEstadosDAO;
 
 /**
  * @author Victor, Victoria, Daniel y Nadia
- * @version IDE 17
+ * @version IDE 18
  */
-public class PostsDAO implements IPostsDAO {
-    // ATRIBUTOS
+public class EstadosDAO implements IEstadosDAO {
+    //Atributos
     private ConexionMongoDB conexion;
     private MongoDatabase baseDatos;
-
+    
     // CONSTRUCTORES
     /**
      * Constructor que inicializa una conexión a la base de datos
      */
-    public PostsDAO() {
+    public EstadosDAO(){
         ConexionMongoDB conexion = ConexionMongoDB.instance();
         baseDatos = conexion.getBaseDatos();
     }
-    
+
     // MÉTODOS
     /**
      * Método que agrega un objeto de tipo Post
@@ -38,47 +38,31 @@ public class PostsDAO implements IPostsDAO {
      * @return El objeto Post agregado
      */
     @Override
-    public Post agregar(Post post) {
-        // Obtener la colección "posts" de la base de datos
+    public Estado agregar(Estado estado) {
+        // Obtener la colección "estados" de la base de datos
         MongoCollection<Document> collection = 
-                baseDatos.getCollection("posts");
+                baseDatos.getCollection("estados");
         // Crear un nuevo documento para el post
-        Document docPost = new Document();
-        docPost.append("_id", new ObjectId());
-        docPost.append("fechaHoraCreacion", post.getFechaHoraCreacion());
-        docPost.append("titulo", post.getTitulo());
-        docPost.append("contenido", post.getContenido());
-        docPost.append("fechaHoraEdicion", post.getFechaHoraEdicion());
+        Document docEstado = new Document();
+        docEstado.append("_id", new ObjectId());
+        docEstado.append("nombre", estado.getNombre());
         // Insertar el documento en la colección
-        collection.insertOne(docPost);
+        collection.insertOne(docEstado);
         // Establecer el id generado en el objeto usuario
-        post.setId(docPost.getObjectId("_id"));
-        return post;
+        estado.setId(docEstado.getObjectId("_id"));
+        return estado;
     }
-    /**
-     * Método que modifica un objeto de tipo Post
-     * @param post Objeto a modificar
-     * @return El objeto Post modificado
-     */
-    @Override
-    public Post modificar(Post post) {
+
+    public Estado modificar(Estado estado) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    /**
-     * Método que elimina un objeto de tipo Post
-     * @param post Objeto a eliminar
-     * @return El objeto Post eliminado
-     */
     @Override
-    public Post eliminar(Post post) {
+    public Estado eliminar(Estado estado) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    /**
-     * Método que crea una lista con todos los objetos Post creados
-     * @return La lista de objetos Post
-     */
+
     @Override
-    public List<Post> consultarPosts() {
+    public List<Estado> consultarEstados() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

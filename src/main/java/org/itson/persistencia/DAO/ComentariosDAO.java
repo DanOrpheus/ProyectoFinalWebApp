@@ -16,6 +16,10 @@ import org.itson.dominio.Comentario;
 import org.itson.persistencia.ConexionMongoDB;
 import org.itson.persistencia.Interfaces.IComentariosDAO;
 
+/**
+ * @author Victor, Victoria, Daniel y Nadia
+ * @version IDE 17
+ */
 public class ComentariosDAO implements IComentariosDAO {
    
     private ConexionMongoDB conexion;

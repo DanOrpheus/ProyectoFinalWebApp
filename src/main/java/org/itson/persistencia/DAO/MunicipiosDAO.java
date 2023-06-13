@@ -9,23 +9,28 @@ import com.mongodb.client.MongoDatabase;
 import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-import org.itson.dominio.Anclado;
+import org.itson.dominio.Municipio;
 import org.itson.persistencia.ConexionMongoDB;
-import org.itson.persistencia.Interfaces.IAncladosDAO;
+import org.itson.persistencia.Interfaces.IMunicipiosDAO;
+
 /**
- *
  * @author Victor, Victoria, Daniel y Nadia
  * @version IDE 18
  */
-public class AncladosDAO implements IAncladosDAO { 
+public class MunicipiosDAO implements IMunicipiosDAO {
+    //atributos
     private ConexionMongoDB conexion;
     private MongoDatabase baseDatos;
     
-    public AncladosDAO(){
+    // CONSTRUCTORES
+    /**
+     * Constructor que inicializa una conexión a la base de datos
+     */
+    public MunicipiosDAO() {
         ConexionMongoDB conexion = ConexionMongoDB.instance();
         baseDatos = conexion.getBaseDatos();
     }
-
+    
     // MÉTODOS
     /**
      * Método que agrega un objeto de tipo Post
@@ -33,24 +38,32 @@ public class AncladosDAO implements IAncladosDAO {
      * @return El objeto Post agregado
      */
     @Override
-    public Anclado agregar(Anclado anclado) {
+    public Municipio agregar(Municipio municipio) {
+        // Obtener la colección "municipios" de la base de datos
+        MongoCollection<Document> collection = 
+                baseDatos.getCollection("municipios");
+        // Crear un nuevo documento para el post
+        Document docMunicipio = new Document();
+        docMunicipio.append("_id", new ObjectId());
+        docMunicipio.append("nombre", municipio.getNombre());
+        // Insertar el documento en la colección
+        collection.insertOne(docMunicipio);
+        // Establecer el id generado en el objeto usuario
+        municipio.setId(docMunicipio.getObjectId("_id"));
+        return municipio;
+    }
+
+    public Municipio modificar(Municipio municipio) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    @Override
+    public Municipio eliminar(Municipio municipio) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Anclado modificar(Anclado anclado) {
+    public List<Municipio> consultarMunicipios() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-    @Override
-    public Anclado eliminar(Anclado anclado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Anclado> consultarPosts() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
     
 }

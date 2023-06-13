@@ -9,23 +9,28 @@ import com.mongodb.client.MongoDatabase;
 import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-import org.itson.dominio.Anclado;
+import org.itson.dominio.Comun;
 import org.itson.persistencia.ConexionMongoDB;
-import org.itson.persistencia.Interfaces.IAncladosDAO;
+import org.itson.persistencia.Interfaces.IComunesDAO;
+
 /**
- *
  * @author Victor, Victoria, Daniel y Nadia
  * @version IDE 18
  */
-public class AncladosDAO implements IAncladosDAO { 
+public class ComunesDAO implements IComunesDAO {
+    //Atributos
     private ConexionMongoDB conexion;
     private MongoDatabase baseDatos;
     
-    public AncladosDAO(){
+    // CONSTRUCTORES
+    /**
+     * Constructor que inicializa una conexión a la base de datos
+     */
+    public ComunesDAO(){
         ConexionMongoDB conexion = ConexionMongoDB.instance();
         baseDatos = conexion.getBaseDatos();
     }
-
+    
     // MÉTODOS
     /**
      * Método que agrega un objeto de tipo Post
@@ -33,22 +38,17 @@ public class AncladosDAO implements IAncladosDAO {
      * @return El objeto Post agregado
      */
     @Override
-    public Anclado agregar(Anclado anclado) {
+    public Comun agregar(Comun comun) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Anclado modificar(Anclado anclado) {
+    public Comun eliminar(Comun comun) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Anclado eliminar(Anclado anclado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Anclado> consultarPosts() {
+    public List<Comun> consultarComunes() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

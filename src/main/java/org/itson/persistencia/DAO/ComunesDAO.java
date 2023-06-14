@@ -41,19 +41,19 @@ public class ComunesDAO implements IComunesDAO {
      */
     @Override
     public Comun agregar(Comun comun) {
-        // Obtener la colección "comunes" de la base de datos
+      
         MongoCollection<Document> collection = 
                 baseDatos.getCollection("comunes");
-        // Crear un nuevo documento para el comun
+        
         Document docComun = new Document();
         docComun.append("_id", new ObjectId());
         docComun.append("fechaHoraCreacion", comun.getFechaHoraCreacion());
         docComun.append("titulo", comun.getTitulo());
         docComun.append("contenido", comun.getContenido());
         docComun.append("fechaHoraEdicion", comun.getFechaHoraEdicion());
-        // Insertar el documento en la colección
+       
         collection.insertOne(docComun);
-        // Establecer el id generado en el objeto comun
+ 
         comun.setId(docComun.getObjectId("_id"));
         return comun;
     }
@@ -64,7 +64,20 @@ public class ComunesDAO implements IComunesDAO {
      */
     @Override
     public Comun modificar(Comun comun) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+     MongoCollection<Document> collection = baseDatos.getCollection("comunes");
+        Document filtro = new Document("_id", new ObjectId(comun.getId()));
+        Document nuevosValores = new Document();
+        nuevosValores.append("fechaHoraCreacion", comun.getFechaHoraCreacion());
+        nuevosValores.append("titulo", comun.getTitulo());
+        nuevosValores.append("contenido", comun.getContenido());
+        nuevosValores.append("fechaHoraEdicion", comun.getFechaHoraEdicion());
+
+        collection.updateOne(filtro, new Document("$set", nuevosValores));
+
+        return comun;
+
+
     }
     /**
      * Método que elimina un objeto de tipo Comun

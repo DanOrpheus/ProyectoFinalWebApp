@@ -4,11 +4,14 @@
  */
 package org.itson.persistencia.DAO;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
+import org.itson.dominio.Estado;
 import org.itson.dominio.Municipio;
 import org.itson.persistencia.ConexionMongoDB;
 import org.itson.persistencia.Interfaces.IMunicipiosDAO;
@@ -33,37 +36,61 @@ public class MunicipiosDAO implements IMunicipiosDAO {
     
     // MÉTODOS
     /**
-     * Método que agrega un objeto de tipo Post
-     * @param post Objeto a agregar
-     * @return El objeto Post agregado
+     * Método que agrega un objeto de tipo Municipio
+     * @param municipio Objeto a agregar
+     * @return El objeto Municipio agregado
      */
     @Override
     public Municipio agregar(Municipio municipio) {
         // Obtener la colección "municipios" de la base de datos
         MongoCollection<Document> collection = 
                 baseDatos.getCollection("municipios");
-        // Crear un nuevo documento para el post
+        // Crear un nuevo documento para el municipio
         Document docMunicipio = new Document();
         docMunicipio.append("_id", new ObjectId());
         docMunicipio.append("nombre", municipio.getNombre());
+        docMunicipio.append("estado", municipio.getEstado());
         // Insertar el documento en la colección
         collection.insertOne(docMunicipio);
-        // Establecer el id generado en el objeto usuario
+        // Establecer el id generado en el objeto municipio
         municipio.setId(docMunicipio.getObjectId("_id"));
         return municipio;
     }
-
-    public Municipio modificar(Municipio municipio) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    /**
+     * Método que elimina un objeto de tipo Municipio
+     * @param municipio Objeto a eliminar
+     * @return El objeto Municipio eliminado
+     */
     @Override
     public Municipio eliminar(Municipio municipio) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // Obtener la colección donde se guardan los municipios
+        MongoCollection<Document> collection = 
+                baseDatos.getCollection("municipios");
+        // Crear un filtro para encontrar el municipio por su ID
+        Document filtro = new Document("nombre", 
+                municipio.getNombre());
+        // Eliminar el municipio de la colección
+        collection.deleteOne(filtro);
+        // Devolver el municipio eliminada
+        return municipio;
     }
-
+    /**
+     * Método que crea una lista con todos los objetos Municipio creados
+     * @return La lista de objetos Municipio
+     */
     @Override
     public List<Municipio> consultarMunicipios() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Municipio> municipios = new ArrayList<>();
+        MongoCollection<Document> collection = 
+                baseDatos.getCollection("municipios");
+        FindIterable<Document> documentos = collection.find();
+        for (Document documento : documentos) {
+            Municipio municipio = new Municipio();
+            municipio.setId(documento.getObjectId("_id"));
+            municipio.setNombre(documento.getString("nombre"));
+            municipio.setEstado(documento.get("estado", Estado.class));
+            municipios.add(municipio);
+        }
+        return municipios;
     }
-    
 }

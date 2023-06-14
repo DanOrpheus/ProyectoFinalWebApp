@@ -19,6 +19,12 @@ public interface IComunesDAO {
      */
     public Comun agregar(Comun comun);
     /**
+     * Método que modifica un objeto de tipo Comun
+     * @param comun Objeto a modificar
+     * @return El objeto Comun modificado
+     */
+    public Comun modificar(Comun comun);
+    /**
      * Método que elimina un objeto de tipo Comun
      * @param comun Objeto a eliminar
      * @return El objeto Comun eliminado

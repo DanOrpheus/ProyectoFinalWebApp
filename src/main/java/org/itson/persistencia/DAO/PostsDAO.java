@@ -64,7 +64,18 @@ public class PostsDAO implements IPostsDAO {
      */
     @Override
     public Post modificar(Post post) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    MongoCollection<Document> collection = baseDatos.getCollection("posts");
+    Document filtro = new Document("_id", post.getId());
+    
+    Document update = new Document();
+    update.append("$set", new Document("fechaHoraCreacion", post.getFechaHoraCreacion())
+                                .append("titulo", post.getTitulo())
+                                .append("contenido", post.getContenido())
+                                .append("fechaHoraEdicion", post.getFechaHoraEdicion()));
+    
+    collection.updateOne(filtro, update);
+    
+    return post;
     }
     /**
      * Método que elimina un objeto de tipo Post
@@ -106,4 +117,5 @@ public class PostsDAO implements IPostsDAO {
         }
         return posts;
     }
+    
 }

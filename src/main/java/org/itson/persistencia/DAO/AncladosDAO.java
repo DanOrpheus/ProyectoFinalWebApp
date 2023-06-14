@@ -64,8 +64,16 @@ public class AncladosDAO implements IAncladosDAO {
      */
     @Override
     public Anclado modificar(Anclado anclado) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+       MongoCollection<Document> collection = baseDatos.getCollection("anclados");
+    Document filtro = new Document("_id", anclado.getId());
+    Document nuevosValores = new Document();
+    nuevosValores.append("titulo", anclado.getTitulo());
+    nuevosValores.append("contenido", anclado.getContenido());
+    nuevosValores.append("fechaHoraEdicion", anclado.getFechaHoraEdicion());
+    UpdateOptions opciones = new UpdateOptions().upsert(true);
+    collection.updateOne(filtro, new Document("$set", nuevosValores), opciones);
+    
+    return anclado;}
     /**
      * Método que elimina un objeto de tipo Anclado
      * @param anclado Objeto a eliminar

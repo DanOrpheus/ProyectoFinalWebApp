@@ -65,7 +65,7 @@ public class PostsDAO implements IPostsDAO {
     @Override
     public Post modificar(Post post) {
     MongoCollection<Document> collection = baseDatos.getCollection("posts");
-    Document filtro = new Document("_id", post.getId());
+    Document filtro = new Document("_id", post.getId);
     
     Document update = new Document();
     update.append("$set", new Document("fechaHoraCreacion", post.getFechaHoraCreacion())

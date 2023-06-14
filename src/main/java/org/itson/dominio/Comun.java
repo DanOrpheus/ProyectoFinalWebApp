@@ -11,13 +11,20 @@ import java.util.Date;
  * @version IDE 17
  */
 public class Comun extends Post {
-
+    // CONSTRUCTORES
+    /**
+     * Constructor vacío
+     */
     public Comun() {
     }
-
+    /**
+     * Constructor que inicializa los atributos de la clase padre
+     * @param fechaHoraCreacion
+     * @param titulo
+     * @param contenido
+     * @param fechaHoraEdicion 
+     */
     public Comun(Date fechaHoraCreacion, String titulo, String contenido, Date fechaHoraEdicion) {
         super(fechaHoraCreacion, titulo, contenido, fechaHoraEdicion);
-    }
-    
-    
+    } 
 }

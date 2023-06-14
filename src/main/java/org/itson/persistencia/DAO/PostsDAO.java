@@ -4,8 +4,10 @@
  */
 package org.itson.persistencia.DAO;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -51,7 +53,7 @@ public class PostsDAO implements IPostsDAO {
         docPost.append("fechaHoraEdicion", post.getFechaHoraEdicion());
         // Insertar el documento en la colección
         collection.insertOne(docPost);
-        // Establecer el id generado en el objeto usuario
+        // Establecer el id generado en el objeto post
         post.setId(docPost.getObjectId("_id"));
         return post;
     }
@@ -71,7 +73,16 @@ public class PostsDAO implements IPostsDAO {
      */
     @Override
     public Post eliminar(Post post) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // Obtener la colección donde se guardan los posts
+        MongoCollection<Document> collection = 
+                baseDatos.getCollection("post");
+        // Crear un filtro para encontrar el post por su ID
+        Document filtro = new Document("titulo", 
+                post.getTitulo());
+        // Eliminar el post de la colección
+        collection.deleteOne(filtro);
+        // Devolver el post eliminada
+        return post;
     }
     /**
      * Método que crea una lista con todos los objetos Post creados
@@ -79,6 +90,20 @@ public class PostsDAO implements IPostsDAO {
      */
     @Override
     public List<Post> consultarPosts() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Post> posts = new ArrayList<>();
+        MongoCollection<Document> collection = 
+                baseDatos.getCollection("post");
+        FindIterable<Document> documentos = collection.find();
+        for (Document documento : documentos) {
+            Post post=new Post();
+            post.setId(documento.getObjectId("_id"));
+            post.setFechaHoraCreacion(
+                    documento.getDate("fechaHoraCreacion"));
+            post.setTitulo(documento.getString("titulo"));
+            post.setContenido(documento.getString("contenido"));
+            post.setFechaHoraEdicion(documento.getDate("fechaHoraEdicion"));
+            posts.add(post);
+        }
+        return posts;
     }
 }

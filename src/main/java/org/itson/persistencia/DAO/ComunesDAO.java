@@ -4,8 +4,10 @@
  */
 package org.itson.persistencia.DAO;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -18,7 +20,7 @@ import org.itson.persistencia.Interfaces.IComunesDAO;
  * @version IDE 18
  */
 public class ComunesDAO implements IComunesDAO {
-    //Atributos
+    // ATRIBUTOS
     private ConexionMongoDB conexion;
     private MongoDatabase baseDatos;
     
@@ -33,24 +35,75 @@ public class ComunesDAO implements IComunesDAO {
     
     // MÉTODOS
     /**
-     * Método que agrega un objeto de tipo Post
-     * @param post Objeto a agregar
-     * @return El objeto Post agregado
+     * Método que agrega un objeto de tipo Comun
+     * @param comun Objeto a agregar
+     * @return El objeto Comun agregado
      */
     @Override
     public Comun agregar(Comun comun) {
+        // Obtener la colección "comunes" de la base de datos
+        MongoCollection<Document> collection = 
+                baseDatos.getCollection("comunes");
+        // Crear un nuevo documento para el comun
+        Document docComun = new Document();
+        docComun.append("_id", new ObjectId());
+        docComun.append("fechaHoraCreacion", comun.getFechaHoraCreacion());
+        docComun.append("titulo", comun.getTitulo());
+        docComun.append("contenido", comun.getContenido());
+        docComun.append("fechaHoraEdicion", comun.getFechaHoraEdicion());
+        // Insertar el documento en la colección
+        collection.insertOne(docComun);
+        // Establecer el id generado en el objeto comun
+        comun.setId(docComun.getObjectId("_id"));
+        return comun;
+    }
+    /**
+     * Método que modifica un objeto de tipo Comun
+     * @param comun Objeto a modificar
+     * @return El objeto Comun modificado
+     */
+    @Override
+    public Comun modificar(Comun comun) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    /**
+     * Método que elimina un objeto de tipo Comun
+     * @param comun Objeto a eliminar
+     * @return El objeto Comun eliminado
+     */
     @Override
     public Comun eliminar(Comun comun) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        // Obtener la colección donde se guardan los comunes
+        MongoCollection<Document> collection = 
+                baseDatos.getCollection("comunes");
+        // Crear un filtro para encontrar el comun por su ID
+        Document filtro = new Document("titulo", 
+                comun.getTitulo());
+        // Eliminar el comun de la colección
+        collection.deleteOne(filtro);
+        // Devolver el comun eliminada
+        return comun;
     }
-
+    /**
+     * Método que crea una lista con todos los objetos Comun creados
+     * @return La lista de objetos Comun
+     */
     @Override
     public List<Comun> consultarComunes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Comun> comunes = new ArrayList<>();
+        MongoCollection<Document> collection = 
+                baseDatos.getCollection("comunes");
+        FindIterable<Document> documentos = collection.find();
+        for (Document documento : documentos) {
+            Comun comun = new Comun();
+            comun.setId(documento.getObjectId("_id"));
+            comun.setFechaHoraCreacion(
+                    documento.getDate("fechaHoraCreacion"));
+            comun.setTitulo(documento.getString("titulo"));
+            comun.setContenido(documento.getString("contenido"));
+            comun.setFechaHoraEdicion(documento.getDate("fechaHoraEdicion"));
+            comunes.add(comun);
+        }
+        return comunes;
     }
-    
-    
 }

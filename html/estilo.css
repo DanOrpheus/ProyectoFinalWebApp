@@ -1,0 +1,50 @@
+/* Color Palette: https://colorhunt.co/palette/041c3204293a064663ecb365 
+* 
+*/
+@font-face{
+	font-family: Roboto; src: url("fonts/roboto/Roboto-Regular.ttf");
+	font-family: Roboto; font-weight: light; src: url("/fonts/roboto/Roboto-Thin.ttf");
+	font-family: Roboto; font-weight: bold; src: url("/fonts/roboto/Roboto-Bold.ttf");
+
+	font-family: Monofonto; src: url("/fonts/monofonto/monofonto rg.otf");
+}
+
+body{
+	font-family: Roboto, sans-serif;
+	font-weight: light;
+	background-color: #064663;
+}
+header{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: baseline;
+	font-family: Roboto, sans-serif;
+	font-weight: bold;
+	font-size: 30px;
+	color: #ECB365;
+	background-color: #041C32;
+	height: 100px;
+	border-radius: 10px;
+}
+.logo > a{
+	color: inherit;
+	text-decoration: inherit;
+}
+.logo{
+	margin-top: 1px;
+	padding:30px 20px 0px 20px;
+	height: 71%;
+}
+a.navitem{
+	color: inherit;
+	text-decoration: inherit;
+	padding:10px 20px 10px 20px;
+	font-size: 20px;
+}
+.navbar{
+	float: right;
+	align-self: right;
+	padding-top: 10px;
+}

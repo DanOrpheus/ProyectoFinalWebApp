@@ -5,6 +5,7 @@
 	font-family: Roboto; src: url("/fonts/roboto/Roboto-Regular.ttf");
 	font-family: Roboto; font-weight: light; src: url("/fonts/roboto/Roboto-Thin.ttf");
 	font-family: Roboto; font-weight: bold; src: url("/fonts/roboto/Roboto-Bold.ttf");
+	font-family: Roboto; font-weight: bold; font-style: italic; src: url("/fonts/roboto/Roboto-BoldItalic.ttf");
 
 	font-family: Amazing; src: url("/fonts/Amazing-Slab/Regular.ttf");
 	font-family: Amazing; font-weight: light; src: url("/fonts/Amazing-Slab/Light.ttf");
@@ -15,14 +16,12 @@
 /*Dark Mode*/
 body{
 	background-color: #393E46;
+	background-image: url('../img/bg2.jpg');
+	background-size: cover;
 	color: #EEEEEE;
 }
 
 header{
-	background-color: #222831;
-	border: 2px solid #00ADB5;
-}
-aside{
 	background-color: #222831;
 	border: 2px solid #00ADB5;
 }
@@ -53,14 +52,13 @@ aside{
 body{
 	display: grid;
 	grid-row-gap: 10px;
-	grid-template-columns: auto auto auto;
-	grid-template-rows: 100px 300px 200px 200px 100px;
+	grid-template-columns: 150px auto auto 150px;
+	grid-template-rows: 100px auto 200px 200px 100px;
 	font-family: Roboto, sans-serif;
 	font-weight: lighter;
 }
 header{
-	grid-column-start: 1;
-	grid-column-end: 4;
+	grid-column: 1/span 4;
 	display:flex;
 	flex-wrap: nowrap;
 	justify-content: spasce-between;
@@ -95,21 +93,6 @@ header{
 	order: 2;
 }
 
-aside{
-	border-radius: 10px;
-	display: flex;
-	flex-flow: column;
-	grid-column-start: 3;
-	grid-column-end: 4;
-	grid-row: 2/ span 3;
-	padding: 10px 10px 10px 10px;
-}
-.FormContainer{
-	border-radius: 10px;
-	padding: 5px 5px 5px 5px;
-	grid-column: 1 / span 3;
-
-}
 
 /***********************************************/
 h1#logoLetter{
@@ -118,6 +101,7 @@ h1#logoLetter{
 	height: 85px;
 	padding-left: 20px;
 }
+
 
 a.navitem{
 	color: inherit;
@@ -137,4 +121,57 @@ a.navitem:hover{
 }
 .NomRecomend{
 	width: inherit;
+}
+
+/*Items del Form de Login*/
+
+.FormContainer{
+	border-radius: 10px;
+	padding: 5px 5px 5px 5px;
+	grid-column: 2 / span 2;
+	text-align: center;
+	grid-row: ;
+}
+h3#loginHeader{
+	padding: 20px;
+	margin: 0px;	
+}
+hr{
+	border: 2px solid #00ADB5;	
+	margin: 0px 0px 20px 0px;
+}
+.FormGrid{
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto auto auto auto auto;
+	justify-items: center;
+	grid-row-gap: 5px;
+}
+.item1{
+	grid-column: 1 / span 2;
+	grid-row: 1 / span 1;
+}
+.item2{
+	grid-column: 1 / span 2;
+	grid-row: 2 / span 1;
+	font-weight: bold;
+	font-style: italic;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.item3{
+	grid-column: 1 / span 2;
+	grid-row: 3 / span 1;
+}
+.item4{
+	grid-column: 1 / span 2;
+	grid-row: 4 / span 1;
+}
+.item5{
+	grid-column: 1 / span 2;
+	grid-row: 5 / span 1;
+}
+.item6{
+	grid-column: 1 / span 2;
+	grid-row: 6 / span 1;
 }

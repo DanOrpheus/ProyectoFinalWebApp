@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="estilo.css">
-	<title>Proyecto Final</title>
+	<link rel="stylesheet" type="text/css" href="Estilos/estiloLogin.css">
+	<title>SoLink Login</title>
 </head>
 <body>
 	<header>
@@ -22,8 +22,34 @@
 		</nav>
 	</header>
 	<div class="FormContainer">
-		<form action="registro.jsp" method="POST">
-			<div id="formHeader">Registra una Cuenta Nueva!</div>
+		<div id="formHeader">
+			<h3 id="loginHeader">Entra con tu cuenta de SoLink!</h3>
+			<hr>
+		</div>
+		<form action="registro.jsp" method="POST" class="FormGrid">
+			<div class="item1">
+				<label for="nombre">Nombre de Usuario:</label><br>	
+				<input type="text" name="nombre" placeholder="Escribe tu Nombre de Usuario">
+			</div>
+			<div class="item2">
+				<label> o en cambio, entra con tu</label>
+			</div>
+			<div class="item3">
+				<label for="email">Correo Electrónico:</label>
+				<input type="email" name="email" placeholder="ejemplo@ejemplo.com">
+			</div>
+			<div class="item4">
+				<label for="pass">Contraseña:</label>
+				<input type="password" name="pass">
+			</div>
+			<div class="item5">
+				<label for="confirmPass">Confirma tu Contraseña:</label>
+				<input type="password" name="confirmPass">
+			</div>
+			<div class="item6">
+				<input type="submit" name="Enviar">
+				<input type="reset" name="Restablecer">
+			</div>
 		</form>
 	</div>
 </body>

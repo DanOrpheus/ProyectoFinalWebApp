@@ -15,6 +15,8 @@
 /*Dark Mode*/
 body{
 	background-color: #393E46;
+	background-image: url('../img/bg2.jpg');
+	background-size: cover;
 	color: #EEEEEE;
 }
 
@@ -54,7 +56,7 @@ body{
 	display: grid;
 	grid-row-gap: 10px;
 	grid-template-columns: auto auto auto auto;
-	grid-template-rows: 100px 300px 200px 200px 100px;
+	grid-template-rows: 100px 300px 300px 300px 100px;
 	font-family: Roboto, sans-serif;
 	font-weight: lighter;
 }

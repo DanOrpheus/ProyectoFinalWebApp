@@ -6,14 +6,14 @@
 	font-family: Roboto; font-weight: light; src: url("/fonts/roboto/Roboto-Thin.ttf");
 	font-family: Roboto; font-weight: bold; src: url("/fonts/roboto/Roboto-Bold.ttf");
 	font-family: Roboto; font-weight: bold; font-style: italic; src: url("/fonts/roboto/Roboto-BoldItalic.ttf");
-
+	/* Fuente alterna */
 	font-family: Amazing; src: url("/fonts/Amazing-Slab/Regular.ttf");
 	font-family: Amazing; font-weight: light; src: url("/fonts/Amazing-Slab/Light.ttf");
 	font-family: Amazing; font-weight: bold; src: url("/fonts/Amazing-Slab/Bold.ttf");
 }
 
-/*Cambiar Paleta de Colores*/
-/*Dark Mode*/
+/* Cambiar Paleta de Colores */
+/* Dark Mode */
 body{
 	background-color: #393E46;
 	background-image: url('../img/bg2.jpg');
@@ -25,24 +25,28 @@ header{
 	background-color: #222831;
 	border: 2px solid #00ADB5;
 }
+
 .NomRecomend{
 	border: 2px solid #00ADB5;
 }
+
 .FormContainer{
 	background-color: #222831;
 	border: 2px solid #00ADB5;
 }
 
-/*Light Mode WIP*/
+/* Light Mode WIP */
 /*
 body{
 	ackground-color: #04293A;
 	color: #ECB365;
 }
+
 header{
 	background-color: #041C32;
 	border: 2px solid #064663;
 }
+
 aside{
 	background-color: #064663;
 	border: 2px solid #041C32;
@@ -57,6 +61,7 @@ body{
 	font-family: Roboto, sans-serif;
 	font-weight: lighter;
 }
+
 header{
 	grid-column: 1/span 4;
 	display:flex;
@@ -97,8 +102,8 @@ header{
 	order: 2;
 }
 
-
 /***********************************************/
+
 h1#logoLetter{
 	margin: 0px;
 	padding-top: 15px;
@@ -106,23 +111,25 @@ h1#logoLetter{
 	padding-left: 20px;
 }
 
-
 a.navitem{
 	color: inherit;
 	text-decoration: inherit;
 	padding:10px 20px 10px 20px;
 	font-size: 20px;
 }
+
 a.navitem:hover{
 	color: #222831;
 	text-decoration: inherit;
 	background-color: #00ADB5;
 	border-radius: 10px;
 }
+
 .logo > a{
 	color: inherit;
 	text-decoration: inherit;
 }
+
 .NomRecomend{
 	width: inherit;
 }
@@ -134,7 +141,6 @@ a.navitem:hover{
 	padding: 5px 5px 5px 5px;
 	grid-column: 2 / span 2;
 	text-align: center;
-	grid-row: ;
 }
 
 h3#loginHeader{
@@ -157,32 +163,12 @@ hr{
 	padding-bottom: 20px;
 }
 
-.item1{
-	grid-column: 1 / span 2;
-	grid-row: 1 / span 1;
+.item{
+	padding: 10px;
+	flex-grow: 1;
 }
 
-.item2{
-	grid-column: 1 / span 2;
-	grid-row: 2 / span 1;
-	font-weight: bold;
-	font-style: italic;
-	font-size: 16px		;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
-.item3{
-	grid-column: 1 / span 2;
-	grid-row: 3 / span 1;
-}
-
-.item4{
-	grid-column: 1 / span 2;
-	grid-row: 4 / span 1;
-}
-
-.item5{
+.boton{
 	grid-column: 1 / span 2;
 	grid-row: 5 / span 1;
 }

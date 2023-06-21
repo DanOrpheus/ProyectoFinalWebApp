@@ -1,34 +1,38 @@
-@font-face{
-  font-family: Roboto; src: url("../fonts/roboto/Roboto-Regular.ttf");
-  font-family: Roboto; font-weight: light; src: url("../fonts/roboto/Roboto-Thin.ttf");
-  font-family: Roboto; font-weight: bold; src: url("../fonts/roboto/Roboto-Bold.ttf");
-  font-family: Roboto; font-weight: bold; font-style: italic; src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
-  /* Fuente alterna */
-  font-family: Amazing; src: url("../fonts/Amazing-Slab/Regular.ttf");
-  font-family: Amazing; font-weight: light; src: url("../fonts/Amazing-Slab/Light.ttf");
-  font-family: Amazing; font-weight: bold; src: url("../fonts/Amazing-Slab/Bold.ttf");
-}
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, auto));
-  grid-gap: 20px;
-  padding: 20px;
-}
-
-.post {
-  background-color: #222831;
-  border: 2px solid #00ADB5;
-  padding: 10px;
-  border-radius: 5px;
-  color: #EEEEEE;
-}
-
-.comment {
-  background-color: #393E46;
-  padding: 5px;
-  margin-top: 10px;
-  border: 1px solid #00ADB5;
-  border-radius: 3px;
-  color: #EEEEEE;
-}
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+    grid-gap: 20px;
+    padding: 20px;
+  }
+  
+  .post {
+    background-color: #222831;
+    border: 2px solid #00ADB5;
+    padding: 10px;
+    border-radius: 5px;
+    color: #EEEEEE;
+  }
+  
+  .comment {
+    background-color: #393E46;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #00ADB5;
+    border-radius: 3px;
+    color: #EEEEEE;
+  }
+  .add-post{
+    background-color: #222831;
+    border: 2px solid #00ADB5;
+    padding: 10px;
+    border-radius: 5px;
+    color: #EEEEEE;
+  }
+  .comments2{
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px ;
+    border-radius: 3px;
+  }

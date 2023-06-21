@@ -13,8 +13,8 @@
 }
 
 /* Cambiar Paleta de Colores */
-/* Dark Mode */
-body{
+/* Dark Mode - No borrar por el momento porfa! - Daniel */
+/*body{
 	background-color: #393E46;
 	background-image: url('../img/bg2.jpg');
 	background-size: cover;
@@ -33,142 +33,100 @@ header{
 .FormContainer{
 	background-color: #222831;
 	border: 2px solid #00ADB5;
+}*/
+
+body {
+  font-family: Roboto, sans-serif;
+  background-color: #f2f2f2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
 }
 
-/* Light Mode WIP */
-/*
-body{
-	ackground-color: #04293A;
-	color: #ECB365;
+/*Header e Items Header*/
+header {
+  background-color: rgb(6, 70, 99);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  width: 100%;
+}
+header h1 {
+  margin-right: 10px;
+  margin-left: 50px;
+}
+header a {
+  margin-right: 30px;
+  color: #dcdde9;
+  text-decoration: none;
 }
 
-header{
-	background-color: #041C32;
-	border: 2px solid #064663;
+/*Footer e Items Footer*/
+footer {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgb(6, 70, 99);
+  padding: 10px;
+  text-align: center;
+  color: #AFD3E2;
+  font-size: 12px;
+  width: 100%;
 }
-
-aside{
-	background-color: #064663;
-	border: 2px solid #041C32;
+footer a{
+  color: #dcdde9;
+  text-decoration: none;
 }
-*/
-
-body{
-	display: grid;
-	grid-row-gap: 10px;
-	grid-template-columns: 150px auto auto 150px;
-	grid-template-rows: 100px auto 200px 200px 100px;
-	font-family: Roboto, sans-serif;
-	font-weight: lighter;
-}
-
-header{
-	grid-column: 1/span 4;
-	display:flex;
-	flex-wrap: nowrap;
-	justify-content: spasce-between;
-	align-items: center;
-	font-family: Amazing, serif;
-	font-size: 30px;
-	height: 100px;
-	border-radius: 10px;
-	
-}
-
-.logo{
-	height: 100px;
-	flex-grow: 1;
-	order: 1;
-}
-
-.navbar{
-	display: flex;
-	float: right;
-	align-self: right;
-	padding-top: 0px;
-	order: 2;
-	font-family: Roboto, sans-serif;
-	font-weight: light;
-}
-
-.subnavbar{
-	flex-grow: 1;
-	order: 1;
-
-}
-
-.subnavbar2{
-	flex-grow: 1;
-	order: 2;
-}
-
-/***********************************************/
-
-h1#logoLetter{
-	margin: 0px;
-	padding-top: 15px;
-	height: 85px;
-	padding-left: 20px;
-}
-
-a.navitem{
-	color: inherit;
-	text-decoration: inherit;
-	padding:10px 20px 10px 20px;
-	font-size: 20px;
-}
-
-a.navitem:hover{
-	color: #222831;
-	text-decoration: inherit;
-	background-color: #00ADB5;
-	border-radius: 10px;
-}
-
-.logo > a{
-	color: inherit;
-	text-decoration: inherit;
-}
-
-.NomRecomend{
-	width: inherit;
+.ftrItem1{
+  order: 1;
+  flex-grow: 1;
 }
 
 /*Items del Form de Login*/
 
-.FormContainer{
-	border-radius: 10px;
-	padding: 5px 5px 5px 5px;
-	grid-column: 2 / span 2;
-	text-align: center;
+.formcont {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 50px;
+  width: 30%;
+  height: auto;
+  text-align: center;
+  margin: 18px 0px 18px 0px;
+  display: grid;
+  grid-template-columns: auto auto;
 }
-
-h3#loginHeader{
-	padding: 20px;
-	margin: 0px;	
+.formcont h1 {
+  color: #1e3557;
+  font-size: 25px;
 }
-
+.formcont input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.formcont button {
+  background-color: rgb(6, 70, 99);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.formcont p {
+  margin-top: 10px;
+}
 hr{
-	border: 2px solid #00ADB5;	
-	margin: 0px 0px 10px 0px;
-}
-
-.FormGrid{
-	display: grid;
-	grid-template-columns: auto auto;
-	grid-template-rows: auto auto auto auto auto;
-	justify-items: center;
-	grid-row-gap: 10px;
-	padding-top: 10px;
-	padding-bottom: 20px;
-}
-
-.item{
-	padding: 10px;
-	flex-grow: 1;
-}
-
-.boton{
-	grid-column: 1 / span 2;
-	grid-row: 5 / span 1;
+	border: 2px solid rgb(6, 70, 99);
+	width: 70%;
+	margin-bottom: 30px;
 }

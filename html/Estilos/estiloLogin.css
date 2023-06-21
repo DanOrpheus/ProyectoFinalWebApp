@@ -22,7 +22,7 @@ body {
 
 
 /*Header e Items Header*/
-.header {
+header {
   background-color: rgb(6, 70, 99);
   padding: 10px;
   display: flex;
@@ -32,11 +32,11 @@ body {
   font-size: 20px;
   width: 100%;
 }
-.header h1 {
+header h1 {
   margin-right: 10px;
   margin-left: 50px;
 }
-.header a {
+header a {
   margin-right: 30px;
   color: #dcdde9;
   text-decoration: none;
@@ -49,6 +49,7 @@ body {
   border-radius: 5px;
   padding: 50px;
   width: 30%;
+  height: auto;
   text-align: center;
   margin: 18px 0px 18px 0px;
 }
@@ -75,28 +76,29 @@ body {
 .container p {
   margin-top: 10px;
 }
+hr{
+	border: 2px solid rgb(6, 70, 99);
+	width: 70%;
+	margin-bottom: 30px;
+}
 
 /*Footer e Items Footer*/
-.footer {
+footer {
   display:flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   background-color: rgb(6, 70, 99);
   padding: 10px;
   text-align: center;
-  color: #fff;
-  font-size: 20px;
+  color: #AFD3E2;
+  font-size: 12px;
   width: 100%;
 }
-.footer a{
+footer a{
   color: #dcdde9;
   text-decoration: none;
 }
 .ftrItem1{
   order: 1;
-  flex-grow: 1;
-}
-.ftrItem2{
-  order: 2;
   flex-grow: 1;
 }

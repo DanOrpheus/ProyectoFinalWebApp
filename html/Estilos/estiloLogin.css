@@ -3,6 +3,8 @@
 	font-family: Roboto; font-weight: light; src: url("../fonts/roboto/Roboto-Thin.ttf");
 	font-family: Roboto; font-weight: bold; src: url("../fonts/roboto/Roboto-Bold.ttf");
 	font-family: Roboto; font-weight: bold; font-style: italic; src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
+	font-family: Roboto; font-weight: light; font-style: italic; src: url("../fonts/roboto/Roboto-LightItalic.ttf");
+
 
 	font-family: Amazing; src: url("/fonts/Amazing-Slab/Regular.ttf");
 	font-family: Amazing; font-weight: light; src: url("../fonts/Amazing-Slab/Light.ttf");
@@ -75,6 +77,10 @@ header a {
 }
 .container p {
   margin-top: 10px;
+  font-style: italic;
+  font-weight: light;
+  font-size: 14px;
+  color: rgb(6, 70, 99);
 }
 hr{
 	border: 2px solid rgb(6, 70, 99);

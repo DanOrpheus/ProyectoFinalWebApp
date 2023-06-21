@@ -91,50 +91,75 @@ footer a{
 /*Items del Form de Login*/
 
 .formcont {
-	width: 30%;
+	width: 35%;
+	height: 70%;
 	background-color: #fff;
 	border: 1px solid #ddd;
-	border-radius: 5px;
-	padding: 50px 50px;
+	border-radius: 10px;
+	padding: 30px 50px;
 	text-align: center;
 	margin: 18px 0px 18px 0px;
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: 45% 45%;
+	grid-template-rows: auto auto auto auto auto auto auto auto;
+	grid-gap: 2% 2%;
+	justify-content: center;
 }
 .registerHeader {
   	color: #1e3557;
   	font-size: 25px;
-  	grid-column: 1 / span 2;
+  	grid-column: 1  / span 2;
+  	margin: 10px 10px 5px 10px	;
+  }
+
+#username{
+	grid-column: 1 / span 2;
+	grid-row: 3 / span 1;
+}
+#correo{
+	grid-column: 1 / span 2;
+	grid-row: 4 / span 1;
+}
+#nombre{
+	grid-column: 1 / span 1;
+	grid-row: 5 / span 1;
+}
+#apellido{
+	grid-column: 2 / span 1;
+	grid-row: 5 / span 1;
+}
+#pass{
+	grid-column: 1 / span 2;
+	grid-row: 6 / span 1;
+}
+#passConfirm{
+	grid-column: 1 / span 2;
+	grid-row: 7 / span 1;
 }
 .formcont input {
 	width: 100%;
 	padding: 10px 0px 10px 0px;
-	margin-bottom: 10px;
 	border-radius: 5px;
 	border: 1px solid #ccc;
 	text-align: center;
 }
-.formcont .button {
-	background-color: rgb(6, 70, 99);
-	color: #fff;
-	border: 1px solid rgb(6, 70, 99);
-	cursor: pointer;
-	flex-grow: 1;
-}
 hr{
 	border: 2px solid rgb(6, 70, 99);
-	width: 70%;
-	margin-bottom: 30px;
+	background-color: rgb(6, 70, 99);
+	width: 80%;
+	margin-bottom: 10px;
+	height: 1px;
 	grid-column: 1 / span 2;
 }
-.formItem1{
-	
+.formcont .button1 {
+	background-color: rgb(6, 70, 99);
+	color: #fff;
+	cursor: pointer;
+	grid-column: 1 / span 1 ;
 }
-.btnCont{
-	display: inline-grid;
-	grid-template-columns: 150px 150px;
-	grid-gap: 10px;
-	width: 100%;
-	justify-items: center;
-	align-items: center;
+.formcont .button2 {
+	background-color: rgb(6, 70, 99);
+	color: #fff;
+	cursor: pointer;
+	grid-column: 2 / span 1 ;	
 }

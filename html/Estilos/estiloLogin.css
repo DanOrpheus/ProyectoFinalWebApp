@@ -1,14 +1,17 @@
 @font-face{
-	font-family: Roboto; src: url("/fonts/roboto/Roboto-Regular.ttf");
-	font-family: Roboto; font-weight: light; src: url("/fonts/roboto/Roboto-Thin.ttf");
-	font-family: Roboto; font-weight: bold; src: url("/fonts/roboto/Roboto-Bold.ttf");
-	font-family: Roboto; font-weight: bold; font-style: italic; src: url("/fonts/roboto/Roboto-BoldItalic.ttf");
+	font-family: Roboto; src: url("../fonts/roboto/Roboto-Regular.ttf");
+	font-family: Roboto; font-weight: light; src: url("../fonts/roboto/Roboto-Thin.ttf");
+	font-family: Roboto; font-weight: bold; src: url("../fonts/roboto/Roboto-Bold.ttf");
+	font-family: Roboto; font-weight: bold; font-style: italic; src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
 
 	font-family: Amazing; src: url("/fonts/Amazing-Slab/Regular.ttf");
-	font-family: Amazing; font-weight: light; src: url("/fonts/Amazing-Slab/Light.ttf");
-	font-family: Amazing; font-weight: bold; src: url("/fonts/Amazing-Slab/Bold.ttf");
+	font-family: Amazing; font-weight: light; src: url("../fonts/Amazing-Slab/Light.ttf");
+	font-family: Amazing; font-weight: bold; src: url("../fonts/Amazing-Slab/Bold.ttf");
 }
+
 body {
+  font-family: Roboto;
+  font-weight: light;
   background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
@@ -42,9 +45,9 @@ body {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 50px;
-  width: 300px;
+  width: 30%;
   text-align: center;
-  margin-top: 18px;
+  margin: 18px 0px 18px 0px;
 }
 
 .container h1 {
@@ -75,10 +78,15 @@ body {
 }
 
 .footer {
+  display:flex;
   background-color: rgb(6, 70, 99);
   padding: 10px;
   text-align: center;
   color: #fff;
   font-size: 20px;
   width: 100%;
+}
+.ftrItem1{
+  order: 1;
+  flex-grow: 1;
 }

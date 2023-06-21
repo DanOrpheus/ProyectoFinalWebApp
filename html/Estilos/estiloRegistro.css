@@ -91,49 +91,44 @@ footer a{
 /*Items del Form de Login*/
 
 .formcont {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 50px 50px;
-  width: 30%;
-  height: auto;
-  text-align: center;
-  margin: 18px 0px 18px 0px;
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: center;
+	width: 30%;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 50px 50px;
+	text-align: center;
+	margin: 18px 0px 18px 0px;
+	display: grid;
+	grid-template-columns: auto auto;
 }
-.formcont h1 {
-  color: #1e3557;
-  font-size: 25px;
+.registerHeader {
+  	color: #1e3557;
+  	font-size: 25px;
+  	grid-column: 1 / span 2;
 }
 .formcont input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  text-align: center;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	text-align: center;
 }
- .formcont .button {
-  background-color: rgb(6, 70, 99);
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  flex-grow: 1;
-}
-.formcont p {
-  margin-top: 10px;
+.formcont .button {
+	background-color: rgb(6, 70, 99);
+	color: #fff;
+	border: 1px solid rgb(6, 70, 99);
+	cursor: pointer;
+	flex-grow: 1;
 }
 hr{
 	border: 2px solid rgb(6, 70, 99);
 	width: 70%;
 	margin-bottom: 30px;
+	grid-column: 1 / span 2;
 }
 .formItem1{
-	width: 100%;
+	
 }
 .btnCont{
 	display: inline-grid;

@@ -32,7 +32,7 @@ header {
   align-items: center;
   color: #fff;
   font-size: 20px;
-  width: 100%;
+  width: 98.5%;
 }
 header h1 {
   margin-right: 10px;
@@ -54,6 +54,7 @@ header a {
   height: auto;
   text-align: center;
   margin: 18px 0px 18px 0px;
+  box-shadow: 0 0 5px #BDCDD6;
 }
 .container h1 {
   color: #1e3557;
@@ -98,7 +99,7 @@ footer {
   text-align: center;
   color: #AFD3E2;
   font-size: 12px;
-  width: 100%;
+  width: 98.5%;
 }
 footer a{
   color: #dcdde9;

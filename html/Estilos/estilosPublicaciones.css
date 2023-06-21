@@ -23,4 +23,16 @@
     border-radius: 3px;
     color: #EEEEEE;
   }
-  
+  .add-post{
+    background-color: #222831;
+    border: 2px solid #00ADB5;
+    padding: 10px;
+    border-radius: 5px;
+    color: #EEEEEE;
+  }
+  .comments2{
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px ;
+    border-radius: 3px;
+  }

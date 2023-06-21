@@ -12,11 +12,11 @@
 body {
   font-family: Roboto, sans-serif;
   background-color: #f2f2f2;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
   margin: 0;
 }
 
@@ -79,13 +79,18 @@ body {
 /*Footer e Items Footer*/
 .footer {
   display:flex;
-  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: wrap;
   background-color: rgb(6, 70, 99);
   padding: 10px;
   text-align: center;
   color: #fff;
   font-size: 20px;
   width: 100%;
+}
+.footer a{
+  color: #dcdde9;
+  text-decoration: none;
 }
 .ftrItem1{
   order: 1;
@@ -94,5 +99,4 @@ body {
 .ftrItem2{
   order: 2;
   flex-grow: 1;
-  align-self: flex-end;
 }

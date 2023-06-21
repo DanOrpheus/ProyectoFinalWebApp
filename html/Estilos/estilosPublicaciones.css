@@ -11,8 +11,7 @@
     background-color: #222831;
     border: 2px solid #00ADB5;
     padding: 10px;
-    border-radius: 5px;
-    color: #EEEEEE;
+   
   }
   
   .comment {
@@ -28,7 +27,10 @@
     border: 2px solid #00ADB5;
     padding: 10px;
     border-radius: 5px;
-    color: #EEEEEE;
+    
+    display: grid;
+    
+    gap: 10px;
   }
   .comments2{
     padding: 5px;
@@ -36,3 +38,11 @@
     border: 1px ;
     border-radius: 3px;
   }
+ 
+  .footer-container {
+    
+      height: 100px;
+      flex-grow: 1;
+      order: 1;
+    
+}

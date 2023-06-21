@@ -94,13 +94,14 @@ footer a{
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 50px;
+  padding: 50px 50px;
   width: 30%;
   height: auto;
   text-align: center;
   margin: 18px 0px 18px 0px;
   display: grid;
   grid-template-columns: auto auto;
+  justify-content: center;
 }
 .formcont h1 {
   color: #1e3557;
@@ -114,13 +115,14 @@ footer a{
   border: 1px solid #ccc;
   text-align: center;
 }
-.formcont button {
+ .formcont .button {
   background-color: rgb(6, 70, 99);
   color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  flex-grow: 1;
 }
 .formcont p {
   margin-top: 10px;
@@ -129,4 +131,15 @@ hr{
 	border: 2px solid rgb(6, 70, 99);
 	width: 70%;
 	margin-bottom: 30px;
+}
+.formItem1{
+	width: 100%;
+}
+.btnCont{
+	display: inline-grid;
+	grid-template-columns: 150px 150px;
+	grid-gap: 10px;
+	width: 100%;
+	justify-items: center;
+	align-items: center;
 }

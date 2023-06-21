@@ -2,17 +2,18 @@
 * Color Palette Light Mode: https://colorhunt.co/palette/9ac5f499dbf5a7eceeffeebb
 */
 @font-face{
-	font-family: Roboto; src: url("/fonts/roboto/Roboto-Regular.ttf");
-	font-family: Roboto; font-weight: light; src: url("/fonts/roboto/Roboto-Thin.ttf");
-	font-family: Roboto; font-weight: bold; src: url("/fonts/roboto/Roboto-Bold.ttf");
-
-	font-family: Amazing; src: url("/fonts/Amazing-Slab/Regular.ttf");
-	font-family: Amazing; font-weight: light; src: url("/fonts/Amazing-Slab/Light.ttf");
-	font-family: Amazing; font-weight: bold; src: url("/fonts/Amazing-Slab/Bold.ttf");
+	font-family: Roboto; src: url("../fonts/roboto/Roboto-Regular.ttf");
+	font-family: Roboto; font-weight: light; src: url("../fonts/roboto/Roboto-Thin.ttf");
+	font-family: Roboto; font-weight: bold; src: url("../fonts/roboto/Roboto-Bold.ttf");
+	font-family: Roboto; font-weight: bold; font-style: italic; src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
+	/* Fuente alterna */
+	font-family: Amazing; src: url("../fonts/Amazing-Slab/Regular.ttf");
+	font-family: Amazing; font-weight: light; src: url("../fonts/Amazing-Slab/Light.ttf");
+	font-family: Amazing; font-weight: bold; src: url("../fonts/Amazing-Slab/Bold.ttf");
 }
 
-/*Cambiar Paleta de Colores*/
-/*Dark Mode*/
+/* Cambiar Paleta de Colores */
+/* Dark Mode */
 body{
 	background-color: #393E46;
 	background-image: url('../img/bg2.jpg');
@@ -24,28 +25,28 @@ header{
 	background-color: #222831;
 	border: 2px solid #00ADB5;
 }
-aside{
-	background-color: #222831;
-	border: 2px solid #00ADB5;
-}
+
 .NomRecomend{
 	border: 2px solid #00ADB5;
 }
+
 .FormContainer{
 	background-color: #222831;
 	border: 2px solid #00ADB5;
 }
 
-/*Light Mode WIP*/
+/* Light Mode WIP */
 /*
 body{
 	ackground-color: #04293A;
 	color: #ECB365;
 }
+
 header{
 	background-color: #041C32;
 	border: 2px solid #064663;
 }
+
 aside{
 	background-color: #064663;
 	border: 2px solid #041C32;
@@ -55,11 +56,12 @@ aside{
 body{
 	display: grid;
 	grid-row-gap: 10px;
-	grid-template-columns: auto auto auto auto;
-	grid-template-rows: 100px 300px 300px 300px 100px;
+	grid-template-columns: 150px auto auto 150px;
+	grid-template-rows: 100px auto 200px 200px 100px;
 	font-family: Roboto, sans-serif;
 	font-weight: lighter;
 }
+
 header{
 	grid-column: 1/span 4;
 	display:flex;
@@ -72,11 +74,13 @@ header{
 	border-radius: 10px;
 	
 }
+
 .logo{
 	height: 100px;
 	flex-grow: 1;
 	order: 1;
 }
+
 .navbar{
 	display: flex;
 	float: right;
@@ -86,33 +90,20 @@ header{
 	font-family: Roboto, sans-serif;
 	font-weight: light;
 }
+
 .subnavbar{
 	flex-grow: 1;
 	order: 1;
 
 }
+
 .subnavbar2{
 	flex-grow: 1;
 	order: 2;
 }
 
-aside{
-	border-radius: 10px;
-	display: flex;
-	flex-flow: column;
-	grid-column-start: 3;
-	grid-column-end: 4;
-	grid-row: 2/ span 3;
-	padding: 10px 10px 10px 10px;
-}
-.FormContainer{
-	border-radius: 10px;
-	padding: 5px 5px 5px 5px;
-	grid-column: 2 / span 2;
-
-}
-
 /***********************************************/
+
 h1#logoLetter{
 	margin: 0px;
 	padding-top: 15px;
@@ -126,16 +117,58 @@ a.navitem{
 	padding:10px 20px 10px 20px;
 	font-size: 20px;
 }
+
 a.navitem:hover{
 	color: #222831;
 	text-decoration: inherit;
 	background-color: #00ADB5;
 	border-radius: 10px;
 }
+
 .logo > a{
 	color: inherit;
 	text-decoration: inherit;
 }
+
 .NomRecomend{
 	width: inherit;
+}
+
+/*Items del Form de Login*/
+
+.FormContainer{
+	border-radius: 10px;
+	padding: 5px 5px 5px 5px;
+	grid-column: 2 / span 2;
+	text-align: center;
+}
+
+h3#loginHeader{
+	padding: 20px;
+	margin: 0px;	
+}
+
+hr{
+	border: 2px solid #00ADB5;	
+	margin: 0px 0px 10px 0px;
+}
+
+.FormGrid{
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto auto auto auto;
+	justify-items: center;
+	grid-row-gap: 10px;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+.item{
+	padding: 10px;
+	flex-grow: 1;
+}
+
+.boton{
+	grid-column: 1 / span 2;
+	grid-row: 5 / span 1;
 }

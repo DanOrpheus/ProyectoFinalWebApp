@@ -1,20 +1,18 @@
 
-  
-  /* Color Palette Dark mode: https://colorhunt.co/palette/041c3204293a064663ecb365 
-* Color Palette Light Mode: https://colorhunt.co/palette/9ac5f499dbf5a7eceeffeebb
-*/
 @font-face{
 	font-family: Roboto; src: url("../fonts/roboto/Roboto-Regular.ttf");
 	font-family: Roboto; font-weight: light; src: url("../fonts/roboto/Roboto-Thin.ttf");
 	font-family: Roboto; font-weight: bold; src: url("../fonts/roboto/Roboto-Bold.ttf");
+	font-family: Roboto; font-weight: bold; font-style: italic; src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
+	font-family: Roboto; font-weight: light; font-style: italic; src: url("../fonts/roboto/Roboto-LightItalic.ttf");
 
-	font-family: Amazing; src: url("../fonts/Amazing-Slab/Regular.ttf");
+
+	font-family: Amazing; src: url("/fonts/Amazing-Slab/Regular.ttf");
 	font-family: Amazing; font-weight: light; src: url("../fonts/Amazing-Slab/Light.ttf");
 	font-family: Amazing; font-weight: bold; src: url("../fonts/Amazing-Slab/Bold.ttf");
 }
 
-/*Cambiar Paleta de Colores*/
-/*Dark Mode*/
+
 body{
 	background-color: #f2f2f2;
 	
@@ -25,7 +23,8 @@ body{
 header{
 	background-color: rgb(6, 70, 99);;
 	border: 2px solid #fff;
-  color: #fff;
+  color: #dcdde9;
+  font-size: 12px;
 }
 
 
@@ -40,13 +39,13 @@ body{
 	font-weight: lighter;
 }
 header{
-	grid-column: 1/span 4;
+	grid-column: 1/span 5;
 	display:flex;
 	flex-wrap: nowrap;
 	justify-content: spasce-between;
 	align-items: center;
-	font-family: Amazing, serif;
-	font-size: 30px;
+	
+	font-size: 20px;
 	height: 100px;
 	border-radius: 10px;
 	
@@ -120,7 +119,9 @@ a.navitem{
     grid-template-columns: 600px;
     grid-gap: 20px;
     padding: 20px;
-    grid-column: 2/span 3;
+    grid-column: 3/span 3;
+     
+
   }
   
   .post {
@@ -159,19 +160,18 @@ a.navitem{
     background-color: rgb(6, 70, 99);
     border: solid #fff;
     display: flex;
-    justify-content: space-between;
-    
-    font-family: Amazing, serif;
+    justify-content: center;
+    color: #AFD3E2;;
     font-size: 20px;
     height: 100px;
     border-radius: 10px;
     padding: 10px;
-    color: #fff;
+    
     text-align: center;
    
 
-  grid-column: 1/span 4;
-	
+  grid-column: 1/span 5;
+
 	flex-wrap: nowrap;
     grid-row-start:8; 
 }

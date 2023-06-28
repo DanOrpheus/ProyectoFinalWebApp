@@ -4,6 +4,7 @@
  */
 package org.itson.persistencia.DAO;
 
+import com.mongodb.MongoException;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -14,13 +15,14 @@ import org.bson.types.ObjectId;
 import org.itson.dominio.Admin;
 import org.itson.dominio.Municipio;
 import org.itson.persistencia.ConexionMongoDB;
+import org.itson.persistencia.Excepciones.PersistenciaException;
 import org.itson.persistencia.Interfaces.IAdminsDAO;
 /**
  *
  * @author Victor, Victoria, Daniel y Nadia
  * @version IDE 18
  */
-public class AdminsDAO implements IAdminsDAO{
+public class AdminsDAO implements IAdminsDAO {
     //ATRIBUTOS
     private ConexionMongoDB conexion;
     private MongoDatabase baseDatos;
@@ -41,29 +43,34 @@ public class AdminsDAO implements IAdminsDAO{
      * @return El objeto Admin agregado
      */
     @Override
-    public Admin agregar(Admin admin) {
-        // Obtener la colección "admins" de la base de datos
-        MongoCollection<Document> collection = 
+    public Admin agregar(Admin admin) throws PersistenciaException {
+        try{
+            // Obtener la colección "admins" de la base de datos
+            MongoCollection<Document> collection = 
                 baseDatos.getCollection("admins");
-        // Crear un nuevo documento para el admin
-        Document docAdmin = new Document();
-        docAdmin.append("_id", new ObjectId());
-        docAdmin.append("nombreCompleto", 
+            // Crear un nuevo documento para el admin
+            Document docAdmin = new Document();
+            docAdmin.append("_id", new ObjectId());
+            docAdmin.append("nombreCompleto", 
                 admin.getNombreCompleto());
-        docAdmin.append("correo", admin.getCorreo());
-        docAdmin.append("contrasenia", admin.getContrasenia());
-        docAdmin.append("telefono", admin.getTelefono());
-        docAdmin.append("avatar", admin.getAvatar());
-        docAdmin.append("ciudad", admin.getCiudad());
-        docAdmin.append("fechaNacimiento", 
+            docAdmin.append("correo", admin.getCorreo());
+            docAdmin.append("contrasenia", admin.getContrasenia());
+            docAdmin.append("telefono", admin.getTelefono());
+            docAdmin.append("avatar", admin.getAvatar());
+            docAdmin.append("ciudad", admin.getCiudad());
+            docAdmin.append("fechaNacimiento", 
                 admin.getFechaNacimiento());
-        docAdmin.append("genero", admin.getGenero());
-        docAdmin.append("municipio", admin.getMunicipio());
-        // Insertar el documento en la colección
-        collection.insertOne(docAdmin);
-        // Establecer el id generado en el objeto admin
-        admin.setId(docAdmin.getObjectId("_id"));
-        return admin;
+            docAdmin.append("genero", admin.getGenero());
+            docAdmin.append("municipio", admin.getMunicipio());
+            // Insertar el documento en la colección
+            collection.insertOne(docAdmin);
+            // Establecer el id generado en el objeto admin
+            admin.setId(docAdmin.getObjectId("_id"));
+            return admin;
+        } catch(MongoException me){
+            throw new PersistenciaException(
+                    "Error al crear el admin" + me.getMessage());
+        }
     }
     /**
      * Método que elimina un objeto de tipo Admin
@@ -71,46 +78,56 @@ public class AdminsDAO implements IAdminsDAO{
      * @return El objeto Admin eliminado
      */
     @Override
-    public Admin eliminar(Admin admin) {
-        // Obtener la colección donde se guardan los admins
-        MongoCollection<Document> collection = 
+    public Admin eliminar(Admin admin) throws PersistenciaException {
+        try {
+            // Obtener la colección donde se guardan los admins
+            MongoCollection<Document> collection = 
                 baseDatos.getCollection("admins");
-        // Crear un filtro para encontrar el admin por su ID
-        Document filtro = new Document("nombre", 
+            // Crear un filtro para encontrar el admin por su ID
+            Document filtro = new Document("nombre", 
                 admin.getNombreCompleto());
-        // Eliminar el admin de la colección
-        collection.deleteOne(filtro);
-        // Devolver el admin eliminada
-        return admin;
+            // Eliminar el admin de la colección
+            collection.deleteOne(filtro);
+            // Devolver el admin eliminada
+            return admin;
+        } catch(MongoException me){
+            throw new PersistenciaException(
+                    "Error al eliminar el admin" + me.getMessage());
+        }
     }
     /**
      * Método que crea una lista con todos los objetos Admin creados
      * @return La lista de objetos Admin
      */
     @Override
-    public List<Admin> consultarAdmins() {
-        List<Admin> admins = new ArrayList<>();
-        MongoCollection<Document> collection = 
+    public List<Admin> consultarAdmins() throws PersistenciaException {
+        try{
+            List<Admin> admins = new ArrayList<>();
+            MongoCollection<Document> collection = 
                 baseDatos.getCollection("admins");
-        FindIterable<Document> documentos = collection.find();
-        for (Document documento : documentos) {
-            Admin admin = new Admin();
-            admin.setId(documento.getObjectId("_id"));
-            admin.setNombreCompleto(
+            FindIterable<Document> documentos = collection.find();
+            for (Document documento : documentos) {
+                Admin admin = new Admin();
+                admin.setId(documento.getObjectId("_id"));
+                admin.setNombreCompleto(
                     documento.getString("nombreCompleto"));
-            admin.setCorreo(documento.getString("correo"));
-            admin.setContrasenia(
+                admin.setCorreo(documento.getString("correo"));
+                admin.setContrasenia(
                     documento.getString("contrasenia"));
-            admin.setTelefono(documento.getString("telefono"));
-            admin.setAvatar(documento.getString("avatar"));
-            admin.setCiudad(documento.getString("ciudad"));
-            admin.setFechaNacimiento(
+                admin.setTelefono(documento.getString("telefono"));
+                admin.setAvatar(documento.getString("avatar"));
+                admin.setCiudad(documento.getString("ciudad"));
+                admin.setFechaNacimiento(
                     documento.getDate("fechaNacimiento"));
-            admin.setGenero(documento.getString("genero"));
-            admin.setMunicipio(documento.get("municipio", 
+                admin.setGenero(documento.getString("genero"));
+                admin.setMunicipio(documento.get("municipio", 
                     Municipio.class));
-            admins.add(admin);
+                admins.add(admin);
+            }
+            return admins;
+        } catch(MongoException me){
+            throw new PersistenciaException(
+                    "Error al consultar los admins" + me.getMessage());
         }
-        return admins;
     }
 }

@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : Jun 28, 2023, 1:17:05 PM
-    Author     : antho
+    Author     : Victor, Victoria, Daniel y Nadia
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

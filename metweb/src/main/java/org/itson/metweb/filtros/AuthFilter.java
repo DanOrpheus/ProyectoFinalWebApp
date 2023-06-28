@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /**
- * @author Victor
+ * @author Victor, Victoria, Daniel y Nadia
  * @version IDE 17
  */
 @WebFilter(filterName = "AuthFilter", urlPatterns = {"/*"})

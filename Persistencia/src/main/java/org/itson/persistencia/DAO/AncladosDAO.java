@@ -102,7 +102,7 @@ public class AncladosDAO implements IAncladosDAO {
      * @return La lista de objetos Anclado
      */
     @Override
-    public List<Anclado> consultarPosts() {
+    public List<Anclado> consultarAnclados() {
         List<Anclado> anclados = new ArrayList<>();
         MongoCollection<Document> collection = 
                 baseDatos.getCollection("anclados");

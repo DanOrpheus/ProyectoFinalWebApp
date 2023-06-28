@@ -1,15 +1,22 @@
+<%-- 
+    Document   : register
+    Created on : Jun 28, 2023, 1:11:03 PM
+    Author     : antho
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="Estilos/estiloRegistro.css">
+	<link rel="stylesheet" type="text/css" href="/Estilos/estiloRegistro.css">
 	<title>Crear Nueva Cuenta</title>
-</head>
-<body>
+    </head>
+    <body>
 	<header>
-    <h1><a href="index.html" class="logo">metface</a></h1>
-    <a href="#">Ayuda</a>
+            <h1><a href="index.html" class="logo">metFace</a></h1>
+            <a href="#">Ayuda</a>
   	</header>
 	<form class="formcont" action="#" method="post">
 		<h1 class="registerHeader">Nueva Cuenta</h1>
@@ -28,5 +35,5 @@
 	      <p>D. Gutiérrez, V. A., N. Soto, V. Pauda - ITSON 2023 - Licensed under Creative Commons</p>
 	    </div>
   	</footer>
-</body>
+    </body>
 </html>

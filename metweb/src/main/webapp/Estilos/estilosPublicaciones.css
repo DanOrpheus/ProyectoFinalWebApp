@@ -1,0 +1,186 @@
+
+@font-face{
+	font-family: Roboto; src: url("../fonts/roboto/Roboto-Regular.ttf");
+	font-family: Roboto; font-weight: light; src: url("../fonts/roboto/Roboto-Thin.ttf");
+	font-family: Roboto; font-weight: bold; src: url("../fonts/roboto/Roboto-Bold.ttf");
+	font-family: Roboto; font-weight: bold; font-style: italic; src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
+	font-family: Roboto; font-weight: light; font-style: italic; src: url("../fonts/roboto/Roboto-LightItalic.ttf");
+
+
+	font-family: Amazing; src: url("/fonts/Amazing-Slab/Regular.ttf");
+	font-family: Amazing; font-weight: light; src: url("../fonts/Amazing-Slab/Light.ttf");
+	font-family: Amazing; font-weight: bold; src: url("../fonts/Amazing-Slab/Bold.ttf");
+}
+
+
+body{
+	background-color: #f2f2f2;
+	
+	background-size: cover;
+	color: black;
+}
+
+header{
+	background-color: rgb(6, 70, 99);;
+	border: 2px solid #fff;
+  color: #dcdde9;
+  font-size: 12px;
+}
+
+
+
+
+body{
+	display: grid;
+	grid-row-gap: 10px;
+	grid-template-columns: auto auto auto auto;
+	grid-template-rows: 100px 300px 300px 300px 100px;
+	font-family: Roboto, sans-serif;
+	font-weight: lighter;
+}
+header{
+	grid-column: 1/span 5;
+	display:flex;
+	flex-wrap: nowrap;
+	justify-content: spasce-between;
+	align-items: center;
+	
+	font-size: 20px;
+	height: 100px;
+	border-radius: 10px;
+	
+}
+.logo{
+	height: 100px;
+	flex-grow: 1;
+	order: 1;
+}
+.navbar{
+	display: flex;
+	float: right;
+	align-self: right;
+	padding-top: 0px;
+	order: 2;
+	font-family: Roboto, sans-serif;
+	font-weight: light;
+}
+.subnavbar{
+	flex-grow: 1;
+	order: 1;
+
+}
+.subnavbar2{
+	flex-grow: 1;
+	order: 2;
+}
+
+aside{
+	border-radius: 10px;
+	display: flex;
+	flex-flow: column;
+	grid-column-start: 3;
+	grid-column-end: 4;
+	grid-row: 2/ span 3;
+	padding: 10px 10px 10px 10px;
+}
+.FormContainer{
+	border-radius: 10px;
+	padding: 5px 5px 5px 5px;
+	grid-column: 2 / span 2;
+
+}
+
+/***********************************************/
+h1#logoLetter{
+	margin: 0px;
+	padding-top: 15px;
+	height: 85px;
+	padding-left: 20px;
+}
+
+a.navitem{
+	color: inherit;
+	text-decoration: inherit;
+	padding:10px 20px 10px 20px;
+	font-size: 20px;
+}
+
+.logo > a{
+	color: inherit;
+	text-decoration: inherit;
+}
+.NomRecomend{
+	width: inherit;
+}
+  
+  /********************************************************************************************************************/
+  .grid-container {
+    display: grid;
+    grid-template-columns: 600px;
+    grid-gap: 20px;
+    padding: 20px;
+    grid-column: 3/span 3;
+     
+
+  }
+  
+  .post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+   
+  }
+  
+  .comment {
+    background-color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    
+  }
+  .add-post{
+    background-color: #fff;
+   
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    display: grid;
+    
+    gap: 10px;
+  }
+  .comments2{
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px ;
+    border-radius: 3px;
+  }
+ 
+  .footer {
+    background-color: rgb(6, 70, 99);
+    border: solid #fff;
+    display: flex;
+    justify-content: center;
+    color: #AFD3E2;;
+    font-size: 20px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    
+    text-align: center;
+   
+
+  grid-column: 1/span 5;
+
+	flex-wrap: nowrap;
+    grid-row-start:8; 
+}
+.submit-button, .delete-button {
+  background-color: rgb(6, 70, 99);
+  color: white;
+ 
+  border-radius: 5px;
+}
+
+
+

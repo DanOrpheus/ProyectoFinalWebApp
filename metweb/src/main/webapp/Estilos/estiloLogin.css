@@ -1,0 +1,111 @@
+@font-face{
+	font-family: Roboto; src: url("../fonts/roboto/Roboto-Regular.ttf");
+	font-family: Roboto; font-weight: light; src: url("../fonts/roboto/Roboto-Thin.ttf");
+	font-family: Roboto; font-weight: bold; src: url("../fonts/roboto/Roboto-Bold.ttf");
+	font-family: Roboto; font-weight: bold; font-style: italic; src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
+	font-family: Roboto; font-weight: light; font-style: italic; src: url("../fonts/roboto/Roboto-LightItalic.ttf");
+
+
+	font-family: Amazing; src: url("/fonts/Amazing-Slab/Regular.ttf");
+	font-family: Amazing; font-weight: light; src: url("../fonts/Amazing-Slab/Light.ttf");
+	font-family: Amazing; font-weight: bold; src: url("../fonts/Amazing-Slab/Bold.ttf");
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  background-color: #f2f2f2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+
+/*Header e Items Header*/
+header {
+  background-color: rgb(6, 70, 99);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  width: 98.5%;
+}
+header h1 {
+  margin-right: 10px;
+  margin-left: 50px;
+}
+header a {
+  margin-right: 30px;
+  color: #dcdde9;
+  text-decoration: none;
+}
+
+/*Form container de Registro Usuario nuevo*/
+.container {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 50px;
+  width: 30%;
+  height: auto;
+  text-align: center;
+  margin: 18px 0px 18px 0px;
+  box-shadow: 0 0 5px #BDCDD6;
+}
+.container h1 {
+  color: #1e3557;
+  font-size: 25px;
+}
+.container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.container button {
+  background-color: rgb(6, 70, 99);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.container p {
+  margin-top: 10px;
+  font-style: italic;
+  font-weight: light;
+  font-size: 14px;
+  color: rgb(6, 70, 99);
+}
+hr{
+	border: 2px solid rgb(6, 70, 99);
+	width: 70%;
+	margin-bottom: 30px;
+}
+
+/*Footer e Items Footer*/
+footer {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgb(6, 70, 99);
+  padding: 10px;
+  text-align: center;
+  color: #AFD3E2;
+  font-size: 12px;
+  width: 98.5%;
+}
+footer a{
+  color: #dcdde9;
+  text-decoration: none;
+}
+.ftrItem1{
+  order: 1;
+  flex-grow: 1;
+}

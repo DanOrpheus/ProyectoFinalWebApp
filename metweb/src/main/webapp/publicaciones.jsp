@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -65,32 +66,22 @@
                     </form>
                 </div>
             </div>
-            <div class="post">
-                <h2>Publicación 2</h2>
-                <p>Contenido de la publicación 2.</p>
-                <div class="comments">
-                    <div class="comment">
-                        <p>Comentario 1 para la publicación 2.</p>
-                    </div>
-                    <div class="comment">
-                        <p>Comentario 2 para la publicación 2.</p>
-                    </div>
-                    <div class="comments2">
-                        <form>
-                            <div>		
-                                <textarea id="newComentario" 
-                                          placeholder="Nuevo comentario" 
-                                          name="comentario" rows="4" 
-                                          cols="50"></textarea>
-                            </div>
-                            <div>
-                                <button class="submit-button" type="submit">Publicar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Titulo de la publicación</th>
+                <th>Contenido</th>
+                <th>Fecha y hora de la creación</th>
+            </tr>
+            <c:forEach items="${requestScope.posts}" var="item">
+                <tr>
+                    <td>${item.id}</td>
+                    <td>${item.titulo}</td>
+                    <td>${item.contenido}</td>
+                    <td>${item.fechaHoraCreacion}</td>
+                </tr> 
+            </c:forEach>
+            </table>      
         <footer class="footer">
             <div class="footer-container">
 		<p>Daniel, Nadia, Victor, Victoria - Licensed under Creative Commons</p>

@@ -4,6 +4,7 @@
  */
 package org.itson.persistencia.DAO;
 
+import com.mongodb.MongoException;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -13,6 +14,7 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.itson.dominio.Anclado;
 import org.itson.persistencia.ConexionMongoDB;
+import org.itson.persistencia.Excepciones.PersistenciaException;
 import org.itson.persistencia.Interfaces.IAncladosDAO;
 /**
  * @author Victor, Victoria, Daniel y Nadia
@@ -39,22 +41,27 @@ public class AncladosDAO implements IAncladosDAO {
      * @return El objeto Anclado agregado
      */
     @Override
-    public Anclado agregar(Anclado anclado) {
-        // Obtener la colección "anclados" de la base de datos
-        MongoCollection<Document> collection = 
+    public Anclado agregar(Anclado anclado) throws PersistenciaException {
+        try {
+            // Obtener la colección "anclados" de la base de datos
+            MongoCollection<Document> collection = 
                 baseDatos.getCollection("anclados");
-        // Crear un nuevo documento para el anclado
-        Document docAnclado = new Document();
-        docAnclado.append("_id", new ObjectId());
-        docAnclado.append("fechaHoraCreacion", anclado.getFechaHoraCreacion());
-        docAnclado.append("titulo", anclado.getTitulo());
-        docAnclado.append("contenido", anclado.getContenido());
-        docAnclado.append("fechaHoraEdicion", anclado.getFechaHoraEdicion());
-        // Insertar el documento en la colección
-        collection.insertOne(docAnclado);
-        // Establecer el id generado en el objeto anclado
-        anclado.setId(docAnclado.getObjectId("_id"));
-        return anclado;        
+            // Crear un nuevo documento para el anclado
+            Document docAnclado = new Document();
+            docAnclado.append("_id", new ObjectId());
+            docAnclado.append("fechaHoraCreacion", anclado.getFechaHoraCreacion());
+            docAnclado.append("titulo", anclado.getTitulo());
+            docAnclado.append("contenido", anclado.getContenido());
+            docAnclado.append("fechaHoraEdicion", anclado.getFechaHoraEdicion());
+            // Insertar el documento en la colección
+            collection.insertOne(docAnclado);
+            // Establecer el id generado en el objeto anclado
+            anclado.setId(docAnclado.getObjectId("_id"));
+            return anclado;
+        } catch(MongoException me){
+            throw new PersistenciaException(
+                    "Error al agregar el post anclado" + me.getMessage());
+        }
     }
     /**
      * Método que modifica un objeto de tipo Anclado
@@ -62,22 +69,27 @@ public class AncladosDAO implements IAncladosDAO {
      * @return El objeto Anclado modificado
      */
     @Override
-    public Anclado modificar(Anclado anclado) {
-        // Obtener la colección donde se guardan los anclados
-        MongoCollection<Document> collection = 
+    public Anclado modificar(Anclado anclado) throws PersistenciaException {
+        try {
+            // Obtener la colección donde se guardan los anclados
+            MongoCollection<Document> collection = 
                 baseDatos.getCollection("anclados");
-        // Crear un filtro para encontrar el anclado por su ID
-        Document filtro = new Document("_id", anclado.getId());
-        Document update = new Document();
-        update.append("$set", 
+            // Crear un filtro para encontrar el anclado por su ID
+            Document filtro = new Document("_id", anclado.getId());
+            Document update = new Document();
+            update.append("$set", 
                 new Document("fechaHoraCreacion", anclado.getFechaHoraCreacion())
                     .append("titulo", anclado.getTitulo())
                     .append("contenido", anclado.getContenido())
                     .append("fechaHoraEdicion", anclado.getFechaHoraEdicion()));
-        // Actualizar el anclado de la colección
-        collection.updateOne(filtro, update);
-        // Devolver el anclado eliminado
-        return anclado;
+            // Actualizar el anclado de la colección
+            collection.updateOne(filtro, update);
+            // Devolver el anclado eliminado
+            return anclado;
+        } catch(MongoException me){
+            throw new PersistenciaException(
+                    "Error al modificar el post anclado" + me.getMessage());
+        }
     }
     /**
      * Método que elimina un objeto de tipo Anclado
@@ -85,38 +97,48 @@ public class AncladosDAO implements IAncladosDAO {
      * @return El objeto Anclado eliminado
      */
     @Override
-    public Anclado eliminar(Anclado anclado) {
-        // Obtener la colección donde se guardan los anclados
-        MongoCollection<Document> collection = 
+    public Anclado eliminar(Anclado anclado) throws PersistenciaException {
+        try {
+            // Obtener la colección donde se guardan los anclados
+            MongoCollection<Document> collection = 
                 baseDatos.getCollection("anclados");
-        // Crear un filtro para encontrar el anclado por su ID
-        Document filtro = new Document("titulo", 
+            // Crear un filtro para encontrar el anclado por su ID
+            Document filtro = new Document("titulo", 
                 anclado.getTitulo());
-        // Eliminar el anclado de la colección
-        collection.deleteOne(filtro);
-        // Devolver el anclado eliminado
-        return anclado;
+            // Eliminar el anclado de la colección
+            collection.deleteOne(filtro);
+            // Devolver el anclado eliminado
+            return anclado;
+        } catch(MongoException me){
+            throw new PersistenciaException(
+                    "Error al eliminar el post anclado" + me.getMessage());
+        }
     }
     /**
      * Método que crea una lista con todos los objetos Anclado creados
      * @return La lista de objetos Anclado
      */
     @Override
-    public List<Anclado> consultarAnclados() {
-        List<Anclado> anclados = new ArrayList<>();
-        MongoCollection<Document> collection = 
+    public List<Anclado> consultarAnclados() throws PersistenciaException {
+        try {
+            List<Anclado> anclados = new ArrayList<>();
+            MongoCollection<Document> collection = 
                 baseDatos.getCollection("anclados");
-        FindIterable<Document> documentos = collection.find();
-        for (Document documento : documentos) {
-            Anclado anclado=new Anclado();
-            anclado.setId(documento.getObjectId("_id"));
-            anclado.setFechaHoraCreacion(
-                    documento.getDate("fechaHoraCreacion"));
-            anclado.setTitulo(documento.getString("titulo"));
-            anclado.setContenido(documento.getString("contenido"));
-            anclado.setFechaHoraEdicion(documento.getDate("fechaHoraEdicion"));
-            anclados.add(anclado);
+            FindIterable<Document> documentos = collection.find();
+            for (Document documento : documentos) {
+                Anclado anclado=new Anclado();
+                anclado.setId(documento.getObjectId("_id"));
+                anclado.setFechaHoraCreacion(
+                        documento.getDate("fechaHoraCreacion"));
+                anclado.setTitulo(documento.getString("titulo"));
+                anclado.setContenido(documento.getString("contenido"));
+                anclado.setFechaHoraEdicion(documento.getDate("fechaHoraEdicion"));
+                anclados.add(anclado);
+            }
+            return anclados;
+        } catch(MongoException me){
+            throw new PersistenciaException(
+                    "Error al consultar los posts anclados" + me.getMessage());
         }
-        return anclados;
     }
 }

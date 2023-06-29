@@ -18,17 +18,69 @@
             <h1><a class="logo">metFace</a></h1>
             <a href="#">Ayuda</a>
   	</header>
-	<form class="formcont" action="#" method="post">
+	<form class="formcont" action="./user?action=create" method="post">
 		<h1 class="registerHeader">Nueva Cuenta</h1>
 		<hr>
-		<input type="text" id="username" name="username" placeholder="Nombre de Usuario">
-		<input type="email" id="correo" name="correo" placeholder="Correo Electronico">
-		<input type="text" id="nombre" name="nombre" placeholder="Nombre(s)">
-		<input type="text" id="apellido" name="apellido" placeholder="Apellido(s)">
-		<input type="password" id="pass" name="pass" placeholder="Crea una Contraseña">
-		<input type="password" id="passConfirm" name="passConfirm" placeholder="Confirma tu Contraseña">
-		<input class="button1" type="submit" name="Enviar" value="Enviar">
-		<input class="button2" type="reset" name="Restablecer">
+		<input type="text" id="username" name="username" 
+                       placeholder="Ingresa un nombre de usuario">                
+		<input type="email" id="mail" name="mail" 
+                       placeholder="Ingresa tu correo">
+                <input type="text" id="firstname" name="firstname" 
+                       placeholder="Nombre(s)">
+		<input type="text" id="lastname" name="lastname" 
+                       placeholder="Apellido(s)">
+		<input type="password" id="pass" name="pass" 
+                       placeholder="Ingresa una contraseña">
+		<input type="password" id="passConfirm" name="passConfirm" 
+                       placeholder="Confirma tu contraseña">
+                <input type="date" id="birthdate" name="birthdate">
+                <select id="city" name="city">
+                    <option value="" selected>--Selecciona una ciudad--</option>
+                    <optgroup label="Sonora">
+                        <option value="obregon">Ciudad Obregón</option>
+                        <option value="hermosillo">Hermosillo</option>
+                        <option value="nogales">Nogales</option>
+                        <option value="guaymas">Guaymas</option>
+                        <option value="navojoa">Navojoa</option>
+                    </optgroup>
+                    <optgroup label="Coahuila">
+                        <option value="saltillo">Saltillo</option>
+                        <option value="torreon">Torreón</option>
+                        <option value="zaragoza">Zaragoza</option>
+                        <option value="nadadora">Nadadora</option>
+                        <option value="matamoros">Matamoros</option>
+                    </optgroup>
+                    <optgroup label="Baja California">
+                        <option value="mexicali">Mexicali</option>
+                        <option value="ensenada">Ensenada</option>
+                        <option value="tijuana">Tijuana</option>
+                        <option value="tecate">Tecate</option>
+                        <option value="rosarito">Rosarito</option>
+                    </optgroup>
+                    <optgroup label="Chihuahua">
+                        <option value="chihuahua">Chihuahua</option>
+                        <option value="cjuarez">Ciudad Juárez</option>
+                        <option value="delicias">Delicias</option>
+                        <option value="parral">Parral</option>
+                        <option value="camargo">Camargo</option>                        
+                    </optgroup>
+                    <optgroup label="Durango">
+                        <option value="canatlan">Canatlán</option>
+                        <option value="clerdo">Ciudad Lerdo</option>
+                        <option value="salto">El Salto</option>
+                        <option value="blanco">Peñón Blanco</option>
+                        <option value="palacio">Gómez Palacio</option>
+                    </optgroup>
+                    <optgroup label="Guanajuato">
+                        <option value="celaya">Celaya</option>
+                        <option value="salamanca">Salamanca</option>
+                        <option value="irapuato">Irapuato</option>
+                        <option value="allende">San Miguel de Allende</option>
+                        <option value="leon">León de los Aldama</option>
+                    </optgroup>
+                </select>
+                <button class="button1" type="submit">Registrarse</button>
+                <button class="button2" type="reset">Reiniciar</button>
 	</form>
 	<footer>
 	    <div class="ftrItem1">

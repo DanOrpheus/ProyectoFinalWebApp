@@ -118,7 +118,7 @@ public class UsuariosDAO implements IUsuariosDAO{
                 usuario.setAvatar(documento.getString("avatar"));
                 usuario.setCiudad(documento.getString("ciudad"));
                 usuario.setFechaNacimiento(
-                    documento.getDate("fechaNacimiento"));
+                    documento.getString("fechaNacimiento"));
                 usuario.setGenero(documento.getString("genero"));
                 usuario.setMunicipio(documento.get("municipio", 
                     Municipio.class));

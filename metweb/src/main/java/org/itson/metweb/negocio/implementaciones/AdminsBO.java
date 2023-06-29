@@ -5,6 +5,7 @@
 package org.itson.metweb.negocio.implementaciones;
 
 import java.util.List;
+import org.bson.types.ObjectId;
 import org.itson.dominio.Admin;
 import org.itson.metweb.Excepciones.NegocioException;
 import org.itson.metweb.negocio.interfaces.IAdminsBO;
@@ -38,6 +39,8 @@ public class AdminsBO implements IAdminsBO {
     public Admin agregar(Admin admin) throws NegocioException {
         try {
             Admin nAdmin = this.fachada.guardarAdmin(admin);
+            ObjectId id = new ObjectId();
+            nAdmin.setId(id);
             return nAdmin;
         } catch(PersistenciaException ex){
             throw new NegocioException(ex);

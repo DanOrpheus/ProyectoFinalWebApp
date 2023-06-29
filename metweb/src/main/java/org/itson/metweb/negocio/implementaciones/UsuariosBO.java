@@ -5,6 +5,7 @@
 package org.itson.metweb.negocio.implementaciones;
 
 import java.util.List;
+import org.bson.types.ObjectId;
 import org.itson.dominio.Usuario;
 import org.itson.metweb.Excepciones.NegocioException;
 import org.itson.metweb.negocio.interfaces.IUsuariosBO;
@@ -38,6 +39,8 @@ public class UsuariosBO implements IUsuariosBO {
     public Usuario agregar(Usuario usuario) throws NegocioException {
         try {
             Usuario nUsuario = this.fachada.guardarUsuario(usuario);
+            ObjectId id = new ObjectId();
+            nUsuario.setId(id);
             return nUsuario;
         } catch(PersistenciaException ex){
             throw new NegocioException(ex);

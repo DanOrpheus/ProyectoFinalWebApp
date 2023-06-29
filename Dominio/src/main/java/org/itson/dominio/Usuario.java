@@ -4,7 +4,6 @@
  */
 package org.itson.dominio;
 
-import java.util.Date;
 import java.util.Objects;
 import org.bson.types.ObjectId;
 
@@ -21,7 +20,7 @@ public class Usuario {
     private String telefono;
     private String avatar;
     private String ciudad;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     private String genero;
     private Municipio municipio;
     
@@ -41,6 +40,23 @@ public class Usuario {
         this.avatar = avatar;
     }
     /**
+     * Constructor para registrarse como usuario nuevo
+     * @param nombreCompleto
+     * @param correo
+     * @param contrasenia
+     * @param avatar
+     * @param ciudad
+     * @param fechaNacimiento 
+     */
+    public Usuario(String nombreCompleto, String correo, String contrasenia, String avatar, String ciudad, String fechaNacimiento) {
+        this.nombreCompleto = nombreCompleto;
+        this.correo = correo;
+        this.contrasenia = contrasenia;
+        this.avatar = avatar;
+        this.ciudad = ciudad;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+    /**
      * Constructor que inicializa los atributos de la clase exceptuando el id
      * @param nombreCompleto Nombre completo del usuario
      * @param correo Correo electrónico del usuario
@@ -54,7 +70,7 @@ public class Usuario {
      */
     public Usuario(String nombreCompleto, String correo, String contrasenia, 
             String telefono, String avatar, String ciudad, 
-            Date fechaNacimiento, String genero, Municipio municipio) {
+            String fechaNacimiento, String genero, Municipio municipio) {
         this.nombreCompleto = nombreCompleto;
         this.correo = correo;
         this.contrasenia = contrasenia;
@@ -80,7 +96,7 @@ public class Usuario {
      */
     public Usuario(ObjectId id, String nombreCompleto, String correo, 
             String contrasenia, String telefono, String avatar, 
-            String ciudad, Date fechaNacimiento, 
+            String ciudad, String fechaNacimiento, 
             String genero, Municipio municipio) {
         this.id = id;
         this.nombreCompleto = nombreCompleto;
@@ -137,10 +153,10 @@ public class Usuario {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
     public String getGenero() {

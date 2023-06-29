@@ -23,7 +23,8 @@ import javax.servlet.http.HttpSession;
 public class AuthFilter implements Filter {
     // ATRIBUTOS DE LA CLASE
     private final static String[] pathsPublicos = 
-    { "login.jsp" , "/auth" , "register.jsp", "index.jsp"};
+    { "login.jsp" , "/auth" , "/user" , "register.jsp" , "index.jsp" , 
+        "errorHttp.jsp" , "success.jsp" };
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

@@ -37,7 +37,7 @@ public class Authenticator extends HttpServlet {
         String password = request.getParameter("pass");
         String pagReturn = "/login.jsp";
         String pagSuccess = "/index.jsp";
-        String pagError = "/errorLogin.jsp";
+        String pagError = "/errorHttp.jsp";
         // VALIDACIONES
         if (avatar == null 
                 || avatar.isBlank() 
@@ -54,6 +54,7 @@ public class Authenticator extends HttpServlet {
             request.setAttribute("usuario", savedUser);
         // SI NO PUEDE INICIAR
         } catch(NegocioException ne){
+            request.setAttribute("error", ne.getMessage());
             getServletContext().getRequestDispatcher(pagError)
                     .forward(request, response);
         }
@@ -87,7 +88,7 @@ public class Authenticator extends HttpServlet {
      * @throws ServletException
      * @throws IOException 
      */
-    protected void processStart(HttpServletRequest request,
+    protected void processStartPage(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         String pagStart = "/inicio.jsp";
         getServletContext().getRequestDispatcher(pagStart)
@@ -101,7 +102,7 @@ public class Authenticator extends HttpServlet {
      * @throws ServletException
      * @throws IOException 
      */
-    protected void processRegister(HttpServletRequest request,
+    protected void processRegisterPage(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         String pagStart = "/register.jsp";
         getServletContext().getRequestDispatcher(pagStart)
@@ -129,11 +130,11 @@ public class Authenticator extends HttpServlet {
             return;
         }
         if (action != null && action.equalsIgnoreCase("start")){
-            processStart(request, response);
+            processStartPage(request, response);
             return;
         }
         if (action != null && action.equalsIgnoreCase("register")){
-            processRegister(request, response);
+            processRegisterPage(request, response);
             return;
         }            
     }

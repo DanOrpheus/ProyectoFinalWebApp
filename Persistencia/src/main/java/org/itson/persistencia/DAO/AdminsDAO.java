@@ -118,7 +118,7 @@ public class AdminsDAO implements IAdminsDAO {
                 admin.setAvatar(documento.getString("avatar"));
                 admin.setCiudad(documento.getString("ciudad"));
                 admin.setFechaNacimiento(
-                    documento.getDate("fechaNacimiento"));
+                    documento.getString("fechaNacimiento"));
                 admin.setGenero(documento.getString("genero"));
                 admin.setMunicipio(documento.get("municipio", 
                     Municipio.class));

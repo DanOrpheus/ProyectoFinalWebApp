@@ -118,7 +118,7 @@ public class NormalesDAO implements INormalesDAO {
                 normal.setAvatar(documento.getString("avatar"));
                 normal.setCiudad(documento.getString("ciudad"));
                 normal.setFechaNacimiento(
-                    documento.getDate("fechaNacimiento"));
+                    documento.getString("fechaNacimiento"));
                 normal.setGenero(documento.getString("genero"));
                 normal.setMunicipio(documento.get("municipio", 
                     Municipio.class));

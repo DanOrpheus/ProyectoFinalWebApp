@@ -4,7 +4,6 @@
  */
 package org.itson.dominio;
 
-import java.util.Date;
 import org.bson.types.ObjectId;
 
 /**
@@ -41,7 +40,7 @@ public class Admin extends Usuario {
      */
     public Admin(ObjectId id, String nombreCompleto, String correo, 
             String contrasenia, String telefono, String avatar, String ciudad, 
-            Date fechaNacimiento, String genero, Municipio municipio) {
+            String fechaNacimiento, String genero, Municipio municipio) {
         super(id, nombreCompleto, correo, contrasenia, telefono, 
                 avatar, ciudad, fechaNacimiento, genero, municipio);
     }

@@ -32,7 +32,7 @@
 	</form>
 	<footer>
 	    <div class="ftrItem1">
-	      <p>D. Gutiérrez, V. A., N. Soto, V. Pauda - ITSON 2023 - Licensed under Creative Commons</p>
+	      <p>Daniel, Nadia, Victor, Victoria - ITSON 2023 - Licensed under Creative Commons</p>
 	    </div>
   	</footer>
     </body>

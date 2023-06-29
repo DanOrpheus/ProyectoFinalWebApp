@@ -10,12 +10,12 @@
     <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="/Estilos/estiloRegistro.css">
+        <style type="text/css"><%@include file = "Estilos/estiloRegistro.css"%></style>
 	<title>Crear Nueva Cuenta</title>
     </head>
     <body>
 	<header>
-            <h1><a href="index.html" class="logo">metFace</a></h1>
+            <h1><a class="logo">metFace</a></h1>
             <a href="#">Ayuda</a>
   	</header>
 	<form class="formcont" action="#" method="post">

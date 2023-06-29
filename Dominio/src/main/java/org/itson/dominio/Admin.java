@@ -19,6 +19,14 @@ public class Admin extends Usuario {
     public Admin() {
     }
     /**
+     * Constructor para iniciar sesión como admininstrador
+     * @param contrasenia
+     * @param avatar 
+     */
+    public Admin(String contrasenia, String avatar) {
+        super(contrasenia, avatar);
+    }
+    /**
      * Constructor que inicializa los atributos de la clase padre
      * @param id
      * @param nombreCompleto

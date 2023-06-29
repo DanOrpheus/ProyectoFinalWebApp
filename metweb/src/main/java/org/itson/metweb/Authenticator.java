@@ -10,6 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.itson.dominio.Usuario;
+import org.itson.metweb.Excepciones.NegocioException;
+import org.itson.metweb.negocio.implementaciones.UsuariosBO;
+import org.itson.metweb.negocio.interfaces.IUsuariosBO;
 
 /**
  * @author Victor, Victoria, Daniel y Nadia
@@ -27,8 +32,36 @@ public class Authenticator extends HttpServlet {
      */
     protected void processLogin(HttpServletRequest request, 
             HttpServletResponse response) throws ServletException, IOException {
+        // ATRIBUTOS
         String avatar = request.getParameter("avatar");
         String password = request.getParameter("pass");
+        String pagReturn = "/login.jsp";
+        String pagSuccess = "/index.jsp";
+        String pagError = "/errorLogin.jsp";
+        // VALIDACIONES
+        if (avatar == null 
+                || avatar.isBlank() 
+                || password == null 
+                || password.isBlank()){
+            getServletContext().getRequestDispatcher(pagReturn)
+                    .forward(request, response);
+        }
+        // LÓGICA DE NEGOCIO
+        Usuario nUsuario = new Usuario(password, avatar);
+        IUsuariosBO usuarioBO = new UsuariosBO();
+        try {
+            Usuario savedUser = usuarioBO.agregar(nUsuario);
+            request.setAttribute("usuario", savedUser);
+        // SI NO PUEDE INICIAR
+        } catch(NegocioException ne){
+            getServletContext().getRequestDispatcher(pagError)
+                    .forward(request, response);
+        }
+        // SI PUEDE INICIAR
+        HttpSession sesion = request.getSession();
+        sesion.setAttribute("usuario", nUsuario);
+        getServletContext().getRequestDispatcher(pagSuccess)
+                .forward(request, response);
     }
     
     /**
@@ -40,8 +73,40 @@ public class Authenticator extends HttpServlet {
      */
     protected void processLogout(HttpServletRequest request, 
             HttpServletResponse response) throws ServletException, IOException {
-            
-    }    
+        String pagReturn = "/login.jsp";
+        HttpSession sesion = request.getSession();
+        sesion.invalidate();
+        getServletContext().getRequestDispatcher(pagReturn)
+                .forward(request, response);
+    }
+    
+    /**
+     * Procesa el método de acceso a la página principal del sitio web
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
+    protected void processStart(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        String pagStart = "/inicio.jsp";
+        getServletContext().getRequestDispatcher(pagStart)
+                .forward(request, response);
+    }
+    
+    /**
+     * Procesa el método de registro de usuarios al sitio web
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
+    protected void processRegister(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+        String pagStart = "/register.jsp";
+        getServletContext().getRequestDispatcher(pagStart)
+                .forward(request, response);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -62,7 +127,15 @@ public class Authenticator extends HttpServlet {
         if (action != null && action.equalsIgnoreCase("logout")){
             processLogout(request, response);
             return;
-        } 
+        }
+        if (action != null && action.equalsIgnoreCase("start")){
+            processStart(request, response);
+            return;
+        }
+        if (action != null && action.equalsIgnoreCase("register")){
+            processRegister(request, response);
+            return;
+        }            
     }
 
     /**

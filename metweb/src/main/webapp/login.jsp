@@ -19,8 +19,7 @@
             <a href="#">Ayuda</a>
         </header>
         <div class="container">
-  	<!-- Voy a dejar hecho el Form para luego, solo quedaria añadir las paginas jsp -Daniel-->
-            <form action="./auth?action=login" method="POST">
+            <form id="form_login" action="./auth?action=login" method="POST">
                 <h1>Iniciar sesión</h1>
                 <hr>
                 <label for="avatar">Nombre de usuario</label>
@@ -29,7 +28,9 @@
                 <input type="password" id="pass" name="pass">
                 <button type="submit">Iniciar sesión</button>
             </form>
-            <p>¿No tienes cuenta? <a href="register.jsp">Regístrate</a></p>
+            <p>¿No tienes cuenta?</p>
+            <button type="submit" form="form_login" formaction="./auth?action=register" 
+                    formmethod="post">Registrarse</button>
         </div>
         <footer>
             <div class="ftrItem1">

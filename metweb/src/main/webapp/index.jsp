@@ -12,8 +12,8 @@
         <title>Página de Inicio</title>
     </head>
     <body>
-        <h1>Hola ${sessionScope.usuario.nombre} !!</h1>
-        <form action="./auth?action=inicio" method="post">
+        <h1>Hola ${sessionScope.usuario.avatar} !!</h1>
+        <form action="./auth?action=start" method="post">
             <button type="submit">Ir a página de inicio</button>
         </form>        
         <form action="./auth?action=logout" method="post">

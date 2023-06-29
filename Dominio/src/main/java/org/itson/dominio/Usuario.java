@@ -32,6 +32,15 @@ public class Usuario {
     public Usuario() {
     }
     /**
+     * Constructor para cuando se deba iniciar sesión
+     * @param contrasenia
+     * @param avatar 
+     */
+    public Usuario(String contrasenia, String avatar) {
+        this.contrasenia = contrasenia;
+        this.avatar = avatar;
+    }
+    /**
      * Constructor que inicializa los atributos de la clase exceptuando el id
      * @param nombreCompleto Nombre completo del usuario
      * @param correo Correo electrónico del usuario

@@ -20,6 +20,9 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 0;
+  background-image: url("../img/bg2white.jpg");
+  background-size: 50% 30%;
+  background-repeat: repeat;
 }
 
 
@@ -33,6 +36,7 @@ header {
   color: #fff;
   font-size: 20px;
   width: 98.5%;
+  box-shadow: 0 0 15px gray;
 }
 header h1 {
   margin-right: 10px;
@@ -54,7 +58,7 @@ header a {
   height: auto;
   text-align: center;
   margin: 18px 0px 18px 0px;
-  box-shadow: 0 0 5px #BDCDD6;
+  box-shadow: 0 0 15px gray;
 }
 .container h1 {
   color: #1e3557;
@@ -100,6 +104,7 @@ footer {
   color: #AFD3E2;
   font-size: 12px;
   width: 98.5%;
+  box-shadow: 0 0 15px gray;
 }
 footer a{
   color: #dcdde9;

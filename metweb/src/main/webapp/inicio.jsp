@@ -16,7 +16,7 @@
     <body>
 	<header>
             <div class="logo">
-		<a href="index.html"><h1 id="logoLetter">metFace</h1></a>
+		<a href="inicio.jsp"><h1 id="logoLetter">metFace</h1></a>
             </div>
             <nav class="navbar">
 		<div class="subnavbar">

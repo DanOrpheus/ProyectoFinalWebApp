@@ -5,11 +5,14 @@
 package org.itson.metweb;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.itson.dominio.Post;
+import org.itson.metweb.Excepciones.NegocioException;
 import org.itson.metweb.negocio.implementaciones.PostsBO;
 import org.itson.metweb.negocio.interfaces.IPostsBO;
 
@@ -34,8 +37,34 @@ public class Posts extends HttpServlet {
         IPostsBO postBO = new PostsBO();
         String pagReturn = "/publicaciones.jsp";
         String pagError = "/errorHttp.jsp";
+        try {
+            List<Post> posts = postBO.consultarPosts();
+            request.setAttribute("posts", posts);
+        } catch(NegocioException ne){
+            request.setAttribute("error", ne.getMessage());
+            getServletContext().getRequestDispatcher(pagError).
+                    forward(request, response);
+        }
+        getServletContext().getRequestDispatcher(pagReturn).
+                forward(request, response);        
     }
-
+    
+    protected void processCreate(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+    }
+    
+    protected void processModify(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+    }
+        
+    protected void processDelete(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+    }
+    
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -49,12 +78,8 @@ public class Posts extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null || action.equalsIgnoreCase("findall")){
+        if (action != null && action.equalsIgnoreCase("findall")){
             this.processFindAll(request, response);
-            return;
-        }
-        if (action == null || action.equalsIgnoreCase("details")){
-            this.processDetails(request, response);
             return;
         }
     }
@@ -70,7 +95,19 @@ public class Posts extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String action = request.getParameter("action");
+        if (action == null || action.equalsIgnoreCase("create")){
+            this.processCreate(request, response);
+            return;
+        }
+        if (action == null || action.equalsIgnoreCase("update")){
+            this.processModify(request, response);
+            return;
+        }
+        if (action == null || action.equalsIgnoreCase("delete")){
+            this.processDelete(request, response);
+            return;
+        }
     }
 
     /**

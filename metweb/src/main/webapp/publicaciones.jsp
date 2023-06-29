@@ -33,8 +33,14 @@
             <div class="add-post">
                 <form>
                     <div>
-                        <h2><label for="publicacion" >Nueva publicación<br></label></h1>
-                        <textarea id="publicacion" name="publicacion" rows="4" cols="70"></textarea>
+                        <h2>
+                            <label for="publicacion">
+                                Nueva publicación<br>
+                            </label>
+                        </h2>
+                        <textarea id="publicacion" 
+                                  name="publicacion" 
+                                  rows="4" cols="70"></textarea>
                     </div>
                     <div>
                         <button class="submit-button" type="submit">Publicar</button>
@@ -65,23 +71,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <table border="1">
-            <tr>
-                <th>Id</th>
-                <th>Titulo de la publicación</th>
-                <th>Contenido</th>
-                <th>Fecha y hora de la creación</th>
-            </tr>
-            <c:forEach items="${requestScope.posts}" var="item">
-                <tr>
-                    <td>${item.id}</td>
-                    <td>${item.titulo}</td>
-                    <td>${item.contenido}</td>
-                    <td>${item.fechaHoraCreacion}</td>
-                </tr> 
-            </c:forEach>
-            </table>      
+            </div>   
         <footer class="footer">
             <div class="footer-container">
 		<p>Daniel, Nadia, Victor, Victoria - Licensed under Creative Commons</p>

@@ -4,7 +4,6 @@
  */
 package org.itson.dominio;
 
-import java.util.Date;
 import java.util.Objects;
 import org.bson.types.ObjectId;
 
@@ -15,10 +14,10 @@ import org.bson.types.ObjectId;
 public class Post {
     // ATRIBUTOS
     private ObjectId id;
-    private Date fechaHoraCreacion;
+    private String fechaHoraCreacion;
     private String titulo;
     private String contenido;
-    private Date fechaHoraEdicion;
+    private String fechaHoraEdicion;
     
     // CONSTRUCTORES
     /**
@@ -33,8 +32,8 @@ public class Post {
      * @param contenido Contenido de la publicación
      * @param fechaHoraEdicion Fecha y hora de edición de la publicación
      */
-    public Post(Date fechaHoraCreacion, String titulo, String contenido, 
-            Date fechaHoraEdicion) {
+    public Post(String fechaHoraCreacion, String titulo, String contenido, 
+            String fechaHoraEdicion) {
         this.fechaHoraCreacion = fechaHoraCreacion;
         this.titulo = titulo;
         this.contenido = contenido;
@@ -48,8 +47,8 @@ public class Post {
      * @param contenido Contenido de la publicación
      * @param fechaHoraEdicion Fecha y hora de edición de la publicación
      */
-    public Post(ObjectId id, Date fechaHoraCreacion, String titulo, 
-            String contenido, Date fechaHoraEdicion) {
+    public Post(ObjectId id, String fechaHoraCreacion, String titulo, 
+            String contenido, String fechaHoraEdicion) {
         this.id = id;
         this.fechaHoraCreacion = fechaHoraCreacion;
         this.titulo = titulo;
@@ -64,10 +63,10 @@ public class Post {
     public void setId(ObjectId id) {
         this.id = id;
     }
-    public Date getFechaHoraCreacion() {
+    public String getFechaHoraCreacion() {
         return fechaHoraCreacion;
     }
-    public void setFechaHoraCreacion(Date fechaHoraCreacion) {
+    public void setFechaHoraCreacion(String fechaHoraCreacion) {
         this.fechaHoraCreacion = fechaHoraCreacion;
     }
     public String getTitulo() {
@@ -82,10 +81,10 @@ public class Post {
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
-    public Date getFechaHoraEdicion() {
+    public String getFechaHoraEdicion() {
         return fechaHoraEdicion;
     }
-    public void setFechaHoraEdicion(Date fechaHoraEdicion) {
+    public void setFechaHoraEdicion(String fechaHoraEdicion) {
         this.fechaHoraEdicion = fechaHoraEdicion;
     }
     

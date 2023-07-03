@@ -4,8 +4,6 @@
  */
 package org.itson.dominio;
 
-import java.util.Date;
-
 /**
  * @author Victor, Victoria, Daniel y Nadia
  * @version IDE 17
@@ -24,7 +22,8 @@ public class Anclado extends Post {
      * @param contenido
      * @param fechaHoraEdicion 
      */
-    public Anclado(Date fechaHoraCreacion, String titulo, String contenido, Date fechaHoraEdicion) {
+    public Anclado(String fechaHoraCreacion, String titulo, String contenido, 
+            String fechaHoraEdicion) {
         super(fechaHoraCreacion, titulo, contenido, fechaHoraEdicion);
     }
 }

@@ -129,10 +129,10 @@ public class AncladosDAO implements IAncladosDAO {
                 Anclado anclado=new Anclado();
                 anclado.setId(documento.getObjectId("_id"));
                 anclado.setFechaHoraCreacion(
-                        documento.getDate("fechaHoraCreacion"));
+                        documento.getString("fechaHoraCreacion"));
                 anclado.setTitulo(documento.getString("titulo"));
                 anclado.setContenido(documento.getString("contenido"));
-                anclado.setFechaHoraEdicion(documento.getDate("fechaHoraEdicion"));
+                anclado.setFechaHoraEdicion(documento.getString("fechaHoraEdicion"));
                 anclados.add(anclado);
             }
             return anclados;

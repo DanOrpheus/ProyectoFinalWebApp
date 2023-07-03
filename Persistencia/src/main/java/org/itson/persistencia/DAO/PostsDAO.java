@@ -130,10 +130,10 @@ public class PostsDAO implements IPostsDAO {
                 Post post=new Post();
                 post.setId(documento.getObjectId("_id"));
                 post.setFechaHoraCreacion(
-                    documento.getDate("fechaHoraCreacion"));
+                    documento.getString("fechaHoraCreacion"));
                 post.setTitulo(documento.getString("titulo"));
                 post.setContenido(documento.getString("contenido"));
-                post.setFechaHoraEdicion(documento.getDate("fechaHoraEdicion"));
+                post.setFechaHoraEdicion(documento.getString("fechaHoraEdicion"));
                 posts.add(post);
             }
             return posts;

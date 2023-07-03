@@ -129,10 +129,10 @@ public class ComunesDAO implements IComunesDAO {
                 Comun comun = new Comun();
                 comun.setId(documento.getObjectId("_id"));
                 comun.setFechaHoraCreacion(
-                        documento.getDate("fechaHoraCreacion"));
+                        documento.getString("fechaHoraCreacion"));
                 comun.setTitulo(documento.getString("titulo"));
                 comun.setContenido(documento.getString("contenido"));
-                comun.setFechaHoraEdicion(documento.getDate("fechaHoraEdicion"));
+                comun.setFechaHoraEdicion(documento.getString("fechaHoraEdicion"));
                 comunes.add(comun);
             }
             return comunes;

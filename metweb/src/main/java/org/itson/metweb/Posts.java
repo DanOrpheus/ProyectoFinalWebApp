@@ -5,7 +5,9 @@
 package org.itson.metweb;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,19 +51,67 @@ public class Posts extends HttpServlet {
                 forward(request, response);        
     }
     
+    /**
+     * Proceso para crear un post en la página web
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     protected void processCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        // ATRIBUTOS
+        String datetimeCreation = request.getParameter("datetimeCreation");
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        String datetimeEdit = request.getParameter("datetimeEdit");
+        // PÁGINAS DE REDIRECCIÓN
+        String pagReturn = "/register.jsp";
+        String pagSuccess = "/success.jsp";
+        String pagError = "/errorHttp.jsp";
+        // VALIDACIONES
+        if (datetimeCreation == null || datetimeCreation.isBlank()
+                || title == null || title.isBlank()
+                || content == null || content.isBlank()
+                || datetimeEdit == null || datetimeEdit.isBlank()){
+            getServletContext().getRequestDispatcher(pagReturn).
+                    forward(request, response);
+        }
+        // LÓGICA DE NEGOCIO
+        Post post = new Post();
+        IPostsBO postBO = new PostsBO();
+        try {
+            Post savedPost = postBO.agregar(post);
+            request.setAttribute("post", savedPost);
+        } catch(NegocioException ne){
+            request.setAttribute("error", ne.getMessage());
+            getServletContext().getRequestDispatcher(pagError)
+                    .forward(request, response);
+        }
+        getServletContext().getRequestDispatcher(pagSuccess)
+                .forward(request, response);
     }
     
+    /**
+     * Proceso para modificar un post en la página web
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     protected void processModify(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
     }
-        
+    
+    /**
+     * Proceso para eliminar un post en la página web
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     protected void processDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
     }
     
     

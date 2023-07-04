@@ -40,9 +40,9 @@ public class Authenticator extends HttpServlet {
         String pagError = "/errorHttp.jsp";
         // VALIDACIONES
         if (avatar == null 
-                || avatar.isBlank() 
+                || avatar.trim().length() != 0 
                 || password == null 
-                || password.isBlank()){
+                || password.trim().length() != 0){
             getServletContext().getRequestDispatcher(pagReturn)
                     .forward(request, response);
         }

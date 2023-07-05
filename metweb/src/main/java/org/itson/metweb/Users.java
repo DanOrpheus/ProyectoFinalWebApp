@@ -51,13 +51,13 @@ public class Users extends HttpServlet {
         String pagSuccess = "/success.jsp";
         String pagError = "/errorHttp.jsp";
         // VALIDACIONES
-        if (username == null || username.trim().length() != 0
-                || mail == null || mail.trim().length() != 0
-                || fullname == null || fullname.trim().length() != 0
-                || pass == null || pass.trim().length() != 0
-                || passConfirm == null || passConfirm.trim().length() != 0
-                || birthdate == null || birthdate.trim().length() != 0
-                || city == null || city.trim().length() != 0){
+        if (username == null || username.isEmpty()
+                || mail == null || mail.isEmpty()
+                || fullname == null || fullname.isEmpty()
+                || pass == null || pass.isEmpty()
+                || passConfirm == null || passConfirm.isEmpty()
+                || birthdate == null || birthdate.isEmpty()
+                || city == null || city.isEmpty()){
             getServletContext().getRequestDispatcher(pagReturn).
                     forward(request, response);
         }

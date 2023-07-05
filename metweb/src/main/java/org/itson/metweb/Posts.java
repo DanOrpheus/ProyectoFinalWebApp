@@ -70,10 +70,10 @@ public class Posts extends HttpServlet {
         String pagSuccess = "/success.jsp";
         String pagError = "/errorHttp.jsp";
         // VALIDACIONES
-        if (datetimeCreation == null || datetimeCreation.trim().length() != 0
-                || title == null || title.trim().length() != 0
-                || content == null || content.trim().length() != 0
-                || datetimeEdit == null || datetimeEdit.trim().length() != 0){
+        if (datetimeCreation == null || datetimeCreation.isEmpty()
+                || title == null || title.isEmpty()
+                || content == null || content.isEmpty()
+                || datetimeEdit == null || datetimeEdit.isEmpty()){
             getServletContext().getRequestDispatcher(pagReturn).
                     forward(request, response);
         }

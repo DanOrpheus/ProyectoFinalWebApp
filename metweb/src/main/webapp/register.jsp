@@ -37,7 +37,13 @@
            <%-- Muestra el mensaje de error si existe --%>
     <% String errorPass = (String) request.getAttribute("errorPass"); %>
     <% if (errorPass != null) { %>
-        <p style="color: red;"><%= errorPass %></p>
+        <p style="color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;"><%= errorPass %></p>
     <% } %>      
                     <input type="date" id="birthdate" name="birthdate">
                     <select id="city" name="city">

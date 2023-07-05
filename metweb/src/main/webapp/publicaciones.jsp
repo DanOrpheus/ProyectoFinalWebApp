@@ -43,7 +43,7 @@
                                   rows="4" cols="70"></textarea>
                     </div>
                     <div>
-                        <button class="submit-button" type="submit">Publicar</button>
+                        <button class="submit-button" id="btn-publicar">Publicar</button>
                     </div>
 		</form>
             </div>

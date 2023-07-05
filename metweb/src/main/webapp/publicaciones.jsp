@@ -11,7 +11,7 @@
     <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <style type="text/css"><%@include file = "Estilos/estilosPublicaciones.css"%></style>
+    <link rel="stylesheet" href="estilosPublicaciones.css">
 	<title>Publicaciones</title>
     </head>
     <body>

@@ -11,7 +11,7 @@
     <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="estilosPublicaciones.css">
+        <link rel="stylesheet" type="text/css" href="Estilos/estilosPublicaciones.css">
 	<title>Publicaciones</title>
     </head>
     <body>

@@ -10,7 +10,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="estiloLogin.css">
+        <style type="text/css"><%@include file = "Estilos/estiloLogin.css"%></style>
         <title>Inicio de sesión</title>
     </head>
     <body>

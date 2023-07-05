@@ -10,7 +10,7 @@
     <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="estiloRegistro.css">
+        <link rel="stylesheet" type="text/css" href="Estilos/estiloRegistro.css">
 	<title>Crear Nueva Cuenta</title>
     </head>
     <body>

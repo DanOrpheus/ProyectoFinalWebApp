@@ -9,33 +9,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="estilo.css">
-	<title>Inicio</title>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" type="text/css" href="Estilos/estilo.css">
+	    <title>Inicio</title>
     </head>
     <body>
-	<header>
+	    <header>
             <div class="logo">
-		<a href="inicio.jsp"><h1 id="logoLetter">metFace</h1></a>
+		        <a href="inicio.jsp"><h1 id="logoLetter">metFace</h1></a>
             </div>
             <nav class="navbar">
-		<div class="subnavbar">
+		        <div class="subnavbar">
                     <a class="navitem" href="publicaciones.jsp">Publicaciones</a>
-		</div>
-		<div class="subnavbar2">
+		        </div>
+		        <div class="subnavbar2">
                     <a class="navitem" href="inicio.jsp">Inicio</a>
                     <a class="navitem" href="register.jsp">Crear Cuenta</a>
-		</div>
+		        </div>
             </nav>
-	</header>	
-	<aside class="sidebar">
+	    </header>
+        <main>
+            <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Titulo de la publicación</th>
+                    <th>Contenido</th>
+                    <th>Fecha y hora de la creación</th>
+                </tr>
+                <c:forEach items="${requestScope.posts}" var="item">
+                <tr>
+                    <td>${item.id}</td>
+                    <td>${item.titulo}</td>
+                    <td>${item.contenido}</td>
+                    <td>${item.fechaHoraCreacion}</td>
+                </tr> 
+                </c:forEach>
+            </table>  
+        </main>	
+	    <aside class="sidebar">
             <div class="NomRecomend">
-		<div>	
-		</div>
-		<div>	
-		</div>
             </div>
-	</aside>      
+	    </aside>      
     </body>
 </html>

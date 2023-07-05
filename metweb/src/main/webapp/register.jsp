@@ -34,6 +34,11 @@
                            placeholder="Ingresa una contraseña">
                     <input type="password" id="passConfirm" name="passConfirm" 
                            placeholder="Confirma tu contraseña">
+           <%-- Muestra el mensaje de error si existe --%>
+    <% String errorPass = (String) request.getAttribute("errorPass"); %>
+    <% if (errorPass != null) { %>
+        <p style="color: red;"><%= errorPass %></p>
+    <% } %>      
                     <input type="date" id="birthdate" name="birthdate">
                     <select id="city" name="city">
                         <option value="" selected>--Selecciona una ciudad--</option>

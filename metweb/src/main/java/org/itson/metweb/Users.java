@@ -60,6 +60,20 @@ public class Users extends HttpServlet {
                 || city == null || city.isEmpty()){
             getServletContext().getRequestDispatcher(pagReturn).
                     forward(request, response);
+        
+        }
+        if (!pass.equals(passConfirm)) {
+            request.setAttribute("errorPass", "Las contraseñas no coinciden. Por favor ingrésalas de nuevo.");
+            //Guardamos los demás datos ya ingresados.
+            request.setAttribute("username", username);
+            request.setAttribute("mail", mail);
+            request.setAttribute("firstname", firstname);
+            request.setAttribute("lastname", lastname);
+            request.setAttribute("birthdate", birthdate);
+            request.setAttribute("city", city);
+            //Redireccionamos a la misma página
+            request.getRequestDispatcher("/register.jsp").forward(request, response);
+            return;
         }
         // LÓGICA DE NEGOCIO
         Usuario user = new Usuario(fullname, mail, 

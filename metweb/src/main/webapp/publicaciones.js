@@ -1,4 +1,4 @@
-window.onload = function(){
+window.onload = function () {
     // GUARDAR DATOS
     const guardarPublicacion = () => {
         const btnPublicar = document.getElementById("btn-publicar");
@@ -25,6 +25,42 @@ window.onload = function(){
             console.error(err);
         });
     };
+
+    //Eliminar publicación con FetchAPI
+    var publicacionId;
+
+    function confirmarEliminacion(id) {
+        publicacionId = id;
+        var modal = document.getElementById("confirm-modal");
+        modal.style.display = "block";
+    }
+
+    function eliminarPublicacion() {
+        //FetchAPI 
+        fetch("/eliminar-publicacion?id=" + publicacionId, {
+            method: "DELETE"
+        })
+                .then(function (response) {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        console.log("Error al eliminar la publicación");
+                    }
+                })
+
+                .catch(function (error) {
+                    console.log("Error de red:", error);
+                });
+
+        cancelarEliminacion();
+
+    }
+    function cancelarEliminacion() {
+        var modal = document.getElementById("confirm-modal");
+        modal.style.display = "none";
+    }
+
+
 
     // ASIGNACIÓN SEMÁNTICA
     const btnPublicar = document.getElementById("btn-publicar");

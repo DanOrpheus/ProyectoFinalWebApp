@@ -5,9 +5,8 @@
 package org.itson.metweb;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +36,7 @@ public class Posts extends HttpServlet {
     protected void processFindAll(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         IPostsBO postBO = new PostsBO();
-        String pagReturn = "/publicaciones.jsp";
+        String pagReturn = "/inicio.jsp";
         String pagError = "/errorHttp.jsp";
         try {
             List<Post> posts = postBO.consultarPosts();
@@ -61,24 +60,24 @@ public class Posts extends HttpServlet {
     protected void processCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // ATRIBUTOS
-        String datetimeCreation = request.getParameter("datetimeCreation");
+        Date date = new Date();
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-        String datetimeEdit = request.getParameter("datetimeEdit");
+        String datetimeCreation = date.toString();
         // PÁGINAS DE REDIRECCIÓN
-        String pagReturn = "/register.jsp";
-        String pagSuccess = "/success.jsp";
+        String pagReturn = "/publicaciones.jsp";
+        String pagSuccess = "/inicio.jsp";
         String pagError = "/errorHttp.jsp";
         // VALIDACIONES
-        if (datetimeCreation == null || datetimeCreation.isEmpty()
-                || title == null || title.isEmpty()
+        if (title == null || title.isEmpty()
                 || content == null || content.isEmpty()
-                || datetimeEdit == null || datetimeEdit.isEmpty()){
+                || datetimeCreation == null || datetimeCreation.isEmpty()){
             getServletContext().getRequestDispatcher(pagReturn).
                     forward(request, response);
         }
         // LÓGICA DE NEGOCIO
-        Post post = new Post();
+        Post post = new Post(title, content, 
+                datetimeCreation);
         IPostsBO postBO = new PostsBO();
         try {
             Post savedPost = postBO.agregar(post);

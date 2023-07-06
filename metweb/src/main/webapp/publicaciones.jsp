@@ -9,10 +9,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <style type="text/css"><%@include file = "Estilos/estilosPublicaciones.css"%></style>
-	<title>Publicaciones</title>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            <%@include file = "Estilos/estilosPublicaciones.css"%>
+        </style>
+	    <title>Publicaciones</title>
     </head>
     <body>
         <header class="header">
@@ -31,47 +33,20 @@
         </header>
         <div class="grid-container">
             <div class="add-post">
-                <form>
+                <form id="form_publicaciones" action="./posts?action=create" method="post">
                     <div>
-                        <h2>
-                            <label for="publicacion">
-                                Nueva publicación<br>
-                            </label>
-                        </h2>
-                        <textarea id="publicacion" 
-                                  name="publicacion" 
-                                  rows="4" cols="70"></textarea>
+                        <input type="text" id="title" name="title" 
+                               placeholder="Titulo de la publicación">
+                    </div>
+                    <div>
+                        <textarea id="content" name="content" 
+                                  rows="10" cols="30"></textarea>
                     </div>
                     <div>
                         <button class="submit-button" id="btn-publicar">Publicar</button>
                     </div>
 		</form>
             </div>
-            <div class="post">	
-                <h2>Publicación 1</h2>
-                <p>Contenido de la publicación 1.</p>
-                <div class="comments">
-                    <div class="comment">
-                        <p>Comentario 1 para la publicación 1.</p>
-                    </div>
-                    <div class="comment">
-                        <p>Comentario 2 para la publicación 1.</p>
-                    </div>
-                </div>
-                <div class="comments2">
-                    <form>
-                        <div>
-                            <textarea id="comentario" 
-                                      placeholder="Nuevo comentario" 
-                                      name="comentario" rows="4" 
-                                      cols="50"></textarea>
-                        </div>
-                        <div>
-                             <button class="submit-button" type="submit">Publicar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>   
         <footer class="footer">
             <div class="footer-container">
 		<p>Daniel, Nadia, Victor, Victoria - Licensed under Creative Commons</p>

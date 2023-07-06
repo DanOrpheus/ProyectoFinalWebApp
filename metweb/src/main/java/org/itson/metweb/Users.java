@@ -35,8 +35,6 @@ public class Users extends HttpServlet {
             HttpServletResponse response) throws ServletException, 
             IOException {
         // ATRIBUTOS
-        SimpleDateFormat formatter = 
-                new SimpleDateFormat("MMM-dd-yyyy", Locale.ENGLISH);
         String username = request.getParameter("username");
         String mail = request.getParameter("mail");
         String firstname = request.getParameter("firstname");

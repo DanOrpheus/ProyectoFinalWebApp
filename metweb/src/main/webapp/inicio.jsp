@@ -11,7 +11,9 @@
     <head>
 	    <meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-            <style type="text/css"><%@include file = "Estilos/estilo.css"%></style>
+            <style type="text/css">
+                <%@include file = "Estilos/estilo.css"%>
+            </style>
 	    <title>Inicio</title>
     </head>
     <body>
@@ -30,12 +32,12 @@
             </nav>
 	    </header>
         <main>
-            <table border="1">
+            <table>
                 <tr>
                     <th>Id</th>
-                    <th>Titulo de la publicación</th>
+                    <th>Titulo</th>
                     <th>Contenido</th>
-                    <th>Fecha y hora de la creación</th>
+                    <th>Fecha creación</th>
                 </tr>
                 <c:forEach items="${requestScope.posts}" var="item">
                 <tr>
@@ -43,13 +45,13 @@
                     <td>${item.titulo}</td>
                     <td>${item.contenido}</td>
                     <td>${item.fechaHoraCreacion}</td>
-                </tr> 
-                </c:forEach>
-            </table>  
+                </tr>
+                </c:forEach> 
+            </table>
         </main>	
-	    <aside class="sidebar">
+	<aside class="sidebar">
             <div class="NomRecomend">
             </div>
-	    </aside>      
+	</aside>      
     </body>
 </html>

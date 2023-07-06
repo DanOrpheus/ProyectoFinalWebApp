@@ -17,77 +17,81 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="Estilos/estiloInicio.css">
-    <title>Inicio</title>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="inicio.jsp"><h1 id="logoLetter">metFace</h1></a>
-        </div>
-        <nav class="navbar">
-            <div class="subnavbar">
-                <a class="navitem" href="publicaciones.jsp">Publicaciones</a>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="Estilos/estiloInicio.css">
+        <title>Inicio</title>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="inicio.jsp"><h1 id="logoLetter">metFace</h1></a>
             </div>
-            <div class="subnavbar2">
-                <a class="navitem" href="inicio.jsp">Inicio</a>
-                <a class="navitem" href="register.jsp">Crear Cuenta</a>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <div class="container">
-            <% 
-                MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
-                MongoDatabase database = mongoClient.getDatabase("redSocialBD");
-                MongoCollection<Document> collection = database.getCollection("publicacion");
-                FindIterable<Document> publicacion = collection.find();
+            <nav class="navbar">
+                <div class="subnavbar">
+                    <a class="navitem" href="publicaciones.jsp">Publicaciones</a>
+                </div>
+                <div class="subnavbar2">
+                    <a class="navitem" href="inicio.jsp">Inicio</a>
+                    <a class="navitem" href="register.jsp">Crear Cuenta</a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <%
+                    MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+                    MongoDatabase database = mongoClient.getDatabase("redSocialBD");
+                    MongoCollection<Document> collection = database.getCollection("publicacion");
+                    FindIterable<Document> publicacion = collection.find();
 
-                SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH");
-                
-                for (Document publicaciones : publicacion) {
-                    String id = publicaciones.getObjectId("_id").toString();
-                    String titulo = publicaciones.getString("titulo");
-                    String contenido = publicaciones.getString("contenido");
-                    Date fechaHora = publicaciones.getDate("fechaHora");
-                    Date fechaHoraM = publicaciones.getDate("fechaHoraM");
-            %>
-            <div class="post">
-                <div class="post-titulo">
-                    <%= titulo %>
-                    <div>
-                        <span class="post-date">
-                            <% 
-                                if (fechaHoraM != null) {
-                                    out.print(sdf.format(fechaHoraM));
-                                } else {
-                                    out.print(sdf.format(fechaHora));
-                                }
-                            %>
-                        </span>
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH");
+
+                    for (Document publicaciones : publicacion) {
+                        String id = publicaciones.getObjectId("_id").toString();
+                        String titulo = publicaciones.getString("titulo");
+                        String contenido = publicaciones.getString("contenido");
+                        Date fechaHora = publicaciones.getDate("fechaHora");
+                        Date fechaHoraM = publicaciones.getDate("fechaHoraM");
+                %>
+                <div class="post">
+                    <div class="post-titulo">
+                        <%= titulo%>
+                        <div>
+                            <span class="post-date">
+                                <%
+                                    if (fechaHoraM != null) {
+                                        out.print(sdf.format(fechaHoraM));
+                                    } else {
+                                        out.print(sdf.format(fechaHora));
+                                    }
+                                %>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <%= contenido%>
+                    </div>
+                    <div class="comment">
+                        <input type="text" placeholder="Agregar comentario">
+                        <button type="submit" class="btn-guardar">Guardar</button>
                     </div>
                 </div>
-                <div class="post-content">
-                    <%= contenido %>
-                </div>
+                <%
+                    }
+                    mongoClient.close();
+                %>
             </div>
-            <% 
-                }
-                mongoClient.close();
-            %>
-        </div>
-    </main>
-    <aside class="sidebar">
-        <div class="NomRecomend">
-        </div>
-    </aside>
-    <footer class="footer">
-        <div class="footer-container">
-            <p>D. Gutiérrez, V. A., N. Soto, V. Pauda - Licensed under Creative Commons</p>
-        </div>
-    </footer>
-</body>
+        </main>
+        <aside class="sidebar">
+            <div class="NomRecomend">
+            </div>
+        </aside>
+        <footer class="footer">
+            <div class="footer-container">
+                <p>D. Gutiérrez, V. A., N. Soto, V. Pauda - Licensed under Creative Commons</p>
+            </div>
+        </footer>
+    </body>
 </html>

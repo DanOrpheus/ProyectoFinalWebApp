@@ -1,7 +1,7 @@
 <%-- 
     Document   : register
     Created on : Jun 28, 2023, 1:11:03 PM
-    Author     : Victor, Victoria, Daniel y Nadia
+    Author     : Victor, Victori0a, Daniel y Nadia
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

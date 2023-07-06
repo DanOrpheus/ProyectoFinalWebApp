@@ -150,3 +150,69 @@ footer a{
   order: 1;
   flex-grow: 1;
 }
+  .grid-container {
+    display: grid;
+    grid-template-columns: 600px;
+    grid-gap: 50px;
+    padding: 20px;
+    grid-column: 3/span 3;
+     
+
+  }
+  
+  .post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+   
+  }
+  
+  .comment {
+    background-color: #fff;
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 3px;
+    
+  }
+  .add-post{
+    background-color: #fff;
+   
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    display: grid;
+    
+    gap: 10px;
+  }
+  .comments2{
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px ;
+    border-radius: 3px;
+  }
+
+.post-titulo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e3557;
+    margin-bottom: 10px;
+     text-align:left;
+}
+
+
+.post-content {
+    font-size: 30px;
+    color: rgb(6, 70, 99);
+    margin-bottom: 10px;
+}
+.post-date{
+     font-size: 10px;
+    color: grey;
+    margin-bottom: 10px; 
+    text-align:left;
+    
+}
+
+
+ 

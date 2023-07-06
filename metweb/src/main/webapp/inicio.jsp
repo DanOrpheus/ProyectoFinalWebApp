@@ -40,14 +40,14 @@
     </header>
     <main>
         <div class="container">
-            <%
+            <% 
                 MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
                 MongoDatabase database = mongoClient.getDatabase("redSocialBD");
                 MongoCollection<Document> collection = database.getCollection("publicacion");
                 FindIterable<Document> publicacion = collection.find();
 
                 SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH");
-
+                
                 for (Document publicaciones : publicacion) {
                     String id = publicaciones.getObjectId("_id").toString();
                     String titulo = publicaciones.getString("titulo");
@@ -55,14 +55,14 @@
                     Date fechaHora = publicaciones.getDate("fechaHora");
                     Date fechaHoraM = publicaciones.getDate("fechaHoraM");
             %>
-            <div class="publicacion">
+            <div class="post">
                 <div class="post-titulo">
                     <%= titulo %>
                     <div>
                         <span class="post-date">
                             <% 
                                 if (fechaHoraM != null) {
-                                    out.print( sdf.format(fechaHoraM));
+                                    out.print(sdf.format(fechaHoraM));
                                 } else {
                                     out.print(sdf.format(fechaHora));
                                 }
@@ -76,7 +76,6 @@
             </div>
             <% 
                 }
-
                 mongoClient.close();
             %>
         </div>

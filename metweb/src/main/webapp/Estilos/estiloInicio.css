@@ -85,12 +85,13 @@ header a {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 50px;
-    width: 30%;
+    padding: 6px;
+   
     height: auto;
-    text-align: center;
+    
     margin: 18px 0px 18px 0px;
     box-shadow: 0 0 5px #BDCDD6;
+    
 }
 
 .container h1 {
@@ -152,7 +153,7 @@ footer a{
 }
   .grid-container {
     display: grid;
-    grid-template-columns: 600px;
+    grid-template-columns: auto;
     grid-gap: 50px;
     padding: 20px;
     grid-column: 3/span 3;
@@ -160,12 +161,14 @@ footer a{
 
   }
   
-  .post {
+ .post {
     background-color: #fff;
     border: 1px solid #ddd;
-    padding: 10px;
-   
-  }
+    padding: 25px;
+    margin-bottom: 20px;
+    
+}
+
   
   .comment {
     background-color: #fff;
@@ -197,22 +200,22 @@ footer a{
     font-weight: bold;
     color: #1e3557;
     margin-bottom: 10px;
-     text-align:left;
+        text-align:left;
 }
-
 
 .post-content {
-    font-size: 30px;
+    font-size: 25px;
     color: rgb(6, 70, 99);
     margin-bottom: 10px;
-}
-.post-date{
-     font-size: 10px;
-    color: grey;
-    margin-bottom: 10px; 
-    text-align:left;
+        text-align:center;
     
 }
 
+.post-date {
+    font-size: 12px;
+    color: grey;
+    margin-bottom: 10px;
+        text-align:left;
+}
 
  

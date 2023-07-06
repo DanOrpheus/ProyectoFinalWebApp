@@ -15,6 +15,7 @@
             <%@include file = "Estilos/estilosPublicaciones.css"%>
         </style>
 	    <title>Publicaciones</title>
+            <script src="publicacions.js"></script>
     </head>
     <body>
         <header class="header">

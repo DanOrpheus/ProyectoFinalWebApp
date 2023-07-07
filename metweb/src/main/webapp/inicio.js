@@ -10,3 +10,13 @@ window.onload = function(){
         console.error(err);
     });
 };
+function toggleOptions(event) {
+    const menuOptions = event.target.nextElementSibling;
+    menuOptions.classList.toggle("show");
+}
+
+function eliminarPublicacion(id) {
+    //AQUI SE PONE EL CÓDIGO PARA ELIMINAR PUBLICACIÓN CON Fetch API
+    console.log(`Eliminar publicación con ID: ${id}`);
+}
+

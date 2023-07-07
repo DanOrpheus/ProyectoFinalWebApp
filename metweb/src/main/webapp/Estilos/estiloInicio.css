@@ -202,4 +202,42 @@ footer {
     text-align:left;
 }
 
- 
+ /* Estilos adicionales para los tres puntos y el botón de eliminar */
+.post-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.menu-options.show {
+    display: block;
+}
+
+.delete-button {
+    display: block;
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+

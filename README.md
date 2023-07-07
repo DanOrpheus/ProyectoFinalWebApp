@@ -5,8 +5,8 @@ Equipo:
 
 -Daniel Gutiérrez (HTML, CSS, JavaScript, QA Testing, Dependencias)
 
--Victor A. (Dependencias, Backend General, JSP, Base de Datos)
+-Victor A. (Dependencias, Backend General, JSP, JavaScript, Base de Datos)
 
--Nadia Soto (HTML, CSS, Documentación, QA Testing, Dependencias)
+-Nadia Soto (HTML, CSS, Documentación, JavaScript, QA Testing, Dependencias)
 
 -Victoria Pauda (HTML, CSS, Documentación, Dependencias)

@@ -14,15 +14,19 @@
 
 body{
     background-color: #f2f2f2;
-    background-size: cover;
     color: black;
     display: grid;
-    gri-gap: 10px;
+
     grid-template-columns: 20vw 30vw 30vw 20vw;
     grid-template-rows: 12vh 23vh 59vh 6vh;
     font-family: Roboto, sans-serif;
     font-weight: lighter;
     margin: 0px;
+    
+    background-image: url("../img/bg2white.jpg");
+    background-size: 10%;
+    background-repeat: repeat;
+    
 }
 header{
     background-color: rgb(6, 70, 99);

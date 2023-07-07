@@ -45,7 +45,7 @@ window.onload = function () {
     function eliminarPublicacion() {
         //FetchAPI 
         fetch("/eliminar-publicacion?id=" + publicacionId, {
-            method: "DELETE"
+            method: "POST"
         })
                 .then(function (response) {
                     if (response.ok) {

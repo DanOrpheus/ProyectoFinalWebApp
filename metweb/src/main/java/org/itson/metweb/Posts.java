@@ -62,9 +62,6 @@ public class Posts extends HttpServlet {
      */
     protected void processCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Página de retorno
-        String pagReturn = "/publicaciones.jsp";
-        String pagError = "/error.jsp";
         // Convertir flujo de datos (bytes) a texto formato JSON
         String datosJSON = IOUtils.toString(
                 request.getInputStream(), "utf-8");
@@ -76,8 +73,12 @@ public class Posts extends HttpServlet {
                 || postDTO.getTitulo().isEmpty()
                 || postDTO.getContenido() == null 
                 || postDTO.getContenido().isEmpty()){
-            getServletContext().getRequestDispatcher(pagReturn).
-                    forward(request, response);
+            response.setStatus(400);
+            response.setContentType("application/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                out.println(serializadorJSON.toJson("Los datos son inválidos"));
+            }
+            return;
         }
         // Lógica de negocio
         Post postNew = new Post(postDTO.getTitulo(), 
@@ -89,8 +90,6 @@ public class Posts extends HttpServlet {
             request.setAttribute("post", savedPost);
         } catch(NegocioException ne){
             request.setAttribute("error", ne.getMessage());
-            getServletContext().getRequestDispatcher(pagError)
-                    .forward(request, response);
         }
         // Devolver datos
         response.setContentType("application/json;charset=UTF-8");
@@ -108,6 +107,7 @@ public class Posts extends HttpServlet {
      */
     protected void processDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
     }
     
     

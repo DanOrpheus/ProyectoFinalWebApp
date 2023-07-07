@@ -34,7 +34,7 @@ body{
     display: grid;
     gri-gap: 10px;
     grid-template-columns: 20vw 30vw 30vw 20vw;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: auto 70vh auto;
     font-family: Roboto, sans-serif;
     font-weight: lighter;
     margin: 0px;
@@ -145,7 +145,7 @@ a.navitem{
   .add-post{
     background-color: #fff;
     width: auto;
-    height: 225px;
+    height: 230px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
@@ -161,7 +161,13 @@ a.navitem{
       margin-bottom: 5px;
   }
   #btn-publicar{
-      padding: 5px;
+    padding: 5px;
+    background-color: rgb(6, 70, 99);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
       
   }
    
@@ -180,7 +186,7 @@ a.navitem{
     color: #AFD3E2;;
     font-size: 12px;
     height: 50px;
-    border-radius: 10px 10px 0px 0px;
+    border-radius: 10px;
     padding: 10px;
     
     text-align: center;

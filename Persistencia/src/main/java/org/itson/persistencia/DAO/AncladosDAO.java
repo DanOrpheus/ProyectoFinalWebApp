@@ -49,9 +49,9 @@ public class AncladosDAO implements IAncladosDAO {
             // Crear un nuevo documento para el anclado
             Document docAnclado = new Document();
             docAnclado.append("_id", new ObjectId());
-            docAnclado.append("fechaHoraCreacion", anclado.getFechaHoraCreacion());
             docAnclado.append("titulo", anclado.getTitulo());
             docAnclado.append("contenido", anclado.getContenido());
+            docAnclado.append("fechaHoraCreacion", anclado.getFechaHoraCreacion());
             docAnclado.append("fechaHoraEdicion", anclado.getFechaHoraEdicion());
             // Insertar el documento en la colección
             collection.insertOne(docAnclado);
@@ -78,9 +78,9 @@ public class AncladosDAO implements IAncladosDAO {
             Document filtro = new Document("_id", anclado.getId());
             Document update = new Document();
             update.append("$set", 
-                new Document("fechaHoraCreacion", anclado.getFechaHoraCreacion())
-                    .append("titulo", anclado.getTitulo())
+                new Document("titulo", anclado.getTitulo())
                     .append("contenido", anclado.getContenido())
+                    .append("fechaHoraCreacion", anclado.getFechaHoraCreacion())    
                     .append("fechaHoraEdicion", anclado.getFechaHoraEdicion()));
             // Actualizar el anclado de la colección
             collection.updateOne(filtro, update);
@@ -128,10 +128,10 @@ public class AncladosDAO implements IAncladosDAO {
             for (Document documento : documentos) {
                 Anclado anclado=new Anclado();
                 anclado.setId(documento.getObjectId("_id"));
-                anclado.setFechaHoraCreacion(
-                        documento.getString("fechaHoraCreacion"));
                 anclado.setTitulo(documento.getString("titulo"));
                 anclado.setContenido(documento.getString("contenido"));
+                anclado.setFechaHoraCreacion(
+                        documento.getString("fechaHoraCreacion"));
                 anclado.setFechaHoraEdicion(documento.getString("fechaHoraEdicion"));
                 anclados.add(anclado);
             }

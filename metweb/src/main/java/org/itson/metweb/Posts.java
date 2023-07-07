@@ -4,15 +4,18 @@
  */
 package org.itson.metweb;
 
+import com.google.gson.Gson;
 import java.io.IOException;
-import java.util.Date;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.IOUtils;
 import org.itson.dominio.Post;
+import org.itson.metweb.DTO.CrearPostsDTO;
 import org.itson.metweb.Excepciones.NegocioException;
 import org.itson.metweb.negocio.implementaciones.PostsBO;
 import org.itson.metweb.negocio.interfaces.IPostsBO;
@@ -59,47 +62,41 @@ public class Posts extends HttpServlet {
      */
     protected void processCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // ATRIBUTOS
-        Date date = new Date();
-        String title = request.getParameter("title");
-        String content = request.getParameter("content");
-        String datetimeCreation = date.toString();
-        // PÁGINAS DE REDIRECCIÓN
+        // Página de retorno
         String pagReturn = "/publicaciones.jsp";
-        String pagSuccess = "/inicio.jsp";
-        String pagError = "/errorHttp.jsp";
-        // VALIDACIONES
-        if (title == null || title.isEmpty()
-                || content == null || content.isEmpty()
-                || datetimeCreation == null || datetimeCreation.isEmpty()){
+        String pagError = "/error.jsp";
+        // Convertir flujo de datos (bytes) a texto formato JSON
+        String datosJSON = IOUtils.toString(
+                request.getInputStream(), "utf-8");
+        Gson serializadorJSON = new Gson();
+        CrearPostsDTO postDTO = serializadorJSON.fromJson(
+                datosJSON, CrearPostsDTO.class);
+        // Validar datos de entrada
+        if (postDTO.getTitulo() == null 
+                || postDTO.getTitulo().isEmpty()
+                || postDTO.getContenido() == null 
+                || postDTO.getContenido().isEmpty()){
             getServletContext().getRequestDispatcher(pagReturn).
                     forward(request, response);
         }
-        // LÓGICA DE NEGOCIO
-        Post post = new Post(title, content, 
-                datetimeCreation);
+        // Lógica de negocio
+        Post postNew = new Post(postDTO.getTitulo(), 
+                postDTO.getContenido(), 
+                postDTO.getFechaHoraCreacion().toString());   
         IPostsBO postBO = new PostsBO();
         try {
-            Post savedPost = postBO.agregar(post);
+            Post savedPost = postBO.agregar(postNew);
             request.setAttribute("post", savedPost);
         } catch(NegocioException ne){
             request.setAttribute("error", ne.getMessage());
             getServletContext().getRequestDispatcher(pagError)
                     .forward(request, response);
         }
-        getServletContext().getRequestDispatcher(pagSuccess)
-                .forward(request, response);
-    }
-    
-    /**
-     * Proceso para modificar un post en la página web
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException 
-     */
-    protected void processModify(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        // Devolver datos
+        response.setContentType("application/json;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            out.println(serializadorJSON.toJson(postNew));
+        }
     }
     
     /**
@@ -145,15 +142,11 @@ public class Posts extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null || action.equalsIgnoreCase("create")){
+        if (action != null && action.equalsIgnoreCase("create")){
             this.processCreate(request, response);
             return;
         }
-        if (action == null || action.equalsIgnoreCase("update")){
-            this.processModify(request, response);
-            return;
-        }
-        if (action == null || action.equalsIgnoreCase("delete")){
+        if (action != null && action.equalsIgnoreCase("delete")){
             this.processDelete(request, response);
             return;
         }

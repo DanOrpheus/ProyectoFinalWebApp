@@ -1,27 +1,34 @@
 window.onload = function () {
+    
     // GUARDAR DATOS
     const guardarPublicacion = () => {
         const btnPublicar = document.getElementById("btn-publicar");
         btnPublicar.disabled = true;
         // Obtener los datos del form de publicaciones
-        const titulo = document.getElementById("title");
+        const titulo = document.getElementById("title").value;
         const contenido = document.getElementById("content").value;
         const fechaHoraCreacion = new Date();
         const publicacion = {
+            fechaHoraCreacion,
             titulo,
-            contenido,
-            fechaHoraCreacion
+            contenido
         };
-        // Enviar datos al server con FetchAPI
-        fetch({
-            url: "http://localhost:8080/metweb/posts?action=create",
+        console.log(JSON.stringify(publicacion));
+        // Enviar datos al server con FetchAPI (Formato JSON)
+        fetch("http://localhost:8080/metweb/posts?action=create", {
             method: "POST",
-            body: publicacion
+            body: JSON.stringify(publicacion),
+            headers: {
+                "content-type": "application/json"
+            }
         }).then(response => {
+            btnPublicar.disabled = false;
             return response.json();
         }).then(response => {
-            alert(response);
+            alert("Publicación guardada exitosamente");
         }).catch(err => {
+            btnPublicar.disabled = false;
+            alert("Error al guardar la publicación");
             console.error(err);
         });
     };
@@ -59,40 +66,6 @@ window.onload = function () {
         var modal = document.getElementById("confirm-modal");
         modal.style.display = "none";
     }
-
-//Guardar publicación con FetchAPI
-document.getElementById("form_publicaciones").addEventListener("submit", function(event) {
-  event.preventDefault(); // Evita que se envíe el formulario automáticamente
-
-  // Obtiene los valores del formulario
-  var title = document.getElementById("title").value;
-  var content = document.getElementById("content").value;
-
-  // Crea objeto con los datos de la publicación
-  var publicacion = {
-    title: title,
-    content: content
-  };
-
-  // Solicitud POST al servidor para guardar la publicación
-  fetch("/guardar-publicacion", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(publicacion)//Se convierte el objeto en JSON
-  })
-  .then(function(response) {
-    if (response.ok) {
-      console.log("Publicación guardada exitosamente");
-    } else {
-      console.log("Error al guardar la publicación");
-    }
-  })
-  .catch(function(error) {
-    console.log("Error de red:", error);
-  });
-});
 
     // ASIGNACIÓN SEMÁNTICA
     const btnPublicar = document.getElementById("btn-publicar");

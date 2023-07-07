@@ -27,14 +27,23 @@ public class Post {
     }
     /**
      * Constructor para agregar publicaciones a la base de datos
+     * @param titulo
+     * @param contenido 
+     */
+    public Post(String titulo, String contenido) {
+        this.titulo = titulo;
+        this.contenido = contenido;
+    }
+    /**
+     * Constructor para agregar publicaciones a la base de datos
      * @param fechaHoraCreacion
      * @param titulo
      * @param contenido 
      */
-    public Post(String fechaHoraCreacion, String titulo, String contenido) {
-        this.fechaHoraCreacion = fechaHoraCreacion;
+    public Post(String titulo, String contenido, String fechaHoraCreacion) {
         this.titulo = titulo;
         this.contenido = contenido;
+        this.fechaHoraCreacion = fechaHoraCreacion;
     }
     /**
      * Constructor que inicializa los atributos de la clase exceptuando el id

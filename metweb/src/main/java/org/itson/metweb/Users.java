@@ -60,7 +60,7 @@ public class Users extends HttpServlet {
                     forward(request, response);
         
         }
-        if (!pass.equals(passConfirm)) {
+        if (!pass.equalsIgnoreCase(passConfirm)) {
             request.setAttribute("errorPass", "Las contraseñas no coinciden. Por favor ingrésalas de nuevo.");
             //Guardamos los demás datos ya ingresados.
             request.setAttribute("username", username);

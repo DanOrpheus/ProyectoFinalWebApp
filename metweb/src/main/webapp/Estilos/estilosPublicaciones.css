@@ -34,7 +34,7 @@ body{
     display: grid;
     gri-gap: 10px;
     grid-template-columns: 20vw 30vw 30vw 20vw;
-    grid-template-rows: 12vh 32vh 47.5vh 8.5vh;
+    grid-template-rows: 12vh 28vh 51.5vh 8.5vh;
     font-family: Roboto, sans-serif;
     font-weight: lighter;
     margin: 0px;
@@ -84,12 +84,7 @@ aside{
 	grid-row: 2/ span 3;
 	padding: 10px 10px 10px 10px;
 }
-.FormContainer{
-	border-radius: 10px;
-	padding: 5px 5px 5px 5px;
-	grid-column: 2 / span 2;
 
-}
 
 /***********************************************/
 h1#logoLetter{
@@ -114,102 +109,98 @@ a.navitem{
 	width: inherit;
 }
   
-  /********************************************************************************************************************/
-  .grid-container {
-    display: grid;
-    grid-template-columns: 60vw;
-    justify-items: center;
-    margin: 10px 5px;
-    
-    grid-column: 2/span 2;
-    grid-row: 2/span 1;
-     
-
-  }
-  
-  .post {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 10px;
-   
-  }
-  
-  .comment {
-    background-color: #fff;
-    padding: 5px;
-    margin-top: 10px;
-    border: 1px solid black;
-    border-radius: 3px;
-    
-  }
-  .add-post{
-    background-color: #fff;
-    width: auto;
-    height: auto;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    display: flex;
-    justify-content: center;
-  }
-  #title{
-      border-radius: 5px;
-      border: 1px solid black;
-      padding: 5px 0px;
-  }
-  #content{
-    width: 40vw;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px; 
-  }
-  #btn-publicar{
-    padding: 5px;
-    background-color: rgb(6, 70, 99);
-    color: #fff;
-    padding:10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;   
-  }
-  #btn-publicar:hover{
-    padding: 5px;
-    background-color:#AFD3E2;
-    color: #fff;
-    padding: 9px 19px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid rgb(6, 70, 99);
-  }
-   
-  .comments2{
-    padding: 5px;
-    margin-top: 10px;
-    border: 1px ;
-    border-radius: 3px;
-  }
- 
-  .footer {
-    background-color: rgb(6, 70, 99);
-    border: solid #fff;
-    display: flex;
-    justify-content: center;
-    color: #AFD3E2;
-    font-size: 12px;
-    height: 50px;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    grid-column: 1/span 5;
-    flex-wrap: nowrap;
-    grid-row:4/span 1;
+/********************************************************************************************************************/
+.grid-container {
+  display: grid;
+  grid-template-columns: 60vw;
+  justify-items: center;
+  margin: 10px 5px;
+  grid-column: 2/span 2;
+  grid-row: 2/span 1;
 }
-.submit-button, .delete-button {
-  background-color: rgb(6, 70, 99);
-  color: white;
- 
+
+.post {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.comment {
+  background-color: #fff;
+  padding: 5px;
+  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+.add-post{
+  background-color: #fff;
+  width: auto;
+  height: auto;
+  padding: 10px;
   border-radius: 5px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+}
+.form_publicaciones{
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+}
+#title{
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 5px 0px;
+}
+#content{
+  width: 40vw;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px; 
+}
+#btn-publicar{
+  padding: 5px;
+  background-color: rgb(6, 70, 99);
+  color: #fff;
+  padding:10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;   
+  color: white;
+}
+#btn-publicar:hover{
+  padding: 5px;
+  background-color:#AFD3E2;
+  color: #fff;
+  padding: 9px 19px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid rgb(6, 70, 99);
+  color: black;
+}
+
+.comments2{
+  padding: 5px;
+  margin-top: 10px;
+  border: 1px ;
+  border-radius: 3px;
+}
+
+.footer {
+  background-color: rgb(6, 70, 99);
+  border: solid #fff;
+  display: flex;
+  justify-content: center;
+  color: #AFD3E2;
+  font-size: 12px;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  grid-column: 1/span 5;
+  flex-wrap: nowrap;
+  grid-row:4/span 1;
 }
 
 

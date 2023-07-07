@@ -49,6 +49,9 @@
 		</form>
             </div>
         </div>
+        <div class="publicaciones" id="publicaciones">
+            
+        </div>
         <footer class="footer">
             <div class="footer-container">
 		<p>Daniel, Nadia, Victor, Victoria - Licensed under Creative Commons</p>

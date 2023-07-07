@@ -34,7 +34,7 @@ body{
     display: grid;
     gri-gap: 10px;
     grid-template-columns: 20vw 30vw 30vw 20vw;
-    grid-template-rows: 12vh 28vh 51.5vh 8.5vh;
+    grid-template-rows: 12vh 23vh 59vh 6vh;
     font-family: Roboto, sans-serif;
     font-weight: lighter;
     margin: 0px;
@@ -154,9 +154,10 @@ a.navitem{
 }
 #content{
   width: 40vw;
+  height: 10vh;
   margin-top: 10px;
   margin-bottom: 5px;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 #btn-publicar{
   padding: 5px;
@@ -194,7 +195,8 @@ a.navitem{
   justify-content: center;
   color: #AFD3E2;
   font-size: 12px;
-  height: 50px;
+  max-height: 50px;
+  min-height: 30px;
   border-radius: 10px;
   padding: 10px;
   text-align: center;

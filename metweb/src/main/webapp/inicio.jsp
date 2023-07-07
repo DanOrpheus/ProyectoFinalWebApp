@@ -67,8 +67,9 @@
                     <%= contenido%>
                 </div>
                 <div class="comment">
-                    <input type="text" placeholder="Agregar comentario">
-                    <button type="submit" class="btn-guardar">Guardar</button>
+                    <input type="text" id="content" name="content" 
+                           placeholder="Agregar comentario">
+                    <button type="button" id="btn-guardar" class="btn-guardar">Guardar</button>
                 </div>
             </div>
             <%

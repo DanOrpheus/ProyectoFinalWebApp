@@ -1,7 +1,7 @@
 <%-- 
     Document   : publicaciones
     Created on : Jun 28, 2023, 9:03:09 PM
-    Author     : antho
+    Author     : Victor, Victoria, Daniel y Nadia
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -48,6 +48,7 @@
                     </div>
 		</form>
             </div>
+        </div>
         <footer class="footer">
             <div class="footer-container">
 		<p>Daniel, Nadia, Victor, Victoria - Licensed under Creative Commons</p>

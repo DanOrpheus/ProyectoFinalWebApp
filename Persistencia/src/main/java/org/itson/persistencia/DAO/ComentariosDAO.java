@@ -48,8 +48,8 @@ public class ComentariosDAO implements IComentariosDAO {
         // Crear un nuevo documento para el comentario
         Document docComentario = new Document();
         docComentario.append("_id", new ObjectId());
-        docComentario.append("fechaHora", comentario.getFechaHora());
         docComentario.append("contenido", comentario.getContenido());
+        docComentario.append("fechaHora", comentario.getFechaHora());
         // Insertar el documento en la colección
         collection.insertOne(docComentario);
         // Establecer el id generado en el objeto comentario
@@ -87,8 +87,8 @@ public class ComentariosDAO implements IComentariosDAO {
         for (Document documento : documentos) {
             Comentario comentario=new Comentario();
             comentario.setId(documento.getObjectId("_id"));
-            comentario.setFechaHora(documento.getDate("fechaHora"));
             comentario.setContenido(documento.getString("contenido"));
+            comentario.setFechaHora(documento.getDate("fechaHora"));
             comentarios.add(comentario);
         }
         return comentarios;

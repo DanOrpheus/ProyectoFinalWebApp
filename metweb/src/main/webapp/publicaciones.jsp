@@ -14,8 +14,8 @@
         <style type="text/css">
             <%@include file = "Estilos/estilosPublicaciones.css"%>
         </style>
-	    <title>Publicaciones</title>
-            <script src="publicacions.js"></script>
+	<title>Publicaciones</title>
+        <script src='publicaciones.js'></script>
     </head>
     <body>
         <header class="header">
@@ -34,9 +34,9 @@
         </header>
         <div class="grid-container">
             <div class="add-post">
-                <form id="form_publicaciones" action="./posts?action=create" method="post">
+                <form>
                     <div>
-                        <input type="text" id="title" name="title" 
+                        <input type="text" id="title" name="title"
                                placeholder="Titulo de la publicación">
                     </div>
                     <div>
@@ -44,7 +44,7 @@
                                   rows="10" cols="30"></textarea>
                     </div>
                     <div>
-                        <button class="submit-button" id="btn-publicar">Publicar</button>
+                        <button id="btn-publicar" type="button">Publicar</button>
                     </div>
 		</form>
             </div>

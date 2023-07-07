@@ -50,9 +50,9 @@ public class PostsDAO implements IPostsDAO {
             // Crear un nuevo documento para el post
             Document docPost = new Document();
             docPost.append("_id", new ObjectId());
-            docPost.append("fechaHoraCreacion", post.getFechaHoraCreacion());
             docPost.append("titulo", post.getTitulo());
             docPost.append("contenido", post.getContenido());
+            docPost.append("fechaHoraCreacion", post.getFechaHoraCreacion());
             docPost.append("fechaHoraEdicion", post.getFechaHoraEdicion());
             // Insertar el documento en la colección
             collection.insertOne(docPost);
@@ -79,9 +79,9 @@ public class PostsDAO implements IPostsDAO {
             Document filtro = new Document("_id", post.getId());
             Document update = new Document();
             update.append("$set", 
-                new Document("fechaHoraCreacion", post.getFechaHoraCreacion())
-                    .append("titulo", post.getTitulo())
+                new Document("titulo", post.getTitulo())
                     .append("contenido", post.getContenido())
+                    .append("fechaHoraCreacion", post.getFechaHoraCreacion())
                     .append("fechaHoraEdicion", post.getFechaHoraEdicion()));
             // Actualizar el post de la colección
             collection.updateOne(filtro, update);
@@ -129,10 +129,10 @@ public class PostsDAO implements IPostsDAO {
             for (Document documento : documentos) {
                 Post post=new Post();
                 post.setId(documento.getObjectId("_id"));
-                post.setFechaHoraCreacion(
-                    documento.getString("fechaHoraCreacion"));
                 post.setTitulo(documento.getString("titulo"));
                 post.setContenido(documento.getString("contenido"));
+                post.setFechaHoraCreacion(
+                    documento.getString("fechaHoraCreacion"));
                 post.setFechaHoraEdicion(documento.getString("fechaHoraEdicion"));
                 posts.add(post);
             }

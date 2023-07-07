@@ -23,9 +23,11 @@
                 <h1>Iniciar sesión</h1>
                 <hr>
                 <label for="avatar">Nombre de usuario</label>
-                <input type="text" id="avatar" name="avatar">
+                <input type="text" id="avatar" name="avatar"
+                       placeholder="Ingresa tu nombre de usuario">   
                 <label for="pass">Contraseña</label>
-                <input type="password" id="pass" name="pass">
+                <input type="password" id="pass" name="pass"
+                       placeholder="Ingresa tu contraseña">   
                 <button type="submit">Iniciar sesión</button>
             </form>
             <p>¿No tienes cuenta?</p>

@@ -88,7 +88,7 @@ public class ComentariosDAO implements IComentariosDAO {
             Comentario comentario=new Comentario();
             comentario.setId(documento.getObjectId("_id"));
             comentario.setContenido(documento.getString("contenido"));
-            comentario.setFechaHora(documento.getDate("fechaHora"));
+            comentario.setFechaHora(documento.getString("fechaHora"));
             comentarios.add(comentario);
         }
         return comentarios;

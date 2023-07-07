@@ -1,5 +1,5 @@
 window.onload = function(){
-    // GUARDAR DATOS
+    // GUARDAR COMENTARIOS
     const guardarComentario = () => {
         const btnGuardar = document.getElementById("btn-guardar");
         btnGuardar.disabled = true;
@@ -10,23 +10,32 @@ window.onload = function(){
             contenido,
             fechaHoraCreacion
         };
+        console.log(JSON.stringify(comentario));        
         // Enviar datos al server con FetchAPI
-        fetch("http://localhost:8080/metweb/comments?action=create", {
+        fetch("http://localhost:8080/metweb/comm?action=create", {
             method: "POST",
             body: JSON.stringify(comentario),
             headers: {
                 "content-type": "application/json"
             }
         }).then(response => {
+            btnGuardar.disabled = false;
             return response.json();
         }).then(response => {
-            alert(response);
+            alert("Comentario creado exitosamente");
         }).catch(err => {
+            btnGuardar.disabled = false;
+            alert("Error al guardar el comentario");
             console.error(err);
         });
     };
+    
+    // CONSULTAR COMENTARIOS
+    const consultarComentarios = () => {
+        
+    };
 
     // ASIGNACIÓN SEMÁNTICA
-    const btnPublicar = document.getElementById("btn-publicar");
-    btnPublicar.onclick = guardarPublicacion;    
+    const btnGuardar = document.getElementById("btn-guardar");
+    btnGuardar.onclick = guardarComentario;    
 };

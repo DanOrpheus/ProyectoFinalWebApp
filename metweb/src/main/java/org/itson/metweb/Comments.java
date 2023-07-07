@@ -4,17 +4,26 @@
  */
 package org.itson.metweb;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.IOUtils;
+import org.itson.dominio.Comentario;
+import org.itson.metweb.DTO.CrearComentariosDTO;
+import org.itson.metweb.Excepciones.NegocioException;
+import org.itson.metweb.negocio.implementaciones.ComentariosBO;
+import org.itson.metweb.negocio.interfaces.IComentariosBO;
 
 /**
- *
- * @author antho
+ * @author Victor, Victoria, Daniel y Nadia
+ * @version IDE 17
  */
 @WebServlet(name = "Comments", urlPatterns = {"/comm"})
 public class Comments extends HttpServlet {
@@ -28,20 +37,48 @@ public class Comments extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processFindAll(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        List<Comentario> comentarios = new LinkedList<>();
+        Gson serializadorJSON = new Gson();
+        response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Comments</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Comments at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            out.println(serializadorJSON.toJson(comentarios));
+        }
+    }
+    
+    protected void processCreate(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Convertir flujo de datos (bytes) a texto formato JSON
+        String datosJSON = IOUtils.toString(
+                request.getInputStream(), "utf-8");
+        Gson serializadorJSON = new Gson();
+        CrearComentariosDTO comDTO = serializadorJSON.fromJson(
+                datosJSON, CrearComentariosDTO.class);
+        // Validar datos de entrada
+        if (comDTO.getContenido() == null 
+                || comDTO.getContenido().isEmpty()){
+            response.setStatus(400);
+            response.setContentType("application/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                out.println(serializadorJSON.toJson("Los datos son inválidos"));
+            }
+            return;
+        }
+        // Lógica de negocio
+        Comentario comNew = new Comentario(comDTO.getFechaHoraCreacion()
+                .toString(), comDTO.getContenido());   
+        IComentariosBO comBO = new ComentariosBO();
+        try {
+            Comentario savedCom = comBO.agregar(comNew);
+            request.setAttribute("comentario", savedCom);
+        } catch(NegocioException ne){
+            request.setAttribute("error", ne.getMessage());
+        }
+        // Devolver datos
+        response.setContentType("application/json;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            out.println(serializadorJSON.toJson(comNew));
         }
     }
 
@@ -57,7 +94,11 @@ public class Comments extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String action = request.getParameter("action");
+        if (action != null && action.equalsIgnoreCase("findall")){
+            this.processFindAll(request, response);
+            return;
+        }
     }
 
     /**
@@ -71,7 +112,11 @@ public class Comments extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String action = request.getParameter("action");
+        if (action != null && action.equalsIgnoreCase("create")){
+            this.processCreate(request, response);
+            return;
+        }
     }
 
     /**

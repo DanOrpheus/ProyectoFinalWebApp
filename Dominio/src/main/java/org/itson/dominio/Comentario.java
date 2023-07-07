@@ -15,7 +15,7 @@ import org.bson.types.ObjectId;
 public class Comentario {
     // ATRIBUTOS
     private ObjectId id;
-    private Date fechaHora;
+    private String fechaHora;
     private String contenido;
     
     // CONSTRUCTORES
@@ -29,7 +29,7 @@ public class Comentario {
      * @param fechaHora Fecha y hora del comentario
      * @param contenido Contenido del comentario
      */
-    public Comentario(Date fechaHora, String contenido) {
+    public Comentario(String fechaHora, String contenido) {
         this.fechaHora = fechaHora;
         this.contenido = contenido;
     }
@@ -39,7 +39,7 @@ public class Comentario {
      * @param fechaHora Fecha y hora del comentario
      * @param contenido Contenido del comentario
      */
-    public Comentario(ObjectId id, Date fechaHora, String contenido) {
+    public Comentario(ObjectId id, String fechaHora, String contenido) {
         this.id = id;
         this.fechaHora = fechaHora;
         this.contenido = contenido;
@@ -52,10 +52,10 @@ public class Comentario {
     public void setId(ObjectId id) {
         this.id = id;
     }
-    public Date getFechaHora() {
+    public String getFechaHora() {
         return fechaHora;
     }
-    public void setFechaHora(Date fechaHora) {
+    public void setFechaHora(String fechaHora) {
         this.fechaHora = fechaHora;
     }
     public String getContenido() {

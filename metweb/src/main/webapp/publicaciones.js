@@ -1,6 +1,5 @@
 window.onload = function () {
-    
-    // GUARDAR DATOS
+    // GUARDAR PUBLICACIONES
     const guardarPublicacion = () => {
         const btnPublicar = document.getElementById("btn-publicar");
         btnPublicar.disabled = true;
@@ -25,7 +24,7 @@ window.onload = function () {
             btnPublicar.disabled = false;
             return response.json();
         }).then(response => {
-            alert("Publicación guardada exitosamente");
+            alert("Publicación creada exitosamente");
         }).catch(err => {
             btnPublicar.disabled = false;
             alert("Error al guardar la publicación");
@@ -33,7 +32,7 @@ window.onload = function () {
         });
     };
 
-    //Eliminar publicación con FetchAPI
+    // ELIMINAR PUBLICACIÓN
     var publicacionId;
 
     function confirmarEliminacion(id) {

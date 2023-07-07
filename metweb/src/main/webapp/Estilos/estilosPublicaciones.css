@@ -14,55 +14,56 @@
 
 
 body{
-	background-color: #f2f2f2;
-	
-	background-size: cover;
-	color: black;
+    background-color: #f2f2f2;
+    
+    background-size: cover;
+    color: black;
 }
 
 header{
-	background-color: rgb(6, 70, 99);;
-	border: 2px solid #fff;
-  color: #dcdde9;
-  font-size: 12px;
+    background-color: rgb(6, 70, 99);;
+    border: 2px solid #fff;
+    color: #dcdde9;
+    font-size: 12px;
 }
 
 
 
 
 body{
-	display: grid;
-	grid-row-gap: 10px;
-	grid-template-columns: auto auto auto auto;
-	grid-template-rows: 100px 300px 300px 300px 100px;
-	font-family: Roboto, sans-serif;
-	font-weight: lighter;
+    display: grid;
+    gri-gap: 10px;
+    grid-template-columns: 20vw 30vw 30vw 20vw;
+    grid-template-rows: auto auto auto auto auto;
+    font-family: Roboto, sans-serif;
+    font-weight: lighter;
+    margin: 0px;
 }
 header{
-	grid-column: 1/span 5;
-	display:flex;
-	flex-wrap: nowrap;
-	justify-content: spasce-between;
-	align-items: center;
-	
-	font-size: 20px;
-	height: 100px;
-	border-radius: 10px;
+    grid-column: 1/span 5;
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 20px;
+    height: 100px;
+    border-radius: 10px;
 	
 }
 .logo{
-	height: 100px;
-	flex-grow: 1;
-	order: 1;
+    height: 100px;
+    flex-grow: 1;
+    order: 1;
 }
 .navbar{
-	display: flex;
-	float: right;
-	align-self: right;
-	padding-top: 0px;
-	order: 2;
-	font-family: Roboto, sans-serif;
-	font-weight: light;
+    display: flex;
+    float: right;
+    align-self: right;
+    padding-top: 0px;
+    order: 2;
+    font-family: Roboto, sans-serif;
+    font-weight: light;
 }
 .subnavbar{
 	flex-grow: 1;
@@ -116,10 +117,12 @@ a.navitem{
   /********************************************************************************************************************/
   .grid-container {
     display: grid;
-    grid-template-columns: 600px;
+    grid-template-columns: 60vw;
+    justify-items: center;
     grid-gap: 20px;
     padding: 20px;
-    grid-column: 3/span 3;
+    grid-column: 2/span 2;
+    grid-row: 2/span 1;
      
 
   }
@@ -141,14 +144,27 @@ a.navitem{
   }
   .add-post{
     background-color: #fff;
-   
+    width: auto;
+    height: 225px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    display: grid;
-    
+    display: flex;
+    justify-content: center;
     gap: 10px;
+    padding: 10px 10px;
   }
+  
+  #content{
+      width: 40vw;
+      margin-top: 10px;
+      margin-bottom: 5px;
+  }
+  #btn-publicar{
+      padding: 5px;
+      
+  }
+   
   .comments2{
     padding: 5px;
     margin-top: 10px;
@@ -162,9 +178,9 @@ a.navitem{
     display: flex;
     justify-content: center;
     color: #AFD3E2;;
-    font-size: 20px;
-    height: 100px;
-    border-radius: 10px;
+    font-size: 12px;
+    height: 50px;
+    border-radius: 10px 10px 0px 0px;
     padding: 10px;
     
     text-align: center;

@@ -4,6 +4,14 @@
     Author     : Victor, Victoria, Daniel y Nadia
 --%>
 
+<%@page import="com.mongodb.client.MongoClients" %>
+<%@page import="com.mongodb.client.MongoClient" %>
+<%@page import="com.mongodb.client.MongoDatabase" %>
+<%@page import="com.mongodb.client.MongoCollection" %>
+<%@page import="com.mongodb.client.FindIterable" %>
+<%@page import="org.bson.Document" %>
+<%@page import="java.util.Date" %>
+<%@page import="java.text.SimpleDateFormat" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -50,11 +58,54 @@
             </div>
         </div>
         <div class="publicaciones" id="publicaciones">
-            
+            <div class="container">
+                <%
+                    MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
+                    MongoDatabase database = mongoClient.getDatabase("redSocialBD");
+                    MongoCollection<Document> collection = database.getCollection("publicacion");
+                    FindIterable<Document> publicacion = collection.find();
+
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH");
+
+                    for (Document publicaciones : publicacion) {
+                        String id = publicaciones.getObjectId("_id").toString();
+                        String titulo = publicaciones.getString("titulo");
+                        String contenido = publicaciones.getString("contenido");
+                        Date fechaHora = publicaciones.getDate("fechaHora");
+                        Date fechaHoraM = publicaciones.getDate("fechaHoraM");
+                %>
+                <div class="post">
+                    <div class="post-titulo">
+                        <%= titulo%>
+                        <div>
+                            <span class="post-date">
+                                <%
+                                    if (fechaHoraM != null) {
+                                        out.print(sdf.format(fechaHoraM));
+                                    } else {
+                                        out.print(sdf.format(fechaHora));
+                                    }
+                                %>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <%= contenido%>
+                    </div>
+                    <div class="comment">
+                        <input type="text" placeholder="Agregar comentario">
+                        <button type="submit" class="btn-guardar">Guardar</button>
+                    </div>
+                </div>
+                <%
+                    }
+                    mongoClient.close();
+                %>
+            </div>
         </div>
         <footer class="footer">
             <div class="footer-container">
-		<p>Daniel, Nadia, Victor, Victoria - Licensed under Creative Commons</p>
+		<p>Daniel, Nadia, Victor, Victoria - ITSON - 2023 - Licensed under Creative Commons</p>
             </div>
 	</footer>
     </body>

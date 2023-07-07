@@ -26,7 +26,7 @@
     <body>
         <header>
             <div class="logo">
-                <a href="inicio.jsp"><h1 id="logoLetter">metFace</h1></a>
+                <a href="inicio.jsp"><h1 id="logoLetter">metface</h1></a>
             </div>
             <nav class="navbar">
                 <div class="subnavbar">
@@ -90,7 +90,7 @@
         </aside>
         <footer class="footer">
             <div class="footer-container">
-                <p>D. Gutiérrez, V. A., N. Soto, V. Pauda - Licensed under Creative Commons</p>
+                <p>Daniel, Nadia, Victor, Victoria - ITSON - 2023 - Licensed under Creative Commons</p>
             </div>
         </footer>
     </body>

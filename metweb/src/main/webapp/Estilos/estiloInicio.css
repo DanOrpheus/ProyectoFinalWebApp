@@ -1,72 +1,43 @@
-@font-face {
-    font-family: Roboto;
-    src: url("../fonts/roboto/Roboto-Regular.ttf");
-}
+@font-face{
+	font-family: Roboto; src: url("../fonts/roboto/Roboto-Regular.ttf");
+	font-family: Roboto; font-weight: light; src: url("../fonts/roboto/Roboto-Thin.ttf");
+	font-family: Roboto; font-weight: bold; src: url("../fonts/roboto/Roboto-Bold.ttf");
+	font-family: Roboto; font-weight: bold; font-style: italic; src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
+	font-family: Roboto; font-weight: light; font-style: italic; src: url("../fonts/roboto/Roboto-LightItalic.ttf");
 
-@font-face {
-    font-family: Roboto;
-    font-weight: light;
-    src: url("../fonts/roboto/Roboto-Thin.ttf");
-}
-
-@font-face {
-    font-family: Roboto;
-    font-weight: bold;
-    src: url("../fonts/roboto/Roboto-Bold.ttf");
-}
-
-@font-face {
-    font-family: Roboto;
-    font-weight: bold;
-    font-style: italic;
-    src: url("../fonts/roboto/Roboto-BoldItalic.ttf");
-}
-
-@font-face {
-    font-family: Roboto;
-    font-weight: light;
-    font-style: italic;
-    src: url("../fonts/roboto/Roboto-LightItalic.ttf");
-}
-
-@font-face {
-    font-family: Amazing;
-    src: url("/fonts/Amazing-Slab/Regular.ttf");
-}
-
-@font-face {
-    font-family: Amazing;
-    font-weight: light;
-    src: url("../fonts/Amazing-Slab/Light.ttf");
-}
-
-@font-face {
-    font-family: Amazing;
-    font-weight: bold;
-    src: url("../fonts/Amazing-Slab/Bold.ttf");
+	font-family: Amazing; src: url("/fonts/Amazing-Slab/Regular.ttf");
+	font-family: Amazing; font-weight: light; src: url("../fonts/Amazing-Slab/Light.ttf");
+	font-family: Amazing; font-weight: bold; src: url("../fonts/Amazing-Slab/Bold.ttf");
 }
 
 body {
-    font-family: Roboto, sans-serif;
+    
     background-color: #f2f2f2;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    font-family: Roboto, sans-serif;
     align-items: center;
-    margin: 0;
+    margin: 0px;
 }
 
 /*Header e Items Header*/
 header {
     background-color: rgb(6, 70, 99);
+    border: 2px solid #fff;
+    color: white;
+    
     padding: 10px;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    color: #fff;
+    
     font-size: 20px;
     width: 98.5%;
+    height: 100px;
+    border-radius: 10px;
 }
 
 header h1 {

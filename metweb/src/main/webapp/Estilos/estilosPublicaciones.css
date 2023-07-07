@@ -12,25 +12,10 @@
 	font-family: Amazing; font-weight: bold; src: url("../fonts/Amazing-Slab/Bold.ttf");
 }
 
-
 body{
     background-color: #f2f2f2;
-    
     background-size: cover;
     color: black;
-}
-
-header{
-    background-color: rgb(6, 70, 99);;
-    border: 2px solid #fff;
-    color: #dcdde9;
-    font-size: 12px;
-}
-
-
-
-
-body{
     display: grid;
     gri-gap: 10px;
     grid-template-columns: 20vw 30vw 30vw 20vw;
@@ -40,6 +25,10 @@ body{
     margin: 0px;
 }
 header{
+    background-color: rgb(6, 70, 99);
+    border: 2px solid #fff;
+    color: white;
+    
     grid-column: 1/span 5;
     display:flex;
     flex-wrap: nowrap;
@@ -89,9 +78,9 @@ aside{
 /***********************************************/
 h1#logoLetter{
 	margin: 0px;
-	padding-top: 15px;
-	height: 85px;
-	padding-left: 20px;
+	padding: 20px 0px 0px 20px;
+	height: auto;
+	
 }
 
 a.navitem{
@@ -142,6 +131,7 @@ a.navitem{
   display: flex;
   justify-content: center;
 }
+
 .form_publicaciones{
     height: auto;
     margin: 0px;
@@ -179,6 +169,54 @@ a.navitem{
   cursor: pointer;
   border: 1px solid rgb(6, 70, 99);
   color: black;
+}
+
+.publicaciones{
+    grid-row: 3 / span 1;
+    grid-column: 2 / span 2;
+}
+.container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 6px;
+
+    height: auto;
+
+    margin: 18px 0px 18px 0px;
+    box-shadow: 0 0 5px #BDCDD6;
+
+}
+
+.container h1 {
+    color: #1e3557;
+    font-size: 25px;
+}
+
+.container input {
+
+    padding: 10px;
+
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.container button {
+    background-color: rgb(6, 70, 99);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container p {
+    margin-top: 10px;
+    font-style: italic;
+    font-weight: light;
+    font-size: 14px;
+    color: rgb(6, 70, 99);
 }
 
 .comments2{

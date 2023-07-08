@@ -4,7 +4,6 @@
  */
 package org.itson.dominio;
 
-import java.util.Date;
 import java.util.Objects;
 import org.bson.types.ObjectId;
 

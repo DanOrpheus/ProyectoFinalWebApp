@@ -31,7 +31,6 @@ public class Comments extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
-     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -47,6 +46,13 @@ public class Comments extends HttpServlet {
         }
     }
     
+    /**
+     * Proceso que crea un comentario en la base de datos
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     protected void processCreate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Convertir flujo de datos (bytes) a texto formato JSON

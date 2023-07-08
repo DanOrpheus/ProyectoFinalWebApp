@@ -1,7 +1,7 @@
 <%-- 
     Document   : inicio
     Created on : Jun 28, 2023, 1:11:03 PM
-    Author     : Victor, Victori0a, Daniel y Nadia
+    Author     : Victor, Victoria, Daniel y Nadia
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -22,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="Estilos/estiloInicio.css">
     <title>Inicio</title>
+    <script src='inicio.js'></script>
 </head>
 <body>
     <header>
@@ -45,32 +46,35 @@
                 MongoDatabase database = mongoClient.getDatabase("redSocialBD");
                 MongoCollection<Document> collection = database.getCollection("posts");
                 FindIterable<Document> publicacion = collection.find();
-                SimpleDateFormat sdf = new SimpleDateFormat("MM-dd HH");
                 for (Document publicaciones : publicacion) {
                     String id = publicaciones.getObjectId("_id").toString();
                     String titulo = publicaciones.getString("titulo");
                     String contenido = publicaciones.getString("contenido");
                     String fechaHora = publicaciones.getString("fechaHoraCreacion");
-                    String fechaHoraM = publicaciones.getString("fechaHoraEdicion");
             %>
             <div class="post">
                 <div class="post-title">
                     <%= titulo%>
                     <div class="post-options">
-                        <button class="menu-button" onclick="toggleOptions(event)">...</button>
-                        <div class="menu-options">
-                            <button class="delete-button" onclick="eliminarPublicacion('<%= id %>')">Eliminar</button>
-                        </div>
+                        <button type="button" 
+                                class="delete-button" 
+                                id="btn-eliminar">Eliminar</button>
                     </div>
                 </div>
                 <div class="post-content">
                     <%= contenido%>
                 </div>
-                <div class="comment">
-                    <input type="text" id="content" name="content" 
-                           placeholder="Agregar comentario">
-                    <button type="button" id="btn-guardar" class="btn-guardar">Guardar</button>
+                <div>
+                    <%= fechaHora%>
                 </div>
+                <form>
+                    <div class="comment">
+                        <input type="text" id="content" name="content" 
+                            placeholder="Agregar comentario">
+                        <button type="button" id="btn-guardar" 
+                            class="btn-guardar">Guardar</button>
+                    </div>
+                </form>
             </div>
             <%
                 }

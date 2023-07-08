@@ -107,7 +107,6 @@ public class Posts extends HttpServlet {
      */
     protected void processDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
     }
     
     

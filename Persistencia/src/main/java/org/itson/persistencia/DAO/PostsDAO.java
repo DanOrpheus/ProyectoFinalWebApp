@@ -53,7 +53,6 @@ public class PostsDAO implements IPostsDAO {
             docPost.append("titulo", post.getTitulo());
             docPost.append("contenido", post.getContenido());
             docPost.append("fechaHoraCreacion", post.getFechaHoraCreacion());
-            docPost.append("fechaHoraEdicion", post.getFechaHoraEdicion());
             // Insertar el documento en la colección
             collection.insertOne(docPost);
             // Establecer el id generado en el objeto post
@@ -81,8 +80,7 @@ public class PostsDAO implements IPostsDAO {
             update.append("$set", 
                 new Document("titulo", post.getTitulo())
                     .append("contenido", post.getContenido())
-                    .append("fechaHoraCreacion", post.getFechaHoraCreacion())
-                    .append("fechaHoraEdicion", post.getFechaHoraEdicion()));
+                    .append("fechaHoraCreacion", post.getFechaHoraCreacion()));
             // Actualizar el post de la colección
             collection.updateOne(filtro, update);
             // Devolver el post eliminado
@@ -133,7 +131,6 @@ public class PostsDAO implements IPostsDAO {
                 post.setContenido(documento.getString("contenido"));
                 post.setFechaHoraCreacion(
                     documento.getString("fechaHoraCreacion"));
-                post.setFechaHoraEdicion(documento.getString("fechaHoraEdicion"));
                 posts.add(post);
             }
             return posts;

@@ -5,8 +5,6 @@
 package org.itson.metweb;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -59,19 +57,6 @@ public class Users extends HttpServlet {
             getServletContext().getRequestDispatcher(pagReturn).
                     forward(request, response);
         
-        }
-        if (!pass.equalsIgnoreCase(passConfirm)) {
-            request.setAttribute("errorPass", "Las contraseñas no coinciden. Por favor ingrésalas de nuevo.");
-            //Guardamos los demás datos ya ingresados.
-            request.setAttribute("username", username);
-            request.setAttribute("mail", mail);
-            request.setAttribute("firstname", firstname);
-            request.setAttribute("lastname", lastname);
-            request.setAttribute("birthdate", birthdate);
-            request.setAttribute("city", city);
-            //Redireccionamos a la misma página
-            request.getRequestDispatcher("/register.jsp").forward(request, response);
-            return;
         }
         // LÓGICA DE NEGOCIO
         Usuario user = new Usuario(fullname, mail, 

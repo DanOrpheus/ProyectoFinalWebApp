@@ -24,7 +24,7 @@ public class AuthFilter implements Filter {
     // ATRIBUTOS DE LA CLASE
     private final static String[] pathsPublicos = 
     { "login.jsp" , "/auth" , "/user" , "register.jsp" , "index.jsp" , 
-        "errorHttp.jsp" , "success.jsp" };
+        "errorHttp.jsp" , "success.jsp" , "/Estilos" };
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

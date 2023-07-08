@@ -18,6 +18,7 @@ public class Post {
     private String titulo;
     private String contenido;
     private String fechaHoraEdicion;
+    private Comentario com;
     
     // CONSTRUCTORES
     /**
@@ -36,14 +37,28 @@ public class Post {
     }
     /**
      * Constructor para agregar publicaciones a la base de datos
-     * @param fechaHoraCreacion
-     * @param titulo
-     * @param contenido 
+     * @param fechaHoraCreacion Fecha y hora de creación de la publicación
+     * @param titulo Titulo de la publicación
+     * @param contenido Contenido de la publicación
      */
     public Post(String titulo, String contenido, String fechaHoraCreacion) {
         this.titulo = titulo;
         this.contenido = contenido;
         this.fechaHoraCreacion = fechaHoraCreacion;
+    }
+    /**
+     * Constructor que agrega publicaciones a la base de datos con comentarios
+     * @param fechaHoraCreacion Fecha y hora de creación de la publicación
+     * @param titulo Titulo de la publicación
+     * @param contenido Contenido de la publicación
+     * @param com Comentario de la publicación
+     */
+    public Post(String fechaHoraCreacion, String titulo, String contenido, 
+            Comentario com) {
+        this.fechaHoraCreacion = fechaHoraCreacion;
+        this.titulo = titulo;
+        this.contenido = contenido;
+        this.com = com;
     }
     /**
      * Constructor que inicializa los atributos de la clase exceptuando el id
@@ -107,6 +122,12 @@ public class Post {
     public void setFechaHoraEdicion(String fechaHoraEdicion) {
         this.fechaHoraEdicion = fechaHoraEdicion;
     }
+    public Comentario getCom() {
+        return com;
+    }
+    public void setCom(Comentario com) {
+        this.com = com;
+    }
     
     // MËTODOS
     /**
@@ -146,6 +167,7 @@ public class Post {
     public String toString() {
         return "Post{" + "id=" + id + ", fechaHoraCreacion=" + 
                 fechaHoraCreacion + ", titulo=" + titulo + ", contenido=" + 
-                contenido + ", fechaHoraEdicion=" + fechaHoraEdicion + '}';
+                contenido + ", fechaHoraEdicion=" + fechaHoraEdicion + 
+                ", com=" + com + '}';
     }
 }

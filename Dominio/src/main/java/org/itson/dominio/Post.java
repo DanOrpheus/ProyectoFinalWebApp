@@ -4,6 +4,7 @@
  */
 package org.itson.dominio;
 
+import java.util.List;
 import java.util.Objects;
 import org.bson.types.ObjectId;
 
@@ -18,7 +19,7 @@ public class Post {
     private String titulo;
     private String contenido;
     private String fechaHoraEdicion;
-    private Comentario com;
+    private List<Comentario> com;
     
     // CONSTRUCTORES
     /**
@@ -51,10 +52,10 @@ public class Post {
      * @param fechaHoraCreacion Fecha y hora de creación de la publicación
      * @param titulo Titulo de la publicación
      * @param contenido Contenido de la publicación
-     * @param com Comentario de la publicación
+     * @param com Comentarios de la publicación
      */
     public Post(String fechaHoraCreacion, String titulo, String contenido, 
-            Comentario com) {
+            List<Comentario> com) {
         this.fechaHoraCreacion = fechaHoraCreacion;
         this.titulo = titulo;
         this.contenido = contenido;
@@ -81,16 +82,17 @@ public class Post {
      * @param titulo Titulo de la publicación
      * @param contenido Contenido de la publicación
      * @param fechaHoraEdicion Fecha y hora de edición de la publicación
+     * @param com Comentarios de la publicación
      */
-    public Post(ObjectId id, String fechaHoraCreacion, String titulo, 
-            String contenido, String fechaHoraEdicion) {
+    public Post(ObjectId id, String fechaHoraCreacion, String titulo, String contenido, String fechaHoraEdicion, List<Comentario> com) {
         this.id = id;
         this.fechaHoraCreacion = fechaHoraCreacion;
         this.titulo = titulo;
         this.contenido = contenido;
         this.fechaHoraEdicion = fechaHoraEdicion;
+        this.com = com;
     }
-    
+
     // GETTERS Y SETTERS
     public ObjectId getId() {
         return id;
@@ -122,10 +124,10 @@ public class Post {
     public void setFechaHoraEdicion(String fechaHoraEdicion) {
         this.fechaHoraEdicion = fechaHoraEdicion;
     }
-    public Comentario getCom() {
+    public List<Comentario> getCom() {
         return com;
     }
-    public void setCom(Comentario com) {
+    public void setCom(List<Comentario> com) {
         this.com = com;
     }
     

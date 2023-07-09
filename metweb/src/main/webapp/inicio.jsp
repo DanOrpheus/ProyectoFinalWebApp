@@ -35,8 +35,8 @@
             </div>
             <div class="subnavbar2">
                 <a class="navitem" href="register.jsp">Crear Cuenta</a>
-                <form action="./auth?action=logout" method="post" class="navitem">
-  <button type="submit">Cerrar sesión</button>
+                <div class="subnavbar3">
+                <a class="navitem" href="login.jsp">Cerrar Sesión</a>
 </form>
 
             </div>

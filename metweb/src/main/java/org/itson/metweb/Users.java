@@ -43,7 +43,6 @@ public class Users extends HttpServlet {
         String birthdate = request.getParameter("birthdate");
         String city = request.getParameter("city");
         String passConfirm = request.getParameter("passConfirm");
-        String Image=request.getParameter("profileImage");
         // PÁGINAS DE REDIRECCIÓN
         String pagReturn = "/register.jsp";
         String pagSuccess = "/success.jsp";

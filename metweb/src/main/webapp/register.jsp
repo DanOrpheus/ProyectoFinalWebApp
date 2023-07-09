@@ -36,8 +36,7 @@
                            placeholder="Ingresa una contraseña">
                     <input type="password" id="passConfirm" name="passConfirm" 
                            placeholder="Confirma tu contraseña">
-                      <input type="file" id="profileImage" accept="image/*">
-
+                    <input type="file" id="profileImage" accept="image/*">
            <%-- Muestra el mensaje de error si existe --%>
     <% String errorPass = (String) request.getAttribute("errorPass"); %>
     <% if (errorPass != null) { %>

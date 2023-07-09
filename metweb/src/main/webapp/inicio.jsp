@@ -34,8 +34,11 @@
                 <a class="navitem" href="publicaciones.jsp">Publicaciones</a>
             </div>
             <div class="subnavbar2">
-                <a class="navitem" href="inicio.jsp">Inicio</a>
                 <a class="navitem" href="register.jsp">Crear Cuenta</a>
+                <form action="./auth?action=logout" method="post" class="navitem">
+  <button type="submit">Cerrar sesión</button>
+</form>
+
             </div>
         </nav>
     </header>

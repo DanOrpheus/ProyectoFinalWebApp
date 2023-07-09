@@ -240,4 +240,20 @@ footer {
     padding: 5px 10px;
     cursor: pointer;
 }
+.navitem {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navitem button {
+  background-color: #064663;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.navitem button:hover {
+  background-color: #064663;
+  color: #064663;
+}
+
 

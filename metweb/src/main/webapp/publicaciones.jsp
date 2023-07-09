@@ -48,8 +48,8 @@
                                placeholder="Titulo de la publicación">
                     </div>
                     <div>
-                        <textarea id="content" name="content" 
-                                  rows="10" cols="30"></textarea>
+                           <textarea id="content" name="content" rows="10" cols="30" placeholder="Escribe lo que piensas..."></textarea>
+
                     </div>
                     <div>
                         <button id="btn-publicar" type="button">Publicar</button>

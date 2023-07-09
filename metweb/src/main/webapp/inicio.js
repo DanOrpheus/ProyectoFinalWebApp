@@ -60,7 +60,7 @@ window.onload = function(){
             btnEliminar.disabled = false;
             return response.json();
         }).then(response => {
-            alert("Publicación creada exitosamente");
+            alert("Publicación eliminar exitosamente");
         }).catch(err => {
             btnEliminar.disabled = false;
             alert("La publicación no se pudo eliminar");

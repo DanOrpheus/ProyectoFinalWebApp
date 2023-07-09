@@ -4,6 +4,7 @@
  */
 package org.itson.dominio;
 
+import java.awt.Image;
 import java.util.Objects;
 import org.bson.types.ObjectId;
 
@@ -23,6 +24,7 @@ public class Usuario {
     private String fechaNacimiento;
     private String genero;
     private Municipio municipio;
+    private Image imagenP;
     
     // CONSTRUCTORES
     /**
@@ -170,6 +172,14 @@ public class Usuario {
     }
     public void setMunicipio(Municipio municipio) {
         this.municipio = municipio;
+    }
+
+    public Image getImagenP() {
+        return imagenP;
+    }
+
+    public void setImagenP(Image imagenP) {
+        this.imagenP = imagenP;
     }
     
     // MÉTODOS

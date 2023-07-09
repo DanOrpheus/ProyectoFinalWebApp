@@ -35,13 +35,16 @@
             </div>
             <div class="subnavbar2">
                 <a class="navitem" href="register.jsp">Crear Cuenta</a>
-                <div class="subnavbar3">
+                <div class="subnavbar4">
                 <a class="navitem" href="login.jsp">Cerrar Sesión</a>
 </form>
-
             </div>
         </nav>
     </header>
+    <main>
+    <!-- Contenido principal de la página -->
+    <h2>¡Bienvenido, ${sessionScope.usuario.avatar}!</h2>
+</main>
     <main>
         <div class="container">
             <%

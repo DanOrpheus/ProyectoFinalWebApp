@@ -5,7 +5,6 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@page import="com.mongodb.client.MongoClients" %>
 <%@page import="com.mongodb.client.MongoClient" %>
 <%@page import="com.mongodb.client.MongoDatabase" %>
@@ -61,11 +60,13 @@
             <div class="post">
                 <div class="post-title">
                     <%= titulo%>
-                    <div class="post-options">
-                        <button type="button" 
+                    <form>
+                        <div class="post-options">
+                            <button type="button" 
                                 class="delete-button" 
                                 id="btn-eliminar">Eliminar</button>
-                    </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="post-content">
                     <%= contenido%>

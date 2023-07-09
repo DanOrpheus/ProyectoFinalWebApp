@@ -39,33 +39,6 @@ window.onload = function(){
     const consultarComentarios = () => {
         
     };
-    
-    // OBTENER LA ID DE UNA PUBLICACIÓN
-    const MongoClient = require('mongodb').MongoClient;
-    // Consultar los datos de la base
-    const urlbd = 'mongodb://localhost:27017';
-    const dbName = 'redSocialBD';
-    const collectionName = 'posts';
-    // Función para obtener la ID de un objeto basado en su nombre
-    async function obtenerId(nombre) {
-        const client = new MongoClient(urlbd);
-        try {
-            await client.connect();
-            const db = client.db(dbName);
-            const collection = db.collection(collectionName);
-            const objeto = await collection.findOne({ nombre });
-            if (objeto) {
-                return objeto._id.toString();
-            } else {
-                return null;
-            }
-        } catch (error) {
-            console.error('Error al obtener la ID del objeto:', error);
-            return null;
-        } finally {
-            client.close();
-        }
-    };
 
     // ELIMINAR PUBLICACIÓN
     const eliminarPublicacion = () => {

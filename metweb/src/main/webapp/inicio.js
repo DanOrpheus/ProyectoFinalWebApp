@@ -1,8 +1,3 @@
-function toggleOptions(event) {
-    const menuOptions = event.target.nextElementSibling;
-    menuOptions.classList.toggle("show");
-}
-
 window.onload = function(){
     // GUARDAR COMENTARIOS
     const guardarComentario = () => {

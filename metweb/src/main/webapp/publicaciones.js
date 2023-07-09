@@ -31,7 +31,7 @@ window.onload = function () {
             console.error(err);
         });
     };
-//    
+    
 //    // Obtener referencia al elemento donde se mostrará la foto de perfil en cada publicación
 //const profileImageElement = document.getElementById('profileImage');
 //

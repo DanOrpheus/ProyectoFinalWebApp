@@ -40,10 +40,8 @@
         </nav>
     </header>
     <main>
-    <!-- Contenido principal de la página -->
-    <h2>¡Bienvenido, ${sessionScope.usuario.avatar}!</h2>
-</main>
-    <main>
+        <!-- Contenido principal de la página -->
+        <h2>¡Bienvenido, ${sessionScope.usuario.avatar}!</h2>
         <div class="container">
             <%
                 MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
@@ -97,7 +95,6 @@
 		<p>Daniel, Nadia, Victor, Victoria - ITSON - 2023 - Licensed under Creative Commons</p>
         </div>
     </footer>
-    <script src="inicio.js"></script> <!-- Archivo JavaScript -->
 </body>
 </html>
 

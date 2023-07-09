@@ -17,6 +17,8 @@
 	<header>
             <h1><a class="logo">metface</a></h1>
             <a href="#" class="navlink" >Ayuda</a>
+                <div class="subnavbar2">
+                    <a class="navitem" href="inicio.jsp">Inicio</a> </div>
   	</header>
         <main>
             <form class="formcont" action="./user?action=create" method="post">

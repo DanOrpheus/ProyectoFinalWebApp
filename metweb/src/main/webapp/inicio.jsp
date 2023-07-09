@@ -36,7 +36,6 @@
                 <a class="navitem" href="register.jsp">Crear Cuenta</a>
                 <div class="subnavbar4">
                 <a class="navitem" href="login.jsp">Cerrar Sesión</a>
-</form>
             </div>
         </nav>
     </header>

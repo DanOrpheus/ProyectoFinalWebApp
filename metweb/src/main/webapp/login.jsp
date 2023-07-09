@@ -16,7 +16,6 @@
     <body>
         <header>
             <h1><a class="logo">metFace</a></h1>
-            <a href="#">Ayuda</a>
         </header>
         <div class="container">
             <form id="form_login" action="./auth?action=login" method="POST">

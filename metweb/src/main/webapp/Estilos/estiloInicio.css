@@ -89,6 +89,17 @@ header a {
     border-radius: 5px;
     cursor: pointer;
 }
+.container button:hover{
+  padding: 5px;
+  background-color:#AFD3E2;
+  color: #fff;
+  padding: 9px 19px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid rgb(6, 70, 99);
+  color: black;
+}
 
 .container p {
     margin-top: 10px;
@@ -157,10 +168,9 @@ footer {
     margin: 10px;
 }
 .btn-guardar {
-
     margin: 10px;
-
 }
+
 
 
 .add-post {

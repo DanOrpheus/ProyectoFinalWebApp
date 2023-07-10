@@ -12,19 +12,17 @@
 
 body {
     background-color: #f2f2f2;
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     justify-content: space-between;
     font-family: Roboto, sans-serif;
     align-items: center;
-    margin: 0px;
+    margin: 6px;
     background-image: url("../img/bg2white.jpg");
     background-size: 20%;
     background-repeat: repeat;
-    
-    align-items: center;
 }
 
 main{
@@ -32,26 +30,24 @@ main{
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
-    width: 60%;
+    width: 70%;
 }
 
 
 /*Header e Items Header*/
 header {
     background-color: rgb(6, 70, 99);
-    border: 2px solid #fff;
-    color: white;
-    
     padding: 10px;
     display: flex;
-    flex-wrap: nowrap;
     justify-content: space-between;
+    color: white;
+    flex-wrap: nowrap;
     align-items: center;
-    
     font-size: 20px;
     width: 98.5%;
     height: 100px;
     border-radius: 10px;
+    box-shadow: 0 0 5px black;
 }
 
 header h1 {
@@ -73,7 +69,7 @@ h2{
 }
 
 /*Form container de Registro Usuario nuevo*/
-.container {
+/*.container {
     display: flex;
     flex-wrap: wrap;
     background-color: #fff;
@@ -88,21 +84,13 @@ h2{
     margin: 18px 0px 18px 0px;
     box-shadow: 0 0 5px #BDCDD6;
     overflow: auto;
-
-}
-
-.container h1 {
-    color: #1e3557;
-    font-size: 25px;
-}
-
+}*/
 .post input {
-
     padding: 10px;
-
+    width: 60%;
     border-radius: 5px;
     border: 1px solid #ccc;
-    text-align: center;
+    text-align: left;
 }
 
 .post button {
@@ -190,6 +178,7 @@ footer {
     height: fit-content;
     margin-top: 15px;
     box-shadow: 0 0 5px #BDCDD6;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .comment {
@@ -239,6 +228,7 @@ footer {
     color: rgb(6, 70, 99);
     margin-bottom: 10px;
     text-align:center;
+    margin-top: 20px;
 }
 
 .post-date {
@@ -294,9 +284,18 @@ footer {
     display: block;
 }
 
+.navbar{
+    display:flex;
+    flex-flow: column nowrap;
+}
 .navitem {
-  display: inline-block;
-  margin-right: 10px;
+  margin-right: 20px;
+  padding: 5px;
+}
+.navitem:hover{
+    background-color: white;
+    border-radius: 5px;
+    color: black;
 }
 
 .navitem button {

@@ -29,14 +29,11 @@
             <a href="inicio.jsp"><h1 id="logoLetter">metface</h1></a>
         </div>
         <nav class="navbar">
-            <div class="subnavbar">
-                <a class="navitem" href="publicaciones.jsp">Publicaciones</a>
-            </div>
-            <div class="subnavbar2">
-                <a class="navitem" href="register.jsp">Crear Cuenta</a>
-                <div class="subnavbar4">
-                <a class="navitem" href="login.jsp">Cerrar Sesión</a>
-            </div>
+            <a class="navitem" href="publicaciones.jsp">Publicaciones</a>
+
+            <a class="navitem" href="register.jsp">Crear Cuenta</a>
+
+            <a class="navitem" href="login.jsp">Cerrar Sesión</a>
         </nav>
     </header>
     <main>
@@ -81,7 +78,7 @@
                     <input type="text" id="content" name="content" 
                         placeholder="Agregar comentario">
                     <button type="button" id="btn-guardar" 
-                        class="btn-guardar">Guardar</button>
+                        class="btn-guardar">Enviar</button>
                 </div>
             </form>
         </div>

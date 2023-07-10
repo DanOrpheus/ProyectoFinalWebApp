@@ -15,7 +15,7 @@
     </head>
     <body>
         <header>
-            <h1><a class="logo">metFace</a></h1>
+            <h1><a class="logo">metface</a></h1>
         </header>
         <div class="container">
             <form id="form_login" action="./auth?action=login" method="POST">

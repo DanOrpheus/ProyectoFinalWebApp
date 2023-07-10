@@ -35,6 +35,11 @@ public class Comentario {
         this.contenido = contenido;
         this.post = post;
     }
+        public Comentario(String fechaHora, String contenido) {
+        this.fechaHora = fechaHora;
+        this.contenido = contenido;
+      
+    }
     /**
      * Constructor que inicializa todos los atributos de la clase
      * @param id Identificador de la clase

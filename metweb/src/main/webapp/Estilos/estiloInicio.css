@@ -234,8 +234,8 @@ footer {
 }
 
 .post-date {
-    font-size: 12px;
-    color: gray;
+    font-size: 18px;
+    color: black;
     margin-bottom: 10px;
     text-align:left;
     opacity: 60%;
@@ -250,7 +250,7 @@ footer {
 }
 
 .comment-content{
-    font-size: 14px;
+    font-size: 17px;
     margin-top: 5px;
     text-align: left;
     

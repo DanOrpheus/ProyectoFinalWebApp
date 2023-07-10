@@ -54,7 +54,7 @@
                     String id = publicaciones.getObjectId("_id").toString();
                     String titulo = publicaciones.getString("titulo");
                     String contenido = publicaciones.getString("contenido");
-                    String fechaHora = publicaciones.getString("fechaHoraCreacion");
+                    String fechaHoraCreacion = publicaciones.getString("fechaHoraCreacion");
             %>
             <div class="post">
                 <div class="post-title">
@@ -71,7 +71,7 @@
                     <%= contenido%>
                 </div>
                 <div>
-                    <%= fechaHora%>
+                    <%= fechaHoraCreacion%>
                 </div>
                 <form>
                     <div class="comment">
@@ -81,8 +81,20 @@
                             class="btn-guardar">Guardar</button>
                     </div>
                 </form>
+                <%
+                    for (Document comentarios : comentario) {
+                        String content = comentarios.getString("contenido");
+                        String fechaHora = comentarios.getString("fechaHora");
+                %>
+                <div>
+                    <%= content%>
+                </div>
+                <div>
+                    <%= fechaHora%>
+                </div>
             </div>
             <%
+                    }
                 }
                 mongoClient.close();
             %>

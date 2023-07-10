@@ -16,6 +16,7 @@ public class Comentario {
     private ObjectId id;
     private String fechaHora;
     private String contenido;
+    private Post post;
     
     // CONSTRUCTORES
     /**
@@ -63,6 +64,12 @@ public class Comentario {
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
+    public Post getPost() {
+        return post;
+    }
+    public void setPost(Post post) {
+        this.post = post;
+    }
     
     // MÉTODOS
     /**
@@ -100,7 +107,6 @@ public class Comentario {
      */
     @Override
     public String toString() {
-        return "Comentario{" + "id=" + id + ", fechaHora=" + fechaHora + 
-                ", contenido=" + contenido + '}';
-    } 
+        return "Comentario{" + "id=" + id + ", fechaHora=" + fechaHora + ", contenido=" + contenido + ", post=" + post + '}';
+    }
 }

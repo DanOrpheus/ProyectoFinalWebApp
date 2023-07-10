@@ -30,20 +30,7 @@ window.onload = function(){
         });
     };
     
-    // CONSULTAR COMENTARIOS
-    const consultarComentarios = () => {
-        fetch("http://localhost:8080/metweb/comm?action=findall", {
-           method: "GET",
-           headers: {
-               "content-type": "application/json"
-           }
-        }).then(response => {
-            return response.json();
-        }).catch(err => {
-            alert("Error al consultar los comentarios");
-            console.error(err);
-        });
-    };
+    // OBTENER
 
     // ELIMINAR PUBLICACIÓN
     const eliminarPublicacion = () => {
@@ -56,7 +43,7 @@ window.onload = function(){
         const options = {
             method: 'DELETE',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/text'
             }
         };
         // Envío de la solicitud de eliminación
@@ -65,7 +52,7 @@ window.onload = function(){
             btnEliminar.disabled = false;
             return response.json();
         }).then(response => {
-            alert("Publicación eliminar exitosamente");
+            alert("Publicación eliminada exitosamente");
         }).catch(err => {
             btnEliminar.disabled = false;
             alert("La publicación no se pudo eliminar");
@@ -74,6 +61,7 @@ window.onload = function(){
     };
 
     // ASIGNACIÓN SEMÁNTICA
+    
     const btnGuardar = document.getElementById("btn-guardar");
     btnGuardar.onclick = guardarComentario;    
 

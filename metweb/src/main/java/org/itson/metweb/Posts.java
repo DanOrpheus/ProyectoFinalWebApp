@@ -117,6 +117,15 @@ public class Posts extends HttpServlet {
         Gson serializadorJSON = new Gson();
         EliminarPostsDTO postDTO = serializadorJSON.fromJson(
                 datosJSON, EliminarPostsDTO.class);
+        // Validar datos de entrada
+        if (postDTO.getId() == null){
+            response.setStatus(400);
+            response.setContentType("application/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                out.println(serializadorJSON.toJson("No se pudo obtener el post"));
+            }
+            return;
+        }        
         // Lógica de negocio
         ObjectId postId = postDTO.getId();
         IPostsBO postBO = new PostsBO();

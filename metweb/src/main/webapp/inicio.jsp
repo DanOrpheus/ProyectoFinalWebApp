@@ -42,7 +42,7 @@
     <main>
         <!-- Contenido principal de la página -->
         <h2>¡Bienvenido, ${sessionScope.usuario.avatar}!</h2>
-        <div class="container">
+        <!--<div class="container">-->
             <%
                 MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
                 MongoDatabase database = mongoClient.getDatabase("redSocialBD");
@@ -56,49 +56,54 @@
                     String contenido = publicaciones.getString("contenido");
                     String fechaHoraCreacion = publicaciones.getString("fechaHoraCreacion");
             %>
-            <div class="post">
-                <div class="post-title">
-                    <%= titulo%>
-                    <form>
-                        <div class="post-options">
-                            <button type="button" 
-                                class="delete-button" 
-                                id="btn-eliminar">Eliminar</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="post-content">
-                    <%= contenido%>
-                </div>
-                <div class="post-date">
-                    <%= fechaHoraCreacion%>
-                </div>
+        <div class="post">
+            <div class="post-title">
+                <%= titulo%>
                 <form>
-                    <div class="comment">
-                        <input type="text" id="content" name="content" 
-                            placeholder="Agregar comentario">
-                        <button type="button" id="btn-guardar" 
-                            class="btn-guardar">Guardar</button>
+                    <div class="post-options">
+                        <button type="button" 
+                            class="delete-button" 
+                            id="btn-eliminar">Eliminar</button>
                     </div>
                 </form>
-                <%
-                    for (Document comentarios : comentario) {
-                        String content = comentarios.getString("contenido");
-                        String fechaHora = comentarios.getString("fechaHora");
-                %>
-                <div class="comment-content">
-                    <%= content%>
-                </div>
-                <div class="comment-date">
-                    <%= fechaHora%>
-                </div>
             </div>
-            <%
-                    }
-                }
-                mongoClient.close();
-            %>
+            <div class="post-content">
+                <%= contenido%>
+            </div>
+            <div class="post-date">
+                <%= fechaHoraCreacion%>
+            </div>
+            <hr>
+            <form>
+                <div class="comment">
+                    <input type="text" id="content" name="content" 
+                        placeholder="Agregar comentario">
+                    <button type="button" id="btn-guardar" 
+                        class="btn-guardar">Guardar</button>
+                </div>
+            </form>
+                <%
+                for (Document comentarios : comentario) {
+                    String content = comentarios.getString("contenido");
+                    String fechaHora = comentarios.getString("fechaHora");
+                    //String idPost = comentarios.getString("post");
+
+                %>
+            <div class="comment-content">
+                            <%= content%>
+            </div>
+            <div class="comment-date">
+                            <%= fechaHora%>
+            </div>
+
         </div>
+        <%
+                    }
+            }
+            mongoClient.close();
+        %>      
+        <!--</div>-->
+            
     </main>
     <aside class="sidebar">
         <div class="NomRecomend">

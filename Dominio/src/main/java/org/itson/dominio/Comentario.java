@@ -30,9 +30,10 @@ public class Comentario {
      * @param contenido Contenido del comentario
      * @param post Id del post padre al que pertenece
      */
-    public Comentario(String fechaHora, String contenido) {
+    public Comentario(String fechaHora, String contenido, Post post) {
         this.fechaHora = fechaHora;
         this.contenido = contenido;
+        this.post = post;
     }
     /**
      * Constructor que inicializa todos los atributos de la clase

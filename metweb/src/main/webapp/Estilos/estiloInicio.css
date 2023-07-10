@@ -20,8 +20,10 @@ body {
     align-items: center;
     margin: 0px;
     background-image: url("../img/bg2white.jpg");
-    background-size: 10%;
+    background-size: 20%;
     background-repeat: repeat;
+    
+    align-content: center;
 }
 
 /*Header e Items Header*/
@@ -53,17 +55,29 @@ header a {
     text-decoration: none;
 }
 
+h2{
+    background-color: rgba(6, 70, 99, 0.7);
+    border-radius: 5px;
+    color: white;
+    width: auto;
+}
+
 /*Form container de Registro Usuario nuevo*/
 .container {
+    display: flex;
+    flex-wrap: wrap;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 6px;
 
     height: auto;
-
+    width: 100%;
+    
+    align-content: center;    
     margin: 18px 0px 18px 0px;
     box-shadow: 0 0 5px #BDCDD6;
+    overflow: auto;
 
 }
 
@@ -81,7 +95,7 @@ header a {
     text-align: center;
 }
 
-.container button {
+.post button {
     background-color: rgb(6, 70, 99);
     color: #fff;
     padding: 10px 20px;
@@ -89,7 +103,7 @@ header a {
     border-radius: 5px;
     cursor: pointer;
 }
-.container button:hover{
+.post button:hover{
   padding: 5px;
   background-color:#AFD3E2;
   color: #fff;
@@ -101,7 +115,7 @@ header a {
   color: black;
 }
 
-.container p {
+.post p {
     margin-top: 10px;
     font-style: italic;
     font-weight: light;
@@ -152,6 +166,8 @@ footer {
     margin-bottom: 20px;
     overflow: hidden;
     clear: both;
+    width: 60%;
+    align-self: center;
 }
 
 .comment {

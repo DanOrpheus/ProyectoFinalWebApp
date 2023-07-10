@@ -1,0 +1,33 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 10 jul. 2023, 01:19:19
+    Author     : Nadia Soto
+*/
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #064663;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #fff;
+  }
+  
+  p {
+    color: #fff;
+  }
+  
+  /* Estilos específicos */
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+

@@ -154,7 +154,6 @@ footer {
     clear: both;
 }
 
-
 .comment {
 
     display: flex;
@@ -202,14 +201,29 @@ footer {
     color: rgb(6, 70, 99);
     margin-bottom: 10px;
     text-align:center;
-
 }
 
 .post-date {
     font-size: 12px;
-    color: grey;
+    color: gray;
     margin-bottom: 10px;
     text-align:left;
+    opacity: 60%;
+}
+
+.comment-date {
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 5px;
+    text-align:left;
+    opacity: 60%;
+}
+
+.comment-content{
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: left;
+    
 }
 
  /* Estilos adicionales para los tres puntos y el botón de eliminar */
@@ -242,14 +256,6 @@ footer {
     display: block;
 }
 
-.delete-button {
-    display: block;
-    background-color: #f00;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-}
 .navitem {
   display: inline-block;
   margin-right: 10px;

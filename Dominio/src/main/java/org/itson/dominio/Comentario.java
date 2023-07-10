@@ -14,6 +14,7 @@ import org.bson.types.ObjectId;
 public class Comentario {
     // ATRIBUTOS
     private ObjectId id;
+    private ObjectId idPost;
     private String fechaHora;
     private String contenido;
     private Post post;
@@ -26,10 +27,11 @@ public class Comentario {
     }
     /**
      * Constructor que inicializa los atributos de la clase exceptuando id
+     * @param idPost Id del post padre al que pertenece
      * @param fechaHora Fecha y hora del comentario
      * @param contenido Contenido del comentario
      */
-    public Comentario(String fechaHora, String contenido) {
+    public Comentario(ObjectId idPost, String fechaHora, String contenido) {
         this.fechaHora = fechaHora;
         this.contenido = contenido;
     }
@@ -39,8 +41,9 @@ public class Comentario {
      * @param fechaHora Fecha y hora del comentario
      * @param contenido Contenido del comentario
      */
-    public Comentario(ObjectId id, String fechaHora, String contenido) {
+    public Comentario(ObjectId id,ObjectId idPost, String fechaHora, String contenido) {
         this.id = id;
+        this.idPost = idPost;
         this.fechaHora = fechaHora;
         this.contenido = contenido;
     }

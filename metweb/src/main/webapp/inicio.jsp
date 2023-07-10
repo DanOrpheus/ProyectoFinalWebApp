@@ -70,7 +70,7 @@
                 <div class="post-content">
                     <%= contenido%>
                 </div>
-                <div>
+                <div class="post-date">
                     <%= fechaHoraCreacion%>
                 </div>
                 <form>
@@ -86,10 +86,10 @@
                         String content = comentarios.getString("contenido");
                         String fechaHora = comentarios.getString("fechaHora");
                 %>
-                <div>
+                <div class="comment-content">
                     <%= content%>
                 </div>
-                <div>
+                <div class="comment-date">
                     <%= fechaHora%>
                 </div>
             </div>

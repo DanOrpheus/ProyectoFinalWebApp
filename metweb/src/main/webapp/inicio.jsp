@@ -46,8 +46,10 @@
             <%
                 MongoClient mongoClient = MongoClients.create("mongodb://localhost:27017");
                 MongoDatabase database = mongoClient.getDatabase("redSocialBD");
-                MongoCollection<Document> collection = database.getCollection("posts");
-                FindIterable<Document> publicacion = collection.find();
+                MongoCollection<Document> pCol = database.getCollection("posts");
+                MongoCollection<Document> cCol = database.getCollection("comentarios");
+                FindIterable<Document> comentario = cCol.find();
+                FindIterable<Document> publicacion = pCol.find();
                 for (Document publicaciones : publicacion) {
                     String id = publicaciones.getObjectId("_id").toString();
                     String titulo = publicaciones.getString("titulo");

@@ -39,6 +39,12 @@ public class Comments extends HttpServlet {
     protected void processFindAll(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Comentario> comentarios = new LinkedList<>();
+        IComentariosBO comBO = new ComentariosBO();
+        try {
+            comentarios = comBO.consultarComentarios();
+        } catch(NegocioException ex){
+            request.setAttribute("error", ex);
+        }
         Gson serializadorJSON = new Gson();
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {

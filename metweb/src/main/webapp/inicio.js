@@ -32,7 +32,17 @@ window.onload = function(){
     
     // CONSULTAR COMENTARIOS
     const consultarComentarios = () => {
-        
+        fetch("http://localhost:8080/metweb/comm?action=findall", {
+           method: "GET",
+           headers: {
+               "content-type": "application/json"
+           }
+        }).then(response => {
+            return response.json();
+        }).catch(err => {
+            alert("Error al consultar los comentarios");
+            console.error(err);
+        });
     };
 
     // ELIMINAR PUBLICACIÓN

@@ -5,6 +5,7 @@
 package org.itson.persistencia.Interfaces;
 
 import java.util.List;
+import org.bson.types.ObjectId;
 import org.itson.dominio.Post;
 import org.itson.persistencia.Excepciones.PersistenciaException;
 
@@ -40,4 +41,11 @@ public interface IPostsDAO {
      * @throws org.itson.persistencia.Excepciones.PersistenciaException
      */
     public List<Post> consultarPosts() throws PersistenciaException;
+    /**
+     * Método que consulta un objeto por su Id
+     * @param id Id del objeto
+     * @return El objeto con la id consultada
+     * @throws PersistenciaException 
+     */
+    public Post consultarPostPorId(ObjectId id) throws PersistenciaException;
 }

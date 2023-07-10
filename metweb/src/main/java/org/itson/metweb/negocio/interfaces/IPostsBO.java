@@ -5,6 +5,7 @@
 package org.itson.metweb.negocio.interfaces;
 
 import java.util.List;
+import org.bson.types.ObjectId;
 import org.itson.dominio.Post;
 import org.itson.metweb.Excepciones.NegocioException;
 
@@ -41,4 +42,12 @@ public interface IPostsBO {
      * @throws NegocioException 
      */
     List<Post> consultarPosts() throws NegocioException;
+    /**
+     * Método que consulta un post por su id de la base de 
+     * datos con validaciones
+     * @param id Id a consultar
+     * @return
+     * @throws NegocioException
+     */
+    Post consultarPostPorId(ObjectId id) throws NegocioException;
 }

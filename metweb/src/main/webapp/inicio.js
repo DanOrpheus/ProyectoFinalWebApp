@@ -29,28 +29,30 @@ window.onload = function(){
             console.error(err);
         });
     };
-    
-    // OBTENER
 
     // ELIMINAR PUBLICACIÓN
     const eliminarPublicacion = () => {
         const btnEliminar = document.getElementById("btn-eliminar");
         btnEliminar.disabled = true;
-        const postId = obtenerId();
+        const postId = document.querySelector("#post-id");
+        const post = {
+            postId
+        };
         // URL de la API para eliminar la publicación
-        const url = `http://localhost:8080/metweb/posts/${postId}`;
+        const url = "http://localhost:8080/metweb/posts?action=delete";
         // Configuración de la solicitud de eliminación
         const options = {
-            method: 'DELETE',
+            method: 'POST',
+            body: JSON.stringify(post),
             headers: {
-                'Content-Type': 'application/text'
+                'Content-Type': 'application/json'
             }
         };
         // Envío de la solicitud de eliminación
         fetch(url, options)
         .then(response => {
             btnEliminar.disabled = false;
-            return response.json();
+            return response.json;
         }).then(response => {
             alert("Publicación eliminada exitosamente");
         }).catch(err => {

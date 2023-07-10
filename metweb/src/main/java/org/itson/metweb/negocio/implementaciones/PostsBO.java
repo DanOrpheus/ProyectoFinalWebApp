@@ -90,4 +90,20 @@ public class PostsBO implements IPostsBO {
             throw new NegocioException(ex);
         }
     }
+    /**
+     * Método que consulta un post por su id de la base de 
+     * datos con validaciones
+     * @param id Id a consultar
+     * @return
+     * @throws NegocioException
+     */
+    @Override
+    public Post consultarPostPorId(ObjectId id) throws NegocioException {
+        try {
+            Post cPost = this.fachada.consultarPostPorId(id);
+            return cPost;
+        } catch(PersistenciaException ex){
+            throw new NegocioException(ex);
+        }
+    }
 }

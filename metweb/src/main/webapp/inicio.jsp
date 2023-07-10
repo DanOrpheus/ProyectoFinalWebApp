@@ -20,8 +20,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="Estilos/estiloInicio.css">
-    <title>Inicio</title>
     <script src='inicio.js'></script>
+    <title>Inicio</title>
 </head>
 <body>
     <header>
@@ -54,8 +54,14 @@
                     String fechaHoraCreacion = publicaciones.getString("fechaHoraCreacion");
             %>
         <div class="post">
+            <div id="post-id">
+                <%= id%>
+            </div>
             <div class="post-title">
                 <%= titulo%>
+                <div>
+                    <b>Autor: ${sessionScope.usuario.avatar}</b>
+                </div>
                 <form>
                     <div class="post-options">
                         <button type="button" 

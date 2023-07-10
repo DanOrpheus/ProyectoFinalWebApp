@@ -5,6 +5,7 @@
 package org.itson.persistencia;
 
 import java.util.List;
+import org.bson.types.ObjectId;
 import org.itson.dominio.Admin;
 import org.itson.dominio.Anclado;
 import org.itson.dominio.Comentario;
@@ -203,5 +204,14 @@ public class FachadaPersistencia {
     public List<Anclado> consultarAnclados() 
             throws PersistenciaException {
         return this.ancDAO.consultarAnclados();
+    }
+    /**
+     * Método que consulta un post por su id de la base de datos
+     * @param id Id a consultar
+     * @return
+     * @throws PersistenciaException 
+     */
+    public Post consultarPostPorId(ObjectId id) throws PersistenciaException{
+        return this.posDAO.consultarPostPorId(id);
     }
 }

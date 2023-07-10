@@ -138,4 +138,38 @@ public class PostsDAO implements IPostsDAO {
             throw new PersistenciaException("Error al consultar los posts" + me.getMessage());
         }
     }
+    /**
+     * Método que consulta un objeto por su Id
+     * @param id Id del objeto
+     * @return El objeto con la id consultada
+     * @throws PersistenciaException 
+     */
+    @Override
+    public Post consultarPostPorId(ObjectId id) throws PersistenciaException {
+        try {
+            Post post = new Post();
+            MongoCollection<Document> collection = 
+                baseDatos.getCollection("post");            
+            // Crear el filtro para la consulta
+            Document filter = new Document("_id", id);
+            // Realizar la consulta
+            Document docPost = collection.find(filter).first();
+            // Consultar el post de la colección
+            if (docPost != null) {
+                // El post fue encontrado
+                String title = docPost.getString("title");
+                String content = docPost.getString("content");
+                String fechaHora = docPost.getString("fechaHoraCreacion");
+                post.setTitulo(title);
+                post.setContenido(content);
+                post.setFechaHoraCreacion(fechaHora);
+            } else {
+                // El post no fue encontrado
+                System.out.println("El post no existe.");
+            }
+            return post;
+        } catch(MongoException me){
+            throw new PersistenciaException("Error al consultar el post" + me.getMessage());
+        }
+    }
 }

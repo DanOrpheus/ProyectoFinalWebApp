@@ -26,7 +26,7 @@
 <body>
     <header>
         <div class="logo">
-            <a href="inicio.jsp"><h1 id="logoLetter">metFace</h1></a>
+            <a href="inicio.jsp"><h1 id="logoLetter">metface</h1></a>
         </div>
         <nav class="navbar">
             <div class="subnavbar">
@@ -73,7 +73,9 @@
             <div class="post-date">
                 <%= fechaHoraCreacion%>
             </div>
+        
             <hr>
+        
             <form>
                 <div class="comment">
                     <input type="text" id="content" name="content" 
@@ -82,6 +84,7 @@
                         class="btn-guardar">Guardar</button>
                 </div>
             </form>
+        </div>
                 <%
                 for (Document comentarios : comentario) {
                     String content = comentarios.getString("contenido");
@@ -89,14 +92,14 @@
                     //String idPost = comentarios.getString("post");
 
                 %>
-            <div class="comment-content">
+            <div class="commentBox">
+                <div class="comment-content">
                             <%= content%>
-            </div>
-            <div class="comment-date">
+                </div>
+                <div class="comment-date">
                             <%= fechaHora%>
-            </div>
-
-        </div>
+                </div>
+            </div>    
         <%
                     }
             }

@@ -19,6 +19,7 @@ public class Post {
     private String titulo;
     private String contenido;
     private String fechaHoraEdicion;
+    private Usuario autor;
     private List<Comentario> com;
     
     // CONSTRUCTORES
@@ -130,6 +131,12 @@ public class Post {
     public void setCom(List<Comentario> com) {
         this.com = com;
     }
+    public Usuario getAutor() {
+        return autor;
+    }
+    public void setAutor(Usuario autor) {
+        this.autor = autor;
+    }
     
     // MËTODOS
     /**
@@ -170,6 +177,6 @@ public class Post {
         return "Post{" + "id=" + id + ", fechaHoraCreacion=" + 
                 fechaHoraCreacion + ", titulo=" + titulo + ", contenido=" + 
                 contenido + ", fechaHoraEdicion=" + fechaHoraEdicion + 
-                ", com=" + com + '}';
-    }
+                ", autor=" + autor + ", com=" + com + '}';
+    }   
 }

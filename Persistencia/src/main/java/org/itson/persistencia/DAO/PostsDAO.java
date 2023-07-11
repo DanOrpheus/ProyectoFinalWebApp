@@ -13,6 +13,7 @@ import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.itson.dominio.Post;
+import org.itson.dominio.Usuario;
 import org.itson.persistencia.ConexionMongoDB;
 import org.itson.persistencia.Excepciones.PersistenciaException;
 import org.itson.persistencia.Interfaces.IPostsDAO;
@@ -53,6 +54,7 @@ public class PostsDAO implements IPostsDAO {
             docPost.append("titulo", post.getTitulo());
             docPost.append("contenido", post.getContenido());
             docPost.append("fechaHoraCreacion", post.getFechaHoraCreacion());
+            docPost.append("autor", post.getAutor());
             // Insertar el documento en la colección
             collection.insertOne(docPost);
             // Establecer el id generado en el objeto post
@@ -131,6 +133,7 @@ public class PostsDAO implements IPostsDAO {
                 post.setContenido(documento.getString("contenido"));
                 post.setFechaHoraCreacion(
                     documento.getString("fechaHoraCreacion"));
+                post.setAutor(documento.get("autor", Usuario.class));
                 posts.add(post);
             }
             return posts;

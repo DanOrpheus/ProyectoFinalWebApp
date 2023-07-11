@@ -13,6 +13,7 @@ import java.util.List;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.itson.dominio.Comentario;
+import org.itson.dominio.Usuario;
 import org.itson.persistencia.ConexionMongoDB;
 import org.itson.persistencia.Interfaces.IComentariosDAO;
 
@@ -50,6 +51,7 @@ public class ComentariosDAO implements IComentariosDAO {
         docComentario.append("_id", new ObjectId());
         docComentario.append("contenido", comentario.getContenido());
         docComentario.append("fechaHora", comentario.getFechaHora());
+        docComentario.append("autor", comentario.getAutor());
         // Insertar el documento en la colección
         collection.insertOne(docComentario);
         // Establecer el id generado en el objeto comentario
@@ -89,6 +91,7 @@ public class ComentariosDAO implements IComentariosDAO {
             comentario.setId(documento.getObjectId("_id"));
             comentario.setContenido(documento.getString("contenido"));
             comentario.setFechaHora(documento.getString("fechaHora"));
+            comentario.setAutor(documento.get("autor", Usuario.class));
             comentarios.add(comentario);
         }
         return comentarios;

@@ -3,6 +3,7 @@
     Created on : Jun 28, 2023, 1:11:03 PM
     Author     : Victor, Victoria, Daniel y Nadia
 --%>
+<%@page import="org.itson.dominio.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.mongodb.client.MongoClients" %>
@@ -52,16 +53,12 @@
                     String titulo = publicaciones.getString("titulo");
                     String contenido = publicaciones.getString("contenido");
                     String fechaHoraCreacion = publicaciones.getString("fechaHoraCreacion");
+                    Document autor = publicaciones.get("autor", Document.class);
             %>
         <div class="post">
-            <div id="post-id">
-                <%= id%>
-            </div>
             <div class="post-title">
-                <%= titulo%>
-                <div>
-                    <b>Autor: ${sessionScope.usuario.avatar}</b>
-                </div>
+                <%= titulo%><br>
+                <i><%= autor.getString("avatar")%></i>
                 <form>
                     <div class="post-options">
                         <button type="button" 
@@ -92,6 +89,7 @@
                 for (Document comentarios : comentario) {
                     String content = comentarios.getString("contenido");
                     String fechaHora = comentarios.getString("fechaHora");
+                    Document autorCom = comentarios.get("autor", Document.class);
                     //String idPost = comentarios.getString("post");
 
                 %>
@@ -100,11 +98,12 @@
                             <%= content%>
                 </div>
                 <div class="comment-date">
-                            <%= fechaHora%>
+                    <%= fechaHora%><br>
+                    <i><%= autorCom.getString("avatar")%></i>
                 </div>
             </div>    
         <%
-                    }
+                }
             }
             mongoClient.close();
         %>      

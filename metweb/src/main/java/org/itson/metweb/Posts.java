@@ -8,16 +8,16 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.commons.io.IOUtils;
 import org.bson.types.ObjectId;
 import org.itson.dominio.Post;
+import org.itson.dominio.Usuario;
 import org.itson.metweb.DTO.CrearPostsDTO;
 import org.itson.metweb.DTO.EliminarPostsDTO;
 import org.itson.metweb.Excepciones.NegocioException;
@@ -80,14 +80,18 @@ public class Posts extends HttpServlet {
             response.setStatus(400);
             response.setContentType("application/json;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
-                out.println(serializadorJSON.toJson("Los datos son inválidos"));
+                out.write(serializadorJSON.toJson("Los datos son inválidos"));
             }
             return;
         }
         // Lógica de negocio
         Post postNew = new Post(postDTO.getTitulo(), 
-                postDTO.getContenido(), 
-                postDTO.getFechaHoraCreacion().toString());   
+                postDTO.getContenido(),
+                postDTO.getFechaHoraCreacion().toString());  
+        request.getSession();
+        HttpSession sesion = request.getSession(false);
+        Usuario us = (Usuario) sesion.getAttribute("usuario");
+        postNew.setAutor(us);
         IPostsBO postBO = new PostsBO();
         try {
             Post savedPost = postBO.agregar(postNew);
@@ -98,7 +102,7 @@ public class Posts extends HttpServlet {
         // Devolver datos
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println(serializadorJSON.toJson(postNew));
+            out.write(serializadorJSON.toJson(postNew));
         }
     }
     
@@ -143,7 +147,7 @@ public class Posts extends HttpServlet {
         }
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println(serializadorJSON.toJson(postElim));
+            out.write(serializadorJSON.toJson(postElim));
         }
     }
     
